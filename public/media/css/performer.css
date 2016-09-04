@@ -1,0 +1,66 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  font-family: 'Lato';
+  background-color: #333;
+}
+
+.container {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+ul#menu{
+
+}
+.content {
+  text-align: center;
+  display: inline-block;
+}
+
+.title {
+  font-size: 96px;
+} 
+
+.hexagon {
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
+  visibility: hidden;
+  transform: rotate(75deg);
+  cursor: pointer;
+}
+
+.hexagon-in1 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-63deg);
+}
+
+.hexagon-in2{
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  /*background-image: url('http://lorempixel.com/g/250/350/people');*/
+}
+ /* 
+.hexagon-in2:hover{
+
+  background: url('http://lorempixel.com/250/350/people');
+  }*/
+
+  .border-container{
+    padding:46px 292px;
+    border-color: #D4AF37;
+  }
