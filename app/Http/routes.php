@@ -15,7 +15,13 @@ Route::get('/', function () {
     //return view('welcome');
     return view('landing');
 });
-
+	
 Route::get('inicio', function () {
     return view('performers/inicio');
 });
+
+Route::get('registro',function(){
+	return view('performers/registro');
+});
+
+
