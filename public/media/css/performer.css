@@ -3,19 +3,31 @@ html, body {
 }
 
 body {
+  background: url("../img/Pantalla de inicio png/fondo.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin: 0;
   padding: 0;
   width: 100%;
   display: table;
   font-weight: 100;
   font-family: 'Lato';
-  background-color: #333;
 }
 
 .container {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
+}
+
+.encabezado{
+  text-align: center;
+  color: gold;
 }
 
 ul#menu{
@@ -60,7 +72,62 @@ ul#menu{
   background: url('http://lorempixel.com/250/350/people');
   }*/
 
-  .border-container{
+.border-container{
     padding:46px 292px;
     border-color: #D4AF37;
-  }
+}
+
+.formulario{
+  margin-top:30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding:25px 15px 15px 15px;
+  width: 500px;
+}
+
+.input-label{
+  width: 100%;
+  height: 36px;
+  background-color: rgba(204, 204, 204, 0.78);
+  padding: 6px 12px;
+}
+
+.select-label{
+  font-weight: bold;
+  color:rgba(0, 0, 0, 0.82);
+  background-color: rgba(204, 204, 204, 0.78);
+}
+
+.boton-registro{
+  width: 100%;
+  height: 36px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.82);
+  text-align: center;
+  background-color: rgb(199, 163, 145);
+  margin-top: 54px;
+}
+
+::-webkit-input-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold;
+}
+
+:-moz-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold;
+}
+
+::-moz-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold;
+} 
+
+:-ms-input-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold;
+}
+
+.form-control{
+  border-radius: 0px;
+}
