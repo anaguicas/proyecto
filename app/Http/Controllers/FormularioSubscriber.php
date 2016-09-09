@@ -44,8 +44,7 @@ class FormularioPerformerController extends Controller{
 					'last_name'	=> \Input::get('last_name'),
 					'username' 	=> \Input::get('username'),
 					'email'		=> \Input::get('email');
-					'password'	=> \Input::get('password'),
-					''
+					'password'	=> \Input::get('password'),					
 					);
 		}else{
 			$errors = $validator->getErrors();

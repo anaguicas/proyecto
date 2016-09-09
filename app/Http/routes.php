@@ -20,6 +20,14 @@ Route::get('inicio', function () {
     return view('performers/inicio');
 });
 
-Route::get('registro',function(){
+Route::get('registro-performer',function(){
 	return view('performers/registro');
+});
+
+Route::post('registro',function(){
+	return view('welcome');
+});
+
+Route::get('subscriber-register',function(){
+	return view('subscriber/registro');
 });
