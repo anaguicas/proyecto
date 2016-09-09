@@ -1,18 +1,25 @@
 <?php
 
-use App\Http\Request\RegistroFormRequest;
+use Iluminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Validator;
 use App\Http\Controllers\Controller;
-use App\Http\Request;
-use App\Repositories\PerformerRepo;
+use App\Repositories\SubscriberRepo;
 
 
-class FormularioPerformerController extends Controller{
+class Subscriber extends Controller{
 
-	public function _construct(){
-		$this->PerformerRepo = New PerformerRepo();
+	protected $SubcriberRepo;
+
+	public function __construct(){
+		$this->SubscriberRepo = New SubscriberRepo();
 	}
 
-	public function Register(Request $request){
+	public function FormRegister(Request $request){
+		return view('subscriber/registro');
+	}
+
+	/*public function Register(Request $request){
 
 		$rules=array(
 			'name' => 'required',
@@ -39,16 +46,16 @@ class FormularioPerformerController extends Controller{
 			/*return Redirect::to('registro')
 				->withErrors($validator)
 				->withInput(Input::except('password'));*/
-			$datos = array(
+			/*$datos = array(
 					'name'		=> \Input::get('name'),
 					'last_name'	=> \Input::get('last_name'),
 					'username' 	=> \Input::get('username'),
-					'email'		=> \Input::get('email');
-					'password'	=> \Input::get('password'),
-					''
+					'email'		=> \Input::get('email'),
+					'password'	=> \Input::get('password'),					
 					);
 		}else{
 			$errors = $validator->getErrors();
 			return \Redirect::back()->withInput(Input::except('password'))->withErrors($errors)->width('errores','Existen campos inválidos');
 	}
+}*/
 }

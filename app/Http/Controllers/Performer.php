@@ -43,11 +43,13 @@ class FormularioPerformerController extends Controller{
 					'name'		=> \Input::get('name'),
 					'last_name'	=> \Input::get('last_name'),
 					'username' 	=> \Input::get('username'),
-					'email'		=> \Input::get('email');
-					'password'	=> \Input::get('password'),					
+					'email'		=> \Input::get('email'),
+					'password'	=> \Input::get('password'),
+					''
 					);
 		}else{
 			$errors = $validator->getErrors();
 			return \Redirect::back()->withInput(Input::except('password'))->withErrors($errors)->width('errores','Existen campos inválidos');
 	}
+}
 }

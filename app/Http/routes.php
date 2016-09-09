@@ -20,14 +20,16 @@ Route::get('inicio', function () {
     return view('performers/inicio');
 });
 
-Route::get('registro-performer',function(){
+Route::get('/registro-performer',function(){
 	return view('performers/registro');
 });
 
-Route::post('registro',function(){
+Route::post('/registro',function(){
 	return view('welcome');
 });
 
-Route::get('subscriber-register',function(){
-	return view('subscriber/registro');
-});
+Route::get('/subscriber-register','Subscriber@FormRegister');
+
+Route::post('success', [
+        'as' => 'success'        
+]);

@@ -3,14 +3,14 @@ html, body {
 }
 
 body {
-  background: url("../img/Pantalla de inicio png/fondo.png");
+  /*background: url("../img/Pantalla de inicio png/fondo.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
   margin: 0;
   padding: 0;
   width: 100%;
