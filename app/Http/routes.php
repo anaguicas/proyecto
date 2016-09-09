@@ -24,4 +24,6 @@ Route::get('registro',function(){
 	return view('performers/registro');
 });
 
+Route::get('studio/showPerformers', 'StudioController@showPerformers');
+
 
