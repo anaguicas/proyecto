@@ -11,4 +11,5 @@ class Subscriber extends Model{
 	public function Usuarios(){
 		return $this->belonsTo('App\Entities\Users','id_user','id');
 	}
+	
 }

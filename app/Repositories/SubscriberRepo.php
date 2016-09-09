@@ -6,15 +6,15 @@ use App\Entities\Performers;
 class PerformersRepo extends BaseRepo{
 
 	public function getModel(){
-		return new Performers;
+		return new Subscriber;
 	}
 
-	public function listPerformers(){
+	public function listSubscriber(){
 		return $this->model->all();
 	}
 
 	public function getCrear(){
-		$performerModel = new Performers;
+		$performerModel = new Subscriber;
 		$performerModel->
 	}
 
@@ -22,7 +22,7 @@ class PerformersRepo extends BaseRepo{
 		
 	}
 	
-	public function performerAuth($user){
+	public function subscriberAuth($user){
 		
 	}
 }

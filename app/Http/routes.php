@@ -15,15 +15,19 @@ Route::get('/', function () {
     //return view('welcome');
     return view('landing');
 });
-	
+
 Route::get('inicio', function () {
     return view('performers/inicio');
 });
 
-Route::get('registro',function(){
+Route::get('registro-performer',function(){
 	return view('performers/registro');
 });
 
-Route::get('studio/showPerformers', 'StudioController@showPerformers');
+Route::post('registro',function(){
+	return view('welcome');
+});
 
-
+Route::get('subscriber-register',function(){
+	return view('subscriber/registro');
+});
