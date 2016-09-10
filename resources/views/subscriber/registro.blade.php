@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Registro</title>
-	<link href="../public/media/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="../public/media/css/performer.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-	<section class="encabezado">
-		<h2>Pandora</h2>
-	</section>
+@extends('layouts.formularios')
+@section('content')
 	<div align="center">
 		<div class="formulario">
 			<form methos="POST" action="" >
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="col-lg-12">
 					<div class="form-group col-lg-5">				
-						<input type="text" class="input-label" name="name" value="" placeholder="NOMBRE">
+						<input type="text" class="input-label" name="name" value="" placeholder="NNAME">
 					</div>
 					<div class="form-group col-lg-7">
-						<input type="text" class="input-label" name="last_name" value="" placeholder="APELLIDO">
+						<input type="text" class="input-label" name="last_name" value="" placeholder="LAST NAME">
 					</div>
 					<div class="form-group">
-						<input type="text" class="input-label" name="username" value="" placeholder="NOMBRE DE USUARIO">
+						<input type="text" class="input-label" name="username" value="" placeholder="USERNAME">
 					</div>
 					<div class="form-group">
-						<input type="email" class="input-label" name="email" value="" placeholder="CORREO ELETRÓNICO">
+						<input type="email" class="input-label" name="email" value="" placeholder="EMAIL">
 					</div>
 					<div class="form-group">
-						<input type="text" class="input-label" name="password" value="" placeholder="CONTRASEÑA">
+						<input type="text" class="input-label" name="password" value="" placeholder="PASSWORD">
 					</div>					
 					<div class="form-group">
 						<select class="form-control select-label" >
@@ -39,20 +30,20 @@
 					</div>
 					<div class="form-group">
 						<input class="input-label" name="numero" value="" placeholder="NÚMERO DE TARJETA">						
+					</div>					
+					<div class="form-group">
+						<input type="text" class="datepicker" name="due_date" value="" placeholder="DUE DATE">
 					</div>
 					<div class="form-group">
-						<input type="number" class="input-label" name="nombre" value="" placeholder="NÚMERO DE VERIFICACIÓN DE TARJETA">
+						<input type="number" class="input-label" name="security_code" value="" placeholder="SECURITY CODE">
 					</div>
-					<div class="form-group">
-						<input class="input-label" name="nombre" value="" placeholder="NÚMERO DE VERIFICACIÓN DE TARJETA">
-					</div>
+
 					<div class="form-group">
 						<input class="boton-registro btn" type="submit" value="REGISTRARME">
-						<a href=""></a>
+						<a href="{{route('subscriber.register')}}"></a>
 					</div>					
 				</div>				
 			</form>
 		</div>
 	</div>
-</body>
-</html>
+@endsection

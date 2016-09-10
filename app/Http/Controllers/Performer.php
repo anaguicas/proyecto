@@ -35,11 +35,21 @@ class FormularioPerformerController extends Controller{
 
 		$validator = validator::make(Input::all(),$rules,$errors);
 
-		if($validator->fails()){
-			return Redirect::to('registro')
+		if($validator->passes()){
+			/*return Redirect::to('registro')
 				->withErrors($validator)
-				->withInput(Input::except('password'));
+				->withInput(Input::except('password'));*/
+			$datos = array(
+					'name'		=> \Input::get('name'),
+					'last_name'	=> \Input::get('last_name'),
+					'username' 	=> \Input::get('username'),
+					'email'		=> \Input::get('email'),
+					'password'	=> \Input::get('password'),
+					''
+					);
 		}else{
-			
+			$errors = $validator->getErrors();
+			return \Redirect::back()->withInput(Input::except('password'))->withErrors($errors)->width('errores','Existen campos inválidos');
 	}
+}
 }

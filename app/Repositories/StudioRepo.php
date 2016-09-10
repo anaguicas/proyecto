@@ -1,27 +1,20 @@
 <?php
 
 use App\Entities\Performers;
+use App\Entities\Studio;
 
 
 class PerformersRepo extends BaseRepo{
 
-	public function getModel(){
-		return new Performers;
-	}
 
 	public function listPerformers(){
 		return $this->model->all();
 	}
 
-	public function getCrear(){
-		$performerModel = new Performers;
-		$performerModel->
-	}
-
-	public function postGuardar(){
+	public function AddPerformer(){
 		
 	}
-	
+
 	public function performerAuth($user){
 		
 	}
