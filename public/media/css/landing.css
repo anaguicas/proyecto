@@ -4,3 +4,11 @@
   vertical-align: middle;
 
 }
+
+.categorias img{
+	width: 60px;
+}
+
+.categorias{
+	padding-left: 55px;
+}

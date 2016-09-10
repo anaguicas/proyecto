@@ -1,12 +1,22 @@
 body{
 	background-image: url("../img/layout/fondo.png"); 
-	background-size: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;;
+  background-size: cover;
 }
 
 .container{
-	padding-top: 40px;
+	padding-top: 20px;
+	margin-top: 10px;
+	margin-right: 35px;
+	margin-left: 35px;
+}
+
+.logo >h1>a img {
+	width: 250px;
+}
+
+.encabezado{
+	
 }

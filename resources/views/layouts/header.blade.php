@@ -10,13 +10,13 @@
 ?>
 
 
-<div class="row">
+<div class="row encabezado">
 	<div class="col-lg-12">
 		<div class="row">
-			<div class="col-lg-1">
+			<div class="col-lg-1 logo">
 				<h1>
-					<a href="">Pandora
-						<img src="">
+					<a href="#">
+						<img src="../public/media/img/layout/pandora.png">
 					</a>
 				</h1>
 			</div>
