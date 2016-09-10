@@ -1,12 +1,40 @@
 body{
 	background-image: url("../img/layout/fondo.png"); 
-	background-size: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;;
+  background-size: cover;
+}
+
+
+.vertical-center{
+	display: inline-block;
+  align-items: center;
+  vertical-align: middle;
+
 }
 
 .container{
-	padding-top: 40px;
+	padding-top: 20px;
+	margin-top: 10px;
+	margin-right: 1px;
+	margin-left: 35px;
+}
+
+.logo >h1>a img {
+	width: 250px;
+}
+
+.user{
+	padding-top: 20px;
+}
+
+.user>a img{
+	width: 50%;
+	height: 50%;
+}
+
+#barra{
+	width: 1%;
+	height: 1%;
 }

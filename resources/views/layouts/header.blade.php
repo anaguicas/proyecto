@@ -10,22 +10,34 @@
 ?>
 
 
-<div class="row">
+<div class="row encabezado">
 	<div class="col-lg-12">
 		<div class="row">
-			<div class="col-lg-1">
+			<div class="col-lg-1 logo">
 				<h1>
-					<a href="">Pandora
-						<img src="">
+					<a href="#">
+						<img src="../public/media/img/layout/pandora.png">
 					</a>
 				</h1>
 			</div>
 
-			<div class="col-lg-2 pull-right vertical-center">
-			<ul class="list-inline">
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		    	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	    	</ul>
+			<div class="col-lg-2 pull-right vertical-center user">
+			
+				<a href="#">
+					<img src="../public/media/img/layout/log_in.png">
+				</a>
+
+				<a href="#">
+					<img id="barra" src="../public/media/img/layout/barra.png">
+				</a>
+
+			
+				<a href="#">
+					<img src="../public/media/img/layout/sign_up.png">
+				</a>
+				
+				<!--li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li-->
+	    	
 			</div>
 		</div>
 	</div>
