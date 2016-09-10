@@ -1,14 +1,22 @@
-.vertical-center{
-	display: inline-block;
-  align-items: center;
-  vertical-align: middle;
-
-}
-
 .categorias img{
 	width: 60px;
 }
 
 .categorias{
 	padding-left: 55px;
+}
+
+.inverse-dropdown{
+  background-color: #222;
+  border-color: #080808;
+}
+.inverse-dropdown> li>a{
+    color: #999;
+  }
+.inverse-dropdown:hover{
+      color: #fff;
+    }
+
+.inverse-dropdown{
+	left: 55px;
 }
