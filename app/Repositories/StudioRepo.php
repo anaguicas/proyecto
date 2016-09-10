@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories;
+
 use App\Entities\Performers;
 use App\Entities\Studio;
 

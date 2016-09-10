@@ -1,9 +1,11 @@
 <?php
 
-use App\Entities\Performers;
+namespace App\Repositories;
+
+use App\Entities\Subscriber;
 
 
-class PerformersRepo extends BaseRepo{
+class SubscriberRepo extends BaseRepo{
 
 	public function getModel(){
 		return new Subscriber;
@@ -14,8 +16,7 @@ class PerformersRepo extends BaseRepo{
 	}
 
 	public function getCrear(){
-		$performerModel = new Subscriber;
-		$performerModel->
+		$performerModel = new Subscriber;		
 	}
 
 	public function postGuardar(){

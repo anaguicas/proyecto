@@ -24,12 +24,18 @@ Route::get('/registro-performer',function(){
 	return view('performers/registro');
 });
 
-Route::post('/registro',function(){
-	return view('welcome');
-});
+Route::get('subscriber-register',[
+	'as' => 'subscriber.register',
+	'uses' => 'SubscriberController@FormRegister'
+]);
 
-Route::get('/subscriber-register','Subscriber@FormRegister');
+Route::post('subscriber-register',[
+	'as' => 'subscriber.register',
+	'uses' => 'SubscriberController@Register'
+]);
 
 Route::post('success', [
         'as' => 'success'        
 ]);
+
+Route::get('studio/showPerformers', 'StudioController@showPerformers');

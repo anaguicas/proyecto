@@ -1,25 +1,27 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Iluminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use App\Repositories\SubscriberRepo;
 
 
-class Subscriber extends Controller{
+class SubscriberController extends Controller{
+	
 
-	protected $SubcriberRepo;
-
-	public function __construct(){
-		$this->SubscriberRepo = New SubscriberRepo();
+	public function __construct(SubscriberRepo $subscriber){
+		$this->SubscriberRepo = $subscriber;
 	}
 
-	public function FormRegister(Request $request){
+	public function FormRegister(){
 		return view('subscriber/registro');
 	}
 
-	/*public function Register(Request $request){
+	public function Register(Request $request){
 
 		$rules=array(
 			'name' => 'required',
@@ -46,7 +48,7 @@ class Subscriber extends Controller{
 			/*return Redirect::to('registro')
 				->withErrors($validator)
 				->withInput(Input::except('password'));*/
-			/*$datos = array(
+			$datos = array(
 					'name'		=> \Input::get('name'),
 					'last_name'	=> \Input::get('last_name'),
 					'username' 	=> \Input::get('username'),
@@ -57,5 +59,5 @@ class Subscriber extends Controller{
 			$errors = $validator->getErrors();
 			return \Redirect::back()->withInput(Input::except('password'))->withErrors($errors)->width('errores','Existen campos inválidos');
 	}
-}*/
+}
 }
