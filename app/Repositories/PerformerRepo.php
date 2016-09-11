@@ -16,7 +16,7 @@ class PerformersRepo extends BaseRepo{
 
 	public function getCrear(){
 		$performerModel = new Performers;
-		$performerModel->
+		
 	}
 
 	public function postGuardar(){

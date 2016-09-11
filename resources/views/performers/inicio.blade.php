@@ -3,7 +3,7 @@
 <head>
     <title>Inicio</title>
     <link href="../public/media/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../public/media/css/performer.css" rel="stylesheet" type="text/css">
+    <link href="../public/media/css/pagina.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="col-lg-12 container">

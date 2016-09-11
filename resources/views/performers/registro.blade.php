@@ -1,58 +1,87 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Registro</title>
-	<link href="../public/media/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="../public/media/css/performer.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-	<section class="encabezado">
-		<h2>Pandora</h2>
-	</section>
-	<div align="center">
-		<div class="formulario">
-			<form methos="POST" action="" >
-				<input type="hidden" name="_token" value="{{csrf_token()}}">
-				<div class="col-lg-12">
-					<div class="form-group col-lg-5">				
-						<input type="text" class="input-label" name="name" value="" placeholder="NOMBRE">
+@extends('layouts.formularios')
+@section('content')
+<div align="center">
+	<div class="formulario">		
+		{{  Form::open(array('action'=>'PerformerController@Register', 'method' => 'post')) }} 
+		<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
+		<div class="col-lg-12">
+			<div class="form-group col-lg-5">		
+				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}								
+				@if($errors->has('name'))
+				<p class="text-danger">
+					{{ $errors->first('name') }}
+				</p>
+				@endif
+			</div>
+			<div class="form-group col-lg-7">
+				{{Form::text('last_name',null,array('class' => 'form-control input-label', 'placeholder' => 'LAST NAME'))}}
+				@if($errors->has('last_name'))
+				<p class="text-danger">
+					{{ $errors->first('last_name') }}
+				</p>
+				@endif
+			</div>
+			<div class="form-group">
+				{{Form::text('identification',null,array('class' => 'form-control input-label', 'placeholder' => 'IDENTIFICATION'))}}
+				@if($errors->has('identification'))
+				<p class="text-danger">
+					{{ $errors->first('identification') }}
+				</p>
+				@endif
+			</div>
+			<div class="form-group">
+				{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
+				@if($errors->has('username'))
+				<p class="text-danger">
+					{{ $errors->first('username') }}
+				</p>
+				@endif
+			</div>
+			<div class="form-group">
+				{{Form::text('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
+			</div>
+			<div class="form-group">
+				{{Form::text('password',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD'))}}
+				@if($errors->has('password'))
+				<p class="text-danger">
+					{{ $errors->first('password') }}
+				</p>
+				@endif
+			</div>				
+			<div class="form-group">
+				{{Form::text('number',null,array('class' => 'form-control input-label', 'placeholder' => 'CREDIT CARD NUMBER'))}}
+				@if($errors->has('number'))
+				<p class="text-danger">
+					{{ $errors->first('number') }}
+				</p>
+				@endif					
+			</div>					
+			<div class="form-group">					
+				<img class="col-lg-3 control-label" src="../public/media/img/Usuario/Tienda2/vencimien.png">
+				<div class="col-lg-5 date">
+					<div class="input-group input-append date" id="datePicker">
+						<input type="text" class="form-control input-label-2" name="due_date" />
+						<span class="input-group-addon add-on">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
 					</div>
-					<div class="form-group col-lg-7">
-						<input type="text" class="input-label" name="last_name" value="" placeholder="APELLIDO">
-					</div>
-					<div class="form-group">
-						<input type="text" class="input-label" name="username" value="" placeholder="NOMBRE DE USUARIO">
-					</div>
-					<div class="form-group">
-						<input type="email" class="input-label" name="email" value="" placeholder="CORREO ELETRÓNICO">
-					</div>
-					<div class="form-group">
-						<input type="text" class="input-label" name="password" value="" placeholder="CONTRASEÑA">
-					</div>					
-					<div class="form-group">
-						<select class="form-control select-label" >
-							<option selected="selected">TIPO DE TARJETA</option>
-							<option>Tarjeta debito</option>
-							<option>Tajeta de credito</option>
-							<option></option>
-						</select>
-					</div>
-					<div class="form-group">
-						<input class="input-label" name="numero" value="" placeholder="NÚMERO DE TARJETA">						
-					</div>
-					<div class="form-group">
-						<input type="number" class="input-label" name="nombre" value="" placeholder="NÚMERO DE VERIFICACIÓN DE TARJETA">
-					</div>
-					<div class="form-group">
-						<input class="input-label" name="nombre" value="" placeholder="NÚMERO DE VERIFICACIÓN DE TARJETA">
-					</div>
-					<div class="form-group">
-						<input class="boton-registro btn" type="submit" value="REGISTRARME">
-						<a href=""></a>
-					</div>					
-				</div>				
-			</form>
-		</div>
-	</div>
-</body>
-</html>
+				</div>
+			</div>
+			<div class="form-group">
+				{{Form::text('security_code',null,array('class' => 'form-control input-label', 'placeholder' => 'SECURITY CODE'))}}
+				@if($errors->has('security_code'))
+				<p class="text-danger">
+					{{ $errors->first('security_code') }}
+				</p>
+				@endif
+			</div>
+
+			<div class="form-group">
+				{{ Form::submit('REGISTRARME', array('class' => 'btn boton-registro')) }}
+			</div>					
+		</div>				
+	</form>
+	{{  Form::close()  }}  
+</div>
+</div>
+@endsection

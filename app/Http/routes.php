@@ -20,14 +20,19 @@ Route::get('inicio',function(){
 	return view('landing');
 });
 
+Route::get('SingUp',function(){
+	return view('SingUp');
+});
+
 Route::get('subscriber/inicio', [
 	'as' => 'subscriber.inicio',
     'uses' => 'SubscriberController@Inicio'
 ]);
 
-Route::get('/registro-performer',function(){
-	return view('performers/registro');
-});
+Route::get('/performer-register',[
+	'as' => 'performer.register',
+	'uses' => 'PerformerController@FormRegister'
+]);
 
 Route::get('subscriber-register',[
 	'as' => 'subscriber.register',
@@ -39,6 +44,15 @@ Route::post('subscriber-register',[
 	'uses' => 'SubscriberController@Register'
 ]);
 
+Route::get('studio-register', [
+	'as' => 'studio.register',
+	'uses' => 'StudioController@FormRegister'
+]);
+
+Route::post('studio-register', [
+	'as' => 'studio.register',
+	'uses' => 'StudioController@Register'
+]);
 Route::post('success', [
         'as' => 'success'        
 ]);
