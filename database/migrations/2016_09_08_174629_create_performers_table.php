@@ -12,8 +12,20 @@ class CreatePerformersTable extends Migration
      */
     public function up()
     {
-        Schema::create('performers', function (Blueprint $table) {
+        Schema::create('performer', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreign('id_usuario')->references('id')->on('User');
+            $table->string('name');
+            $table->string('lastname');
+            $table->string('nationalid');
+            $table->string('photoid');
+            $table->date('birthday');
+            $table->string('city');
+            $table->string('country');
+            $table->string('alias');
+            $table->boolean('independent');
+
+
             $table->timestamps();
         });
     }

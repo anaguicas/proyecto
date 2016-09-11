@@ -31,3 +31,6 @@ Route::post('registro',function(){
 Route::get('subscriber-register',function(){
 	return view('subscriber/registro');
 });
+
+
+
