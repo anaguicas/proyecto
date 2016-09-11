@@ -16,9 +16,14 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('inicio', function () {
-    return view('performers/inicio');
+Route::get('inicio',function(){
+	return view('landing');
 });
+
+Route::get('subscriber/inicio', [
+	'as' => 'subscriber.inicio',
+    'uses' => 'SubscriberController@Inicio'
+]);
 
 Route::get('/registro-performer',function(){
 	return view('performers/registro');

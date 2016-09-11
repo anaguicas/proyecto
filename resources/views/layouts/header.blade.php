@@ -32,7 +32,7 @@
 				</a>
 
 			
-				<a href="#">
+				<a href="subscriber-register">
 					<img src="../public/media/img/layout/sign_up.png">
 				</a>
 				

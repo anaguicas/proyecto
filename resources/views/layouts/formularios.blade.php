@@ -17,28 +17,38 @@
 	<link media="all" type="text/css" rel="stylesheet" href="../public/media/css/landing.css">
 	<link media="all" type="text/css" rel="stylesheet" href="../public/media/css/layout.css">
 	<link media="all" type="text/css" rel="stylesheet" href="../public/media/css/performer.css">
+	<link media="all" type="text/css" rel="stylesheet" href="../public/media/css/datepicker.css">
 	<!--link media="all" type="text/css" rel="stylesheet" href="{{env('MEDIA_URL')}}/css/bootstrap.css"-->
 	<link media="all" type="text/css" rel="stylesheet" href="">
 	@yield('styles')
 	
 </head>
 <body>
-	<div class="container">
-		<!--Header -->
-		<section class="encabezado">
-			<h2>Pandora</h2>
-		</section>
-		<div>
-			@yield('content')
+	<!--Header -->
+	<div align="center">
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="col-lg-5 logo">
+					<h1>
+						<a href="inicio">
+							<img src="../public/media/img/layout/pandora.png">
+						</a>
+					</h1>
+				</div>	    	
+			</div>
 		</div>
-		<!-- footer-->
-		Footer
 	</div>
-	
-	<script type="text/javascript" src="../public/media/js/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="../public/media/js/bootstrap.min.js"></script>
+	<div>
+		@yield('content')
+	</div>
+	<!-- footer-->
+	Footer
+</div>
 
-
-	@yield('scripts')
+<script type="text/javascript" src="../public/media/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="../public/media/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../public/media/js/bootstrap-datepicker.js"></script>	
+<script type="text/javascript" src="../public/media/js/formularios.js"></script>
+@yield('scripts')	
 </body>
 </html>

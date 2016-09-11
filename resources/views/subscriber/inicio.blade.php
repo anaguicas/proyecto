@@ -1,9 +1,15 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Inicio</title>
-    <link href="../public/media/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../public/media/css/performer.css" rel="stylesheet" type="text/css">
+    <title>Pandora</title>
+    <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/bootstrap.min.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/landing.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/layout.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/performer.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/datepicker.css">
+    <!--link media="all" type="text/css" rel="stylesheet" href="{{env('MEDIA_URL')}}/css/bootstrap.css"-->
+    <link media="all" type="text/css" rel="stylesheet" href="">
+    @yield('styles')
+    
 </head>
 <body>
     <div class="col-lg-12 container">

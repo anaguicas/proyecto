@@ -6,6 +6,7 @@ use Iluminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\SubscriberRepo;
 
@@ -17,47 +18,49 @@ class SubscriberController extends Controller{
 		$this->SubscriberRepo = $subscriber;
 	}
 
+	public function Inicio(){
+		return view('subscriber/inicio');
+	}
+
 	public function FormRegister(){
 		return view('subscriber/registro');
 	}
 
 	public function Register(Request $request){
 
-		$rules=array(
-			'name' => 'required',
-			'last_name' => 'required',
-			'identification' => 'required|num',
-			'photo_identification' => 'required',
-			'city' => 'required',
-			'country' => 'required',
-			'alias' => 'required',	
-			'email' => 'required|email|unique',		
-			'password' => 'required|alphanum|min:3'
-			);
 
-		$errors = array(			
-			'required' => 'El campo :attribute es obligatorio',
-			'min' => 'El campo :attribute no puede tener menos de :min carácteres',
-			'email' => 'El campo :attribute debe ser un email válido',
-			'unique' => 'El email ingresado ya existe en la base de datos'
-			);
+		$validation = validator::make($request->all(), [
+			'name'			 		=> 'required',
+			'last_name' 			=> 'required',
+			'identification' 		=> 'required|num',
+			'username'				=> 'required',
+			'email' 				=> 'required|email|unique',		
+			'password' 				=> 'required|alphanum|min:5',				
+			'city' 					=> 'required',
+			'country' 				=> 'required'	
+			]);
 
-		$validator = validator::make(Input::all(),$rules,$errors);
+		/*$errors = array(			
+			'required'  => 'El campo :attribute es obligatorio',
+			'min' 		=> 'El campo :attribute no puede tener menos de :min carácteres',
+			'email' 	=> 'El campo :attribute debe ser un email válido',
+			'unique' 	=> 'El email ingresado ya existe en la base de datos'
+			);*/
 
-		if($validator->passes()){
-			/*return Redirect::to('registro')
-				->withErrors($validator)
-				->withInput(Input::except('password'));*/
-			$datos = array(
-					'name'		=> \Input::get('name'),
-					'last_name'	=> \Input::get('last_name'),
-					'username' 	=> \Input::get('username'),
-					'email'		=> \Input::get('email'),
-					'password'	=> \Input::get('password'),					
-					);
+		if($validation->fails()){			
+			return redirect()->back()->withInput(Input::except('password'))->withErrors($validation->errors());			
 		}else{
-			$errors = $validator->getErrors();
-			return \Redirect::back()->withInput(Input::except('password'))->withErrors($errors)->width('errores','Existen campos inválidos');
+			$name 					= $request->input('name');
+			$last_name 				= $request->input('last_name');
+			$identification 		= $request->input('identification');
+			$photo_identification 	= $request->input('photo_identification');
+			$city 					= $request->input('city');
+			$country 				= $request->input('country');
+			$alias 					= $request->input('alias');
+			$email 					= $request->input('email');
+			$password 				= $request->input('password');
+
+
 	}
 }
 }
