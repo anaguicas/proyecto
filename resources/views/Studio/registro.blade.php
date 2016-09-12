@@ -60,7 +60,7 @@
 				@endif
 				</div>					
 				<div class="form-group">
-					{{Form::text('number',null,array('class' => 'form-control input-label', 'placeholder' => 'CREDIT CARD NUMBER'))}}
+					{{Form::text('number',null,array('class' => 'form-control input-label', 'placeholder' => 'NUMBER CREDIT CARD'))}}
 				@if($errors->has('number'))
 				<p class="text-danger">
 					{{ $errors->first('number') }}
@@ -79,7 +79,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					{{Form::text('security_code',null,array('class' => 'form-control input-label', 'placeholder' => 'CREDIT CARD SECURITY CODE'))}}
+					{{Form::text('security_code',null,array('class' => 'form-control input-label', 'placeholder' => 'SECURITY CODE'))}}
 				@if($errors->has('security_code'))
 				<p class="text-danger">
 					{{ $errors->first('security_code') }}

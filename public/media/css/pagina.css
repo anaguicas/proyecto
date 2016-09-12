@@ -1,0 +1,260 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  /*background: url("../img/Pantalla de inicio png/fondo.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  font-family: 'Lato';
+}
+
+.container {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.encabezado{
+  text-align: center;
+  color: gold;
+}
+
+ul#menu{
+
+}
+.content {
+  text-align: center;
+  display: inline-block;
+}
+
+.title {
+  font-size: 96px;
+} 
+
+.hexagon {
+  width: 165px;
+  height: 230px;
+  overflow: hidden;
+  visibility: hidden;
+  transform: rotate(75deg);
+  cursor: pointer;
+}
+
+.hexagon-in1 {
+  overflow: hidden;
+  width: 166px;
+  height: 192px;
+  transform: rotate(-63deg);
+}
+
+.hexagon-foto{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/log in/usuario.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-perfil{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/perfil-2.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-inicio{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/streaming.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-publicidad{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/perfil-2.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-tokens{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/actividad tokens.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-tienda{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/tienda.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+ /* 
+.hexagon-in2:hover{
+
+  background: url('http://lorempixel.com/250/350/people');
+  }*/
+
+.border-container{
+    padding:46px 292px;
+    border-color: #D4AF37;
+}
+
+.formulario{
+  margin-top:200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding:25px 15px 15px 15px;
+  width: 500px;
+}
+
+.input-label{
+  width: 100%;
+  height: 36px;
+  background-color: rgba(204, 204, 204, 0.78);
+  padding: 6px 12px;
+}
+
+.input-label-2{
+  width: 50%;
+  height: 36px;
+  background-color: rgba(204, 204, 204, 0.78);
+  padding: 6px 12px;
+}
+
+.input-date{
+  width: 50%;
+  height: 63px;
+  background-imgage:url('../img/Usuario/Teinda2/vencimien.png');
+  padding: 6px 12px;
+}
+
+.select-label{
+  font-weight: bold;
+  color:rgba(0, 0, 0, 0.82);
+  background-color: rgba(204, 204, 204, 0.78);
+}
+
+.boton-registro{
+  width: 42%;
+  height: 40px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.82);
+  text-align: center;
+  /*background-image: url('../img/Pantalla de inicio png/registro studio performer/boton registro.png');*/
+  background-color: rgba(33, 32, 31, 0.69);
+  margin-top: 54px;
+  color: rgb(198, 154, 123);
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 20px;
+}
+
+.btn:hover{
+  color: rgb(198, 154, 123);
+  font-weight: bold;
+}
+
+.form-control::-webkit-input-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold; 
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 17px;
+}
+
+.form-control:-moz-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold; 
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 17px;
+}
+
+.form-control::-moz-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold; 
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 17px;
+}
+
+.form-control:-ms-input-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 17px;
+}
+
+.form-control{
+  border-radius: 0px;
+}
+
+.logo{
+  margin-top: 35px;
+}
+
+.form-group{
+  padding-right: 0px;
+  padding-left: 8px;
+}
+
+.select-country{
+  width: 50%;
+  font-weight: bold;
+  color:rgba(0, 0, 0, 0.82);
+  background-color: rgba(204, 204, 204, 0.78);
+}
+
+.form-group > label{
+  padding-left: 8px;
+}
+
+.input-group{
+  padding-bottom: 12px;
+}
+
+.registro{
+  width: 500px;
+  height: 500px;
+  background-color: rgba(33, 32, 31, 0.69);
+}
+
+.performer{
+  height: 250px;
+}
+
+.pandora{
+  padding-top: 59px;
+  padding-bottom: 30px;
+}

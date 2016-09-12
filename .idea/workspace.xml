@@ -2,12 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd56e34b-6a54-4d7b-a86c-1ba1e1f54b44" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Performer.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env.example" afterPath="$PROJECT_DIR$/.env.example" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/boton registro.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/pandora.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/performer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/registrar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/studio.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Usuario/Índice/perfil-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/layout/barra.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/layout/menu.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/css/datepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/css/pagina.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/js/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/js/formularios.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/Singup.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/Studio/registro.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/layouts/formularios.blade.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.env.example" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/FormularioSubscriber.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/css/performer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/performer.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/registrar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/studio.png" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Http/Controllers/FormularioPerformer.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PerformerController.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/caja1.png" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/caja1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/registro 1.jpg" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/registro 1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/img/Usuario/actividad/cajón 2.png" afterPath="$PROJECT_DIR$/public/media/img/Usuario/actividad/cajón 2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/img/Usuario/Índice/actividad tokens.png" afterPath="$PROJECT_DIR$/public/media/img/Usuario/Índice/actividad tokens.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/img/Usuario/Índice/streaming.png" afterPath="$PROJECT_DIR$/public/media/img/Usuario/Índice/streaming.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/img/Usuario/Índice/tienda.png" afterPath="$PROJECT_DIR$/public/media/img/Usuario/Índice/tienda.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_env.example" afterPath="$PROJECT_DIR$/_env.example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Admin.php" afterPath="$PROJECT_DIR$/app/Entities/Admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Perfil_performer.php" afterPath="$PROJECT_DIR$/app/Entities/Perfil_performer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Performer.php" afterPath="$PROJECT_DIR$/app/Entities/Performer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Photo_performer.php" afterPath="$PROJECT_DIR$/app/Entities/Photo_performer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Studio.php" afterPath="$PROJECT_DIR$/app/Entities/Studio.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Subscriber.php" afterPath="$PROJECT_DIR$/app/Entities/Subscriber.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Users.php" afterPath="$PROJECT_DIR$/app/Entities/Users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StudioController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudioController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_09_08_174310_create_studios_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_09_08_174310_create_studios_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_09_08_174629_create_performers_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_09_08_174629_create_performers_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/BaseRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/PerformerRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/PerformerRepo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/StudioRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/StudioRepo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SubscriberRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/SubscriberRepo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/css/landing.css" afterPath="$PROJECT_DIR$/public/media/css/landing.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/css/layout.css" afterPath="$PROJECT_DIR$/public/media/css/layout.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/landing.blade.php" afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/performers/inicio.blade.php" afterPath="$PROJECT_DIR$/resources/views/performers/inicio.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/performers/registro.blade.php" afterPath="$PROJECT_DIR$/resources/views/performers/registro.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/subscriber/inicio.blade.php" afterPath="$PROJECT_DIR$/resources/views/subscriber/inicio.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/subscriber/registro.blade.php" afterPath="$PROJECT_DIR$/resources/views/subscriber/registro.blade.php" />
     </list>
     <ignored path="proyecto-x.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="140">
+              <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -52,7 +100,7 @@
             <state relative-caret-position="0">
               <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
+                <element signature="e#127#155#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Performer.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Performer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Entities/Performer.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -116,12 +164,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_09_08_174310_create_studios_table.php" />
-        <option value="$PROJECT_DIR$/app/Entities/Performer.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_09_08_174629_create_performers_table.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/.env.example" />
+        <option value="$PROJECT_DIR$/app/Entities/Performer.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -368,7 +416,7 @@
       <option name="presentableId" value="Default" />
       <updated>1473393933162</updated>
       <workItem from="1473393934991" duration="8681000" />
-      <workItem from="1473632825881" duration="175000" />
+      <workItem from="1473632825881" duration="1718000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/anaguicas/proyecto-x&#10;&#10;# Conflicts:&#10;#&#9;app/Http/routes.php&#10;">
       <created>1473394891287</created>
@@ -381,7 +429,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8856000" />
+    <option name="totallyTimeSpent" value="10399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -391,22 +439,22 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25340393" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -442,7 +490,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="e#127#155#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -506,14 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -585,7 +625,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="e#127#155#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -617,7 +657,15 @@
     <entry file="file://$PROJECT_DIR$/app/Entities/Performer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
           <folding />
         </state>
       </provider>

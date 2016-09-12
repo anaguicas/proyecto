@@ -1,4 +1,5 @@
 <?php
+namespace App\Http\Controllers;
 
 use App\Http\Request\RegistroFormRequest;
 use App\Http\Controllers\Controller;
@@ -6,10 +7,20 @@ use App\Http\Request;
 use App\Repositories\PerformerRepo;
 
 
-class FormularioPerformerController extends Controller{
+class PerformerController extends Controller{
 
 	public function _construct(){
 		$this->PerformerRepo = New PerformerRepo();
+	}
+
+	public function Inicio(){
+		return view('subscriber/inicio');
+	}
+
+	public function FormRegister(){
+		$country = array(
+		'Colombia');
+		return view('subscriber/registro');
 	}
 
 	public function Register(Request $request){
@@ -43,11 +54,13 @@ class FormularioPerformerController extends Controller{
 					'name'		=> \Input::get('name'),
 					'last_name'	=> \Input::get('last_name'),
 					'username' 	=> \Input::get('username'),
-					'email'		=> \Input::get('email');
-					'password'	=> \Input::get('password'),					
+					'email'		=> \Input::get('email'),
+					'password'	=> \Input::get('password'),
+					''
 					);
 		}else{
 			$errors = $validator->getErrors();
 			return \Redirect::back()->withInput(Input::except('password'))->withErrors($errors)->width('errores','Existen campos inválidos');
 	}
+}
 }
