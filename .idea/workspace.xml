@@ -2,60 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd56e34b-6a54-4d7b-a86c-1ba1e1f54b44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/boton registro.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/pandora.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/performer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/registrar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/studio.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/Usuario/Índice/perfil-2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/layout/barra.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/layout/menu.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/css/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/css/pagina.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/js/bootstrap-datepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/js/formularios.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/Singup.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/Studio/registro.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/layouts/formularios.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.env.example" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/FormularioSubscriber.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/css/performer.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/performer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/registrar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/studio.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Http/Controllers/FormularioPerformer.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PerformerController.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/caja1.png" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/caja1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/media/img/registro studio performer/registro 1.jpg" afterPath="$PROJECT_DIR$/public/media/img/Pantalla de inicio png/registro studio performer/registro 1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/img/Usuario/actividad/cajón 2.png" afterPath="$PROJECT_DIR$/public/media/img/Usuario/actividad/cajón 2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/img/Usuario/Índice/actividad tokens.png" afterPath="$PROJECT_DIR$/public/media/img/Usuario/Índice/actividad tokens.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/img/Usuario/Índice/streaming.png" afterPath="$PROJECT_DIR$/public/media/img/Usuario/Índice/streaming.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/img/Usuario/Índice/tienda.png" afterPath="$PROJECT_DIR$/public/media/img/Usuario/Índice/tienda.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_env.example" afterPath="$PROJECT_DIR$/_env.example" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Admin.php" afterPath="$PROJECT_DIR$/app/Entities/Admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Perfil_performer.php" afterPath="$PROJECT_DIR$/app/Entities/Perfil_performer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Performer.php" afterPath="$PROJECT_DIR$/app/Entities/Performer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Photo_performer.php" afterPath="$PROJECT_DIR$/app/Entities/Photo_performer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Studio.php" afterPath="$PROJECT_DIR$/app/Entities/Studio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Subscriber.php" afterPath="$PROJECT_DIR$/app/Entities/Subscriber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Users.php" afterPath="$PROJECT_DIR$/app/Entities/Users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StudioController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudioController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/BaseRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/PerformerRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/PerformerRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/StudioRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/StudioRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SubscriberRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/SubscriberRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/css/landing.css" afterPath="$PROJECT_DIR$/public/media/css/landing.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/css/layout.css" afterPath="$PROJECT_DIR$/public/media/css/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/landing.blade.php" afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/performers/inicio.blade.php" afterPath="$PROJECT_DIR$/resources/views/performers/inicio.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/performers/registro.blade.php" afterPath="$PROJECT_DIR$/resources/views/performers/registro.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/subscriber/inicio.blade.php" afterPath="$PROJECT_DIR$/resources/views/subscriber/inicio.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/subscriber/registro.blade.php" afterPath="$PROJECT_DIR$/resources/views/subscriber/registro.blade.php" />
     </list>
     <ignored path="proyecto-x.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,8 +34,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+            <state relative-caret-position="-211">
+              <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -190,8 +137,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1320" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -416,7 +363,7 @@
       <option name="presentableId" value="Default" />
       <updated>1473393933162</updated>
       <workItem from="1473393934991" duration="8681000" />
-      <workItem from="1473632825881" duration="1718000" />
+      <workItem from="1473632825881" duration="1875000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/anaguicas/proyecto-x&#10;&#10;# Conflicts:&#10;#&#9;app/Http/routes.php&#10;">
       <created>1473394891287</created>
@@ -429,14 +376,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10399000" />
+    <option name="totallyTimeSpent" value="10556000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25340393" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26587301" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -664,8 +611,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+        <state relative-caret-position="-211">
+          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
           <folding />
         </state>
       </provider>

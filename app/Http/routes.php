@@ -16,12 +16,12 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('inicio',function(){
-	return view('landing');
+Route::get('inicio', function () {
+    return view('performers/inicio');
 });
 
-Route::get('SingUp',function(){
-	return view('SingUp');
+Route::get('registro-performer',function(){
+	return view('performers/registro');
 });
 
 Route::get('subscriber/inicio', [
@@ -56,6 +56,9 @@ Route::post('studio-register', [
 Route::post('success', [
         'as' => 'success'
 ]);
+Route::post('registro',function(){
+	return view('welcome');
+});
 
 Route::get('subscriber-register',function(){
 	return view('subscriber/registro');
