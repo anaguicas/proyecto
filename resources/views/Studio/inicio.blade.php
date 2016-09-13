@@ -12,18 +12,18 @@
     
 </head>
 <body>
-    <div class="col-lg-12 container">
+    <div class="col-lg-12">
         <div align="center">
-        <div class="col-lg-12">
-            <div class="row pandora">
-                <h1>
-                    <a href="inicio">
-                        <img src="../../public/media/img/Usuario/Índice/pandora.png">
-                    </a>
-                </h1>       
+            <div class="col-lg-12">
+                <div class="row pandora">
+                    <h1>
+                        <a href="inicio">
+                            <img src="../../public/media/img/Usuario/Índice/pandora.png">
+                        </a>
+                    </h1>       
+                </div>
             </div>
         </div>
-    </div>
         <div class="col-lg-12 border-container">
             <div class="col-lg-3 content">
                 <div class="hexagon">

@@ -49,6 +49,25 @@
 				@endif
 			</div>				
 			<div class="form-group">
+				{{Form::label('country', 'COUNTRY', array('class' => 'col-lg-4 control-label'))}}
+				<div class="col-lg-5 country">
+					{{ Form::select('country', $country, null, array('class'=>'form-control select-label ', 'required' => 'required')) }}
+					@if ($errors->has('country'))
+					<p class="text-danger">
+						{{ $errors->first('country') }}
+					</p>
+					@endif
+				</div>
+			</div>
+			<div class="form-group">
+				{{Form::text('city',null,array('class' => 'form-control input-label', 'placeholder' => 'CITY'))}}
+				@if($errors->has('city'))
+				<p class="text-danger">
+					{{ $errors->first('city') }}
+				</p>
+				@endif
+			</div>	
+			<div class="form-group">
 				{{Form::text('number',null,array('class' => 'form-control input-label', 'placeholder' => 'BANK ACCOUNT NUMBER'))}}
 				@if($errors->has('number'))
 				<p class="text-danger">

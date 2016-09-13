@@ -60,8 +60,7 @@
 				<div class="form-group">
 					{{ Form::submit('REGISTRARME', array('class' => 'btn boton-registro')) }}
 				</div>					
-			</div>				
-		</form>
+			</div>		
 		{{  Form::close()  }}  
 	</div>
 </div>

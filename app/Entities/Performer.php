@@ -17,7 +17,7 @@ class Performers extends Model{
 
 
 	public function Usuarios(){
-		return $this->belongsTo('App\Entities\Users','id_user_performer','id');
+		return $this->belongsTo('App\Entities\Users','id_user','id');
 	}
 
 	public function PerfilPerformer(){

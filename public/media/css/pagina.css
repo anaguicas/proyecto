@@ -167,6 +167,14 @@ ul#menu{
   font-weight: bold;
   color:rgba(0, 0, 0, 0.82);
   background-color: rgba(204, 204, 204, 0.78);
+  width: 274px;
+}
+
+option{
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 17px; 
 }
 
 label{
@@ -195,6 +203,13 @@ label{
 }
 
 .form-control::-webkit-input-placeholder { 
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold; 
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 17px;
+}
+
+.select-label{
   color: rgba(0, 0, 0, 0.82);
   font-weight: bold; 
   font-family: 'Fjalla One', sans-serif;
@@ -265,4 +280,8 @@ label{
 .pandora{
   padding-top: 59px;
   padding-bottom: 30px;
+}
+
+.country{
+  padding-bottom: 14px;
 }

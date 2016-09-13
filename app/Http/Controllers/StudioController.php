@@ -54,7 +54,7 @@ class StudioController extends Controller
 		}else{
 			$datos = array(
 				'studio_name'			=> $request->input('studio_name'),
-				'description'			=> $request->input('description');
+				'description'			=> $request->input('description'),
 				'email '				=> $request->input('email'),
 				'password'				=> $request->input('password'),
 				'studio_owner'			=> $request->input('studio_owner'),
@@ -70,7 +70,7 @@ class StudioController extends Controller
 	}
 
 	public function FormProfile(){
-		return view('Studio/edit-profile');
+		return view('Studio/editarPerfil');
 	}
 
 }
