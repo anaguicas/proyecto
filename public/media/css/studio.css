@@ -1,0 +1,39 @@
+.content{
+  padding-top: 67px;
+}
+
+.hexagon {
+  width: 245px;
+  height: 308px;
+  overflow: hidden;
+  visibility: hidden;
+  transform: rotate(75deg);
+  cursor: pointer;
+}
+
+.hexagon-in1 {
+  overflow: hidden;
+  width: 252px;
+  height: 296px;
+  transform: rotate(-63deg);
+}
+
+.hexagon-foto{
+  width: 257px;
+  height: 297px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/log in/usuario.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.formulario-profile{
+  width: 500px;
+  padding-top: 41px;
+}
+
+.edicion{
+  margin-left: 254px;
+}

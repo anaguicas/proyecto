@@ -12,6 +12,18 @@ class StudioRepo extends BaseRepo{
 		return new Studio;
 	}
 
+    public function AddStudio($studio){
+        $studios = new Studio;
+        $studios->name = $studio['studio_name'];
+        $studios->description = $studio['description'];
+        $studios->email = $studio['email'];
+        $studios->password = $studio['password'];
+        $studios->owner = $studio['studio-owner'];
+        $studios->password = $studio['password'];
+    }
+
+
+
 	//Resta verificar la cantidad de Tokens del performer.
 	public function listPerformers(){
 		$performers=DB::table('Performers')

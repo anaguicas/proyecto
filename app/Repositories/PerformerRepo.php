@@ -10,6 +10,11 @@ class PerformersRepo extends BaseRepo{
 		return new Performers;
 	}
 
+	public function addPerformer(){
+		$performers = new Performers;
+		
+	}
+
 	public function listPerformers(){
 		return $this->model->all();
 	}

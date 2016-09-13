@@ -30,7 +30,7 @@
 				@endif
 				</div>
 				<div class="form-group">
-					{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
+					{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'NICKNAME'))}}
 				@if($errors->has('username'))
 				<p class="text-danger">
 					{{ $errors->first('username') }}

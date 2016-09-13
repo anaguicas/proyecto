@@ -9,7 +9,7 @@
 			<div class="row performer">
 				<a href="performer-register"><img src="../public/media/img/Pantalla de inicio png/registro studio performer/performer.png"></a>
 			</div>
-			<div class="row studio">
+			<div class="row performer">
 				<a href="studio-register"><img src="../public/media/img/Pantalla de inicio png/registro studio performer/studio.png"></a>
 			</div>
 		</div>

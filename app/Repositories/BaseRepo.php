@@ -121,4 +121,36 @@ abstract class BaseRepo {
 		if(empty($model)) $model = $this->model->create(array('nombre' => $input));
 		return $model;
 	}
+
+	public function where($column, $operator, $value)
+	{
+		return $this->model->where($column, $operator, $value);
+	}
+
+	public function whereIn($column, $array)
+	{
+		return $this->model->whereIn($column, $array);
+	}
+
+	public function whereNotIn($column, $array)
+	{
+		return $this->model->whereNotIn($column, $array);
+	}
+
+	public function save()
+	{
+		return $this->model->save();
+	}
+
+	public function orderBy($field, $direction = 'asc')
+	{
+		return $this->model->orderBy($field, $direction)->get();
+	}
+
+	public function findOrFail($id, $relation = array())
+	{
+		$query = $this->model->with($relation);
+		return $query->findOrFail($id);
+	}
 }
+

@@ -21,7 +21,7 @@ class StudioController extends Controller
 
         $ListaPerformers = new StudioRepo();
         $consulta = $ListaPerformers->listPerformers();
-    //dump ($consulta); die;
+        dump ($consulta); die;
         return view('Studio/performerlist');
 
 
@@ -29,7 +29,7 @@ class StudioController extends Controller
 
     
     public function __construct(StudioRepo $studio){
-		$this->StudioRepo = $studio;
+		$this->studioRepo = $studio;
 	}
 
 	public function Inicio(){
@@ -43,15 +43,14 @@ class StudioController extends Controller
 	public function Register(Request $request){
 
 
-		$validation = validator::make($request->all(), [
-			'name'			 		=> 'required',
-			'last_name' 			=> 'required',
-			'identification' 		=> 'required|num',
-			'username'				=> 'required',
+		$validation = validator::make($request->all(), [			
+			'studio_name'			=> 'required',
+			'description'			=> 'required',
 			'email' 				=> 'required|email|unique',		
 			'password' 				=> 'required|alphanum|min:5',				
-			'city' 					=> 'required',
-			'country' 				=> 'required'	
+			'studio_owner'			=> 'required',
+			'number' 				=> 'required',
+			'bank'					=> 'required'	
 			]);
 
 		/*$errors = array(			
@@ -62,19 +61,27 @@ class StudioController extends Controller
 			);*/
 
 		if($validation->fails()){			
-			return redirect()->back()->withInput(Input::except('password'))->withErrors($validation->errors());			
+			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
-			$name 					= $request->input('name');
-			$last_name 				= $request->input('last_name');
-			$identification 		= $request->input('identification');
-			$photo_identification 	= $request->input('photo_identification');
-			$city 					= $request->input('city');
-			$country 				= $request->input('country');
-			$alias 					= $request->input('alias');
-			$email 					= $request->input('email');
-			$password 				= $request->input('password');
+			$datos = array(
+				'studio_name'			=> $request->input('studio_name'),
+				'description'			=> $request->input('description'),
+				'email '				=> $request->input('email'),
+				'password'				=> $request->input('password'),
+				'studio_owner'			=> $request->input('studio_owner'),
+				'number'				=> $request->input('number'),
+				'bank'					=> $request->input('bank')
+				);
 
-
+			if($this->studioRepo->AddStudio($datos)){
+				return redirect()->back()->with('message','Successful.');
+			}
+			return redirect()->back()->with('message','There was a problem.');
 		}
 	}
+
+	public function FormProfile(){
+		return view('Studio/editarPerfil');
+	}
+
 }
