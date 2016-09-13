@@ -24,7 +24,7 @@ Route::get('registro-performer',function(){
 	return view('performers/registro');
 });
 
-Route::get('subscriber/inicio', [
+    Route::get('subscriber/inicio', [
 	'as' => 'subscriber.inicio',
     'uses' => 'SubscriberController@Inicio'
 ]);
@@ -53,6 +53,12 @@ Route::post('studio-register', [
 	'as' => 'studio.register',
 	'uses' => 'StudioController@Register'
 ]);
+
+Route::get('studio-performerlist',[
+    'as' => 'studio.performerlist',
+    'uses' => 'StudioController@showPerformers'
+]);
+
 Route::post('success', [
         'as' => 'success'
 ]);
@@ -65,5 +71,5 @@ Route::get('subscriber-register',function(){
 });
 
 
-Route::get('studio/showPerformers', 'StudioController@showPerformers');
+
 

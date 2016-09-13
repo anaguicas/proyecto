@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - proyecto-x@localhost" uuid="0fda1276-46a6-422f-b7b2-4c6fd1949a8c">
+      <database-info product="PostgreSQL" version="9.5.4" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <introspection-scope>proyecto-x:public,pg_catalog,postgres</introspection-scope>
+      <resolve-scope>proyecto-x:public,postgres</resolve-scope>
+    </data-source>
+  </component>
+</project>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Cache\Repository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -10,10 +11,20 @@ use App\Http\Controllers\Controller;
 use App\Repositories\StudioRepo;
 
 
+
 class StudioController extends Controller
 {
-    function showPerformers(){  	
-    	 $performers = DB::table('Performers')->get();
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    function showPerformers(){
+
+        $ListaPerformers = new StudioRepo();
+        $consulta = $ListaPerformers->listPerformers();
+    //dump ($consulta); die;
+        return view('Studio/performerlist');
+
+
     }
 
     
