@@ -17,10 +17,8 @@ class PerformerController extends Controller{
 		return view('subscriber/inicio');
 	}
 
-	public function FormRegister(){
-		$country = array(
-		'Colombia');
-		return view('subscriber/registro');
+	public function FormRegister(){		
+		return view('performers/registro');
 	}
 
 	public function Register(Request $request){

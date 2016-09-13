@@ -169,6 +169,12 @@ ul#menu{
   background-color: rgba(204, 204, 204, 0.78);
 }
 
+label{
+  color: rgb(198, 154, 123);
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 20px;
+}
+
 .boton-registro{
   width: 42%;
   height: 40px;
@@ -247,11 +253,13 @@ ul#menu{
 .registro{
   width: 500px;
   height: 500px;
+  margin-top: 30px;
   background-color: rgba(33, 32, 31, 0.69);
 }
 
 .performer{
   height: 250px;
+  margin-top: 10px;
 }
 
 .pandora{

@@ -24,14 +24,10 @@ Route::get('SingUp',function(){
 	return view('SingUp');
 });
 
+/*-------Subscriber-----------*/
 Route::get('subscriber/inicio', [
 	'as' => 'subscriber.inicio',
     'uses' => 'SubscriberController@Inicio'
-]);
-
-Route::get('/performer-register',[
-	'as' => 'performer.register',
-	'uses' => 'PerformerController@FormRegister'
 ]);
 
 Route::get('subscriber-register',[
@@ -44,6 +40,29 @@ Route::post('subscriber-register',[
 	'uses' => 'SubscriberController@Register'
 ]);
 
+/*--------Performer-----------*/
+
+Route::get('performer/inicio', [
+	'as' => 'performer.inicio',
+    'uses' => 'PerformerController@Inicio'
+]);
+
+Route::get('performer-register',[
+	'as' => 'performer.register',
+	'uses' => 'PerformerController@FormRegister'
+]);
+
+Route::post('performer-register',[
+	'as' => 'performer.register',
+	'uses' => 'PerformerController@Register'
+]);
+
+/*---------Studio---------*/
+Route::get('studio/inicio', [
+	'as' => 'studio.inicio',
+    'uses' => 'StudioController@Inicio'
+]);
+
 Route::get('studio-register', [
 	'as' => 'studio.register',
 	'uses' => 'StudioController@FormRegister'
@@ -53,8 +72,10 @@ Route::post('studio-register', [
 	'as' => 'studio.register',
 	'uses' => 'StudioController@Register'
 ]);
-Route::post('success', [
-        'as' => 'success'        
+
+Route::get('studio/edit-profile',[
+	'as' => 'studio.editprofile',
+	'uses' => 'StudioController@FormProfile'
 ]);
 
 Route::get('studio/showPerformers', 'StudioController@showPerformers');
