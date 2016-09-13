@@ -12,9 +12,9 @@ class CreateStudiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('studios', function (Blueprint $table) {
+        Schema::create('studio', function (Blueprint $table) {
             $table->increments('id');    
-            $table->foreign('id_performer')->references('id')->('Performer');        
+            $table->foreign('id_usuario')->references('id')->on('Users');
             $table->string('name');
             $table->string('responsible');
             $table->string ('description');

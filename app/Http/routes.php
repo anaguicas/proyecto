@@ -16,12 +16,12 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('inicio',function(){
-	return view('landing');
+Route::get('inicio', function () {
+    return view('performers/inicio');
 });
 
-Route::get('SingUp',function(){
-	return view('SingUp');
+Route::get('registro-performer',function(){
+	return view('performers/registro');
 });
 
 /*-------Subscriber-----------*/
@@ -77,5 +77,9 @@ Route::get('studio/edit-profile',[
 	'as' => 'studio.editprofile',
 	'uses' => 'StudioController@FormProfile'
 ]);
+Route::post('registro',function(){
+	return view('welcome');
+});
 
 Route::get('studio/showPerformers', 'StudioController@showPerformers');
+
