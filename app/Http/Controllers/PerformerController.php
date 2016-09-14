@@ -69,12 +69,12 @@ public function Register(Request $request){
 		'password' => 'required|alphanum|min:3'	
 		]);
 
-	$errors = array(			
+	/*$errors = array(			
 		'required' => 'El campo :attribute es obligatorio',
 		'min' => 'El campo :attribute no puede tener menos de :min carácteres',
 		'email' => 'El campo :attribute debe ser un email válido',
 		'unique' => 'El email ingresado ya existe en la base de datos'
-		);
+		);*/
 
 	if($validation->fails()){
 		return redirect()->back()->withInput()->withErrors($validation->errors());			
@@ -87,18 +87,20 @@ public function Register(Request $request){
 		$img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
 		$imagen->move($img_dir,$new_name);
 
-		$datos = array(
+		$datos_performer = array(
 			'name'					=> $request->input('name'),
 			'last_name'				=> $request->input('last_name'),
 			'identification'		=> $request->input('identification'),
 			'photo_identification'	=> $img_url,
 			'city'					=> $request->input('city'),
-			'country'				=> $request->input('country'),
-			'username' 	=> $request->input('username'),
-			'email'		=> $request->input('email'),
-			'password'	=> $request->input('password')					
+			'country'				=> $request->input('country')								
 			);
 
+		$datos_user = array(
+			'username' 	=> $request->input('username'),
+			'email'		=> $request->input('email'),
+			'password'	=> $request->input('password')
+			);
 
 	}
 }

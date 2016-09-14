@@ -92,7 +92,7 @@
 					</div>
 
 					<div class="form-group">
-						{{ Form::submit('REGISTRARME', array('class' => 'btn boton-registro')) }}
+						{{ Form::submit('SAVE', array('class' => 'btn boton-registro')) }}
 					</div>	
 				{{  Form::close()  }}  
 			</div>
