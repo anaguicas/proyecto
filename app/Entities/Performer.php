@@ -5,7 +5,6 @@ namespace App\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\SoftDelete;
-use Illuminate\Foundation\Auth\User;
 
 
 /**

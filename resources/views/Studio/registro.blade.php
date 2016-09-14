@@ -33,6 +33,14 @@
 				@endif
 			</div>
 			<div class="form-group">
+				{{Form::text('password_confirmation',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD CONFIRMATION'))}}
+				@if($errors->has('password_confirmation'))
+				<p class="text-danger">
+					{{ $errors->first('password_confirmation') }}
+				</p>
+				@endif
+			</div>
+			<div class="form-group">
 				{{Form::text('studio_owner',null,array('class' => 'form-control input-label', 'placeholder' => 'STUDIO OWNER'))}}
 				@if($errors->has('studio_owner'))
 				<p class="text-danger">
