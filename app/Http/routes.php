@@ -10,11 +10,26 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*
 Route::get('/', function () {
     //return view('welcome');
     return view('landing');
 });
+*/
+
+/*-------Landing-----------*/
+Route::get('/', [
+
+	'as' => 'landing',
+    'uses' => 'LandingController@Inicio'
+]);
+
+/*-------Login-----------*/
+Route::get('login', [
+
+	'as' => 'login',
+    'uses' => 'LoginController@Inicio'
+]);
 
 Route::get('inicio', function () {
     return view('performers/inicio');

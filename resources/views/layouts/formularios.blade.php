@@ -30,7 +30,7 @@
 		<div class="col-lg-12">
 			<div class="row pandora">
 				<h1>
-					<a href="inicio">
+					<a href="{{route('landing')}}">
 						<img src="../public/media/img/Pantalla de inicio png/registro studio performer/pandora.png">
 					</a>
 				</h1>    	
