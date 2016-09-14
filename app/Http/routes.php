@@ -85,4 +85,7 @@ Route::post('registro',function(){
 	return view('welcome');
 });
 
-Route::get('studio/showPerformers', 'StudioController@showPerformers');
+Route::get('studio/showPerformers',[
+    'as'=> 'studio.showperformers',
+    'uses' => 'StudioController@showPerformers'
+]);

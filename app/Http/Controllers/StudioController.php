@@ -17,12 +17,12 @@ class StudioController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    function showPerformers(){
+    public function showPerformers(){
 
         $ListaPerformers = new StudioRepo();
         $consulta = $ListaPerformers->listPerformers();
-        dump ($consulta); die;
-        return view('Studio/performerlist');
+        //dump ($consulta); die;
+        return view('Studio/listPerformers');
 
 
     }
