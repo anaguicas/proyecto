@@ -22,21 +22,26 @@
 			</div>
 
 			<div class="col-lg-2 pull-right vertical-center user">
-			
-				<a href="#">
-					<img src="../public/media/img/layout/log_in.png">
-				</a>
+				<div>
+					<a href="{{route('login')}}">
+						<img src="../public/media/img/layout/log_in.png">
+					</a>
+				</div>
 
-				<a href="#">
-					<img id="barra" src="../public/media/img/layout/barra.png">
-				</a>
+				<div>
+					<a>
+						<img id="barra" src="../public/media/img/layout/barra.png">
+					</a>
+				</div>
 
-			
-				<a href="subscriber-register">
-					<img src="../public/media/img/layout/sign_up.png">
-				</a>
+				<div>
+					<a href="{{route('subscriber.register')}}">
+						<img src="../public/media/img/layout/sign_up.png">
+					</a>
+				</div>
 				
-				<!--li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li-->
+				<!--li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li-->
 	    	
 			</div>
 		</div>

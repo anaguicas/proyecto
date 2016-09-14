@@ -5,6 +5,9 @@
 		{{  Form::open(array('action'=>'PerformerController@Register', 'method' => 'post')) }} 
 		<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
 		<div class="col-lg-12">
+			@if(Session::has('message'))
+			    <div class="alert alert-info col-xs-12">{{Session::get('message')}}</div>
+			@endif
 			<div class="form-group col-lg-5">		
 				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}								
 				@if($errors->has('name'))
@@ -47,7 +50,15 @@
 					{{ $errors->first('password') }}
 				</p>
 				@endif
-			</div>				
+			</div>	
+			<div class="form-group">
+				{{Form::text('password_confirmation',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD CONFIRMATION'))}}
+				@if($errors->has('password_confirmation'))
+				<p class="text-danger">
+					{{ $errors->first('password_confirmation') }}
+				</p>
+				@endif
+			</div>			
 			<div class="form-group">
 				{{Form::label('country', 'COUNTRY', array('class' => 'col-lg-4 control-label'))}}
 				<div class="col-lg-5 country">
@@ -76,9 +87,9 @@
 				@endif					
 			</div>					
 			<div class="form-group">					
-				{{Form::label('birthdate', 'BIRTHDATE', array('class' => 'col-lg-3 control-label'))}}
+				{{Form::label('birthdate', 'BIRTHDATE', array('class' => 'col-lg-6 control-label'))}}
 				<!-- <img class="col-lg-3 control-label" src="../public/media/img/Usuario/Tienda2/vencimien.png"> -->
-				<div class="col-lg-5 date">
+				<div class="col-lg-6 date">
 					<div class="input-group input-append date" id="datePicker">
 						<input type="text" class="form-control input-label-2" name="due_date" />
 						<span class="input-group-addon add-on">
@@ -87,7 +98,17 @@
 					</div>
 				</div>
 			</div>
-
+			<!-- <div class="form-group">
+				{{Form::label('imagen', 'PHOTO IDENTIFICATION', array('class' => 'col-lg-3 control-label'))}}
+				<div class="col-lg-9 ">
+					{{Form::file('photo_identification',null,array('class' => 'form-control field'))}}
+					@if($errors->has('photo_identification'))
+					<p class="text-danger">
+						{{ $errors->first('photo_identification') }}
+					</p>
+					@endif
+				</div>									
+			</div> -->
 			<div class="form-group">
 				{{ Form::submit('REGISTRARME', array('class' => 'btn boton-registro')) }}
 			</div>					

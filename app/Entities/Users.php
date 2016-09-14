@@ -4,14 +4,14 @@ namespace App\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\SoftDelete;
-use Illuminate\Foundation\Auth\User;
 
 /**
 *Clase Modelo de Eloquent para la entidad Usuarios
 */
 
-class Usuarios extends Model{
-	protected $table ='Users';
+class Users extends Model{
+
+	protected $table ='users';
 	
 	public function performers(){
 		return $this->hasMany('App\Entities\Performers','id_user_performer','id');

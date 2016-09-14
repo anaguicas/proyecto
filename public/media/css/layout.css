@@ -7,7 +7,7 @@ body{
 }
 
 
-.vertical-center{
+.vertical-center {
 	display: inline-block;
   align-items: center;
   vertical-align: middle;
@@ -29,7 +29,7 @@ body{
 	padding-top: 20px;
 }
 
-.user>a img{
+.user>div>a img{
 	width: 50%;
 	height: 50%;
 }

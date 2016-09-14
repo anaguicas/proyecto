@@ -183,6 +183,14 @@ label{
   font-size: 20px;
 }
 
+input{
+  color: rgb(198, 154, 123);
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 13px;
+  padding: 17px 0px 5px 0px;
+  font-weight: bold;
+}
+
 .boton-registro{
   width: 42%;
   height: 40px;
@@ -263,6 +271,7 @@ label{
 
 .input-group{
   padding-bottom: 12px;
+  width: 203px;
 }
 
 .registro{
