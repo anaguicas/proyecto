@@ -37,3 +37,16 @@
 .edicion{
   margin-left: 254px;
 }
+
+img.resize{
+  max-width:70%;
+  max-height:70%;
+}
+
+
+#border-container{
+  width: 100%;
+  overflow: auto;
+  width: 100%; /* for good measure */
+  position: absolute;
+}
