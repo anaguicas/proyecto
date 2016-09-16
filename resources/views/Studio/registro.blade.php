@@ -25,6 +25,9 @@
 				{{Form::text('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
 			</div>
 			<div class="form-group">
+				{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
+			</div>
+			<div class="form-group">
 				{{Form::text('password',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD'))}}
 				@if($errors->has('password'))
 				<p class="text-danger">
@@ -49,12 +52,15 @@
 				@endif
 			</div>
 			<div class="form-group">
-				{{Form::text('bank',null,array('class' => 'form-control input-label', 'placeholder' => 'BANK'))}}
-				@if($errors->has('bank'))
-				<p class="text-danger">
-					{{ $errors->first('bank') }}
-				</p>
-				@endif
+				{{Form::label('bank', 'BANK', array('class' => 'col-lg-4 control-label'))}}
+				<div class="col-lg-5 country">
+					{{ Form::select('bank', $bank, null, array('class'=>'form-control select-label ', 'required' => 'required')) }}
+					@if ($errors->has('bank'))
+					<p class="text-danger">
+						{{ $errors->first('bank') }}
+					</p>
+					@endif
+				</div>
 			</div>
 			<div class="form-group">
 				{{Form::text('number',null,array('class' => 'form-control input-label', 'placeholder' => 'BANK ACCOUNT NUMBER'))}}

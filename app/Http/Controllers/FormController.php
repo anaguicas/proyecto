@@ -2,23 +2,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Request\RegistroFormRequest;
-use App\Http\Controllers\FormController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\PerformerRepo;
-use App\Repositories\UsersRepo;
 use Validator;
 
 
-class PerformerController extends Controller{
-
-	private $PerformerRepo;
-	private $UsersRepo;
-
-	public function __construct(){
-		$this->PerformerRepo 	= New PerformerRepo();
-		$this->UsersRepo 		= New UsersRepo();	
-	}
+class CountryController extends Controller{
 
 	public function Country(){
 		$country = array(
@@ -118,85 +107,5 @@ class PerformerController extends Controller{
 			'Bancolombia' => 'Bancolombia',
 			'Banco de Bogota' => 'Banco de Bogotá'
 			);
-
-		return $bank;
-	}
-
-	public function Inicio(){
-		return view('performers/inicio');
-	}
-
-	public function FormRegister(){		
-
-		$country = $this->Country();
-		$bank	 = $this->Bank();
-
-		return view('performers/registro', ['country' => $country, 'bank' => $bank]);
-	}
-
-public function Register(Request $request){
-
-	$validation = validator::make($request->all(), [			
-		'name' => 'required',
-		'last_name' => 'required',
-		'identification' => 'required|numeric',
-		//'photo_identification' => 'required|image|mimes:jpeg,jpg|max:10240',
-		'city' => 'required',
-		'country' => 'required',
-		'username' => 'required',	
-		'email' => 'required|email|max:255|unique:users',		
-		'password' => 'required|min:6|confirmed',
-		'password_confirmation'	=> 'required|min:6',
-		'bank'	=> 'required'
-		]);
-
-	/*$errors = array(			
-		'required' => 'El campo :attribute es obligatorio',
-		'min' => 'El campo :attribute no puede tener menos de :min carácteres',
-		'email' => 'El campo :attribute debe ser un email válido',
-		'unique' => 'El email ingresado ya existe en la base de datos'
-		);*/
-
-	if($validation->fails()){
-		return redirect()->back()->withInput()->withErrors($validation->errors());			
-	}else{		
-		/*$imagen = $request->file('photo_identification');
-
-		$new_name = time().$imagen->getClientOriginalName();
-		$img_dir = env('IMG_UPLOAD');
-		$img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
-		$imagen->move($img_dir,$new_name);*/
-		$datos_user = array(
-			'username' 	=> $request->input('username'),
-			'email'		=> $request->input('email'),
-			'password'	=> $request->input('password')
-			);
-
-		$this->UsersRepo->addUser($datos_user);
-
-		$user = $datos_user['email'];
-		
-		$performer_user = $this->UsersRepo->findUser($user)->first()->id;		
-				
-		$datos_performer = array(
-			'name'					=> $request->input('name'),
-			'last_name'				=> $request->input('last_name'),
-			'identification'		=> $request->input('identification'),
-			//'photo_identification'	=> $img_url,
-			'city'					=> $request->input('city'),
-			'country'				=> $request->input('country'),
-			'username' 				=> $request->input('username'),							
-			'id_user'				=> $performer_user
-			);
-
-		if($this->PerformerRepo->addPerformer($datos_performer)){
-			return redirect()->back()->with('message','Successfull');
-		}else{
-			return redirect()->back()->with('message','');
-		}
-
-
-		}
-
 	}
 }
