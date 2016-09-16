@@ -31,6 +31,8 @@ Route::get('login', [
     'uses' => 'LoginController@Inicio'
 ]);
 
+Route::resource('log','LoginController');
+
 Route::get('inicio', function () {
     return view('performers/inicio');
 });

@@ -1,8 +1,9 @@
 @extends('layouts.formularios')
 @section('content')
+@include('alerts.errors')
 <div align="center">
 	<div class="formulario">		
-		{{  Form::open(array('action'=>'SubscriberController@Register', 'method' => 'post')) }} 
+		{{  Form::open(['route'=>'log.store', 'method'=>'POST']) }} 
 			<div class="col-lg-12">
 				<div class="form-group">
 					{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'NICKNAME'))}}
