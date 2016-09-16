@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Entities\Users;
+use Illuminate\Support\Facades\DB;
 
 class UsersRepo extends BaseRepo{
 
@@ -27,8 +28,12 @@ class UsersRepo extends BaseRepo{
         ]);*/
 	}
 
-	public function findUser($user){
-		return $this->model->where('email','=',$user)->first();
+	public function findUser($user){	
+		
+		$user = $this->model->select('id')->where('email','=',$user)->get();
+		//$user = DB::table('users')->select('id')->whereIn('email',$user)->get();
+		
+        return $user;
 	}
 
 }

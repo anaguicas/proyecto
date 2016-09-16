@@ -100,9 +100,9 @@ public function Register(Request $request){
 		$this->UsersRepo->addUser($datos_user);
 
 		$user = $datos_user['email'];
-		$performer_user = $this->UsersRepo->findUser($user);		
-
 		
+		$performer_user = $this->UsersRepo->findUser($user)->first()->id;		
+				
 		$datos_performer = array(
 			'name'					=> $request->input('name'),
 			'last_name'				=> $request->input('last_name'),

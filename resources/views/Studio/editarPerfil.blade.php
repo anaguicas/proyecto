@@ -27,8 +27,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="row col-lg-12 edicion" align="center">
-			<div class="col-lg-3 content">
+		<div class="row col-lg-12" align="center">
+			<div class="col-lg-3">
 				<div class="hexagon">
 					<div class="hexagon-in1">
 						<div class="hexagon-foto">

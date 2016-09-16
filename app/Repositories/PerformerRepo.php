@@ -10,7 +10,7 @@ class PerformerRepo extends BaseRepo{
 		return new Performers;
 	}
 
-	public function addPerformer(array $datos){
+	public function addPerformer($datos){
 		$performers = new Performers;
 		
 		$performers->id_user 				= $datos['id_user'];

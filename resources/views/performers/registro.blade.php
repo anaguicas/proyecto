@@ -2,8 +2,7 @@
 @section('content')
 <div align="center">
 	<div class="formulario">		
-		{{  Form::open(array('action'=>'PerformerController@Register', 'method' => 'post')) }} 
-		<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
+		{{  Form::open(array('action'=>'PerformerController@Register', 'method' => 'post')) }} 		
 		<div class="col-lg-12">
 			@if(Session::has('message'))
 			    <div class="alert alert-info col-xs-12">{{Session::get('message')}}</div>
