@@ -31,6 +31,10 @@ Route::get('login', [
     'uses' => 'LoginController@Inicio'
 ]);
 
+Route::get('SignUp',function(){
+	return view('Singup');
+});
+
 Route::get('inicio', function () {
     return view('performers/inicio');
 });

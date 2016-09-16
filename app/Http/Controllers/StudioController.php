@@ -9,6 +9,7 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\StudioRepo;
+use App\Repositories\UsersRepo;
 
 
 
@@ -23,13 +24,22 @@ class StudioController extends Controller
         $consulta = $ListaPerformers->listPerformers();
         //dump ($consulta); die;
         return view('Studio/listPerformers');
-
-
     }
 
     
-    public function __construct(StudioRepo $studio){
-		$this->studioRepo = $studio;
+    public function __construct(){
+		$this->studioRepo = New StudioRepo;
+	}
+
+	public function Bank(){
+
+		$bank = array(
+			'Davivienda' => 'Davivienda',
+			'Bancolombia' => 'Bancolombia',
+			'Banco de Bogota' => 'Banco de Bogotá'
+			);
+
+		return $bank;
 	}
 
 	public function Inicio(){
@@ -37,7 +47,8 @@ class StudioController extends Controller
 	}
 
 	public function FormRegister(){
-		return view('Studio/registro');
+		$bank	 = $this->Bank();
+		return view('Studio/registro', ['bank' => $bank]);
 	}
 
 	public function Register(Request $request){
@@ -46,7 +57,8 @@ class StudioController extends Controller
 		$validation = validator::make($request->all(), [			
 			'studio_name'			=> 'required',
 			'description'			=> 'required',
-			'email' 				=> 'required|email|unique',		
+			'email' 				=> 'required|email|unique',
+			'username'				=> 'required',		
 			'password' 				=> 'required|alphanum|min:5',				
 			'studio_owner'			=> 'required',
 			'number' 				=> 'required',
@@ -63,14 +75,26 @@ class StudioController extends Controller
 		if($validation->fails()){			
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
-			$datos = array(
+
+			$datos_user = array(
+				'username' 	=> $request->input('username'),
+				'email'		=> $request->input('email'),
+				'password'	=> $request->input('password')
+				);
+
+			$this->UsersRepo->addUser($datos_user);
+
+			$user = $datos_user['email'];
+
+			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
+
+			$datos_studio = array(
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
-				'email '				=> $request->input('email'),
-				'password'				=> $request->input('password'),
 				'studio_owner'			=> $request->input('studio_owner'),
 				'number'				=> $request->input('number'),
-				'bank'					=> $request->input('bank')
+				'bank'					=> $request->input('bank'),
+				'id_user'				=> $studio_user;
 				);
 
 			if($this->studioRepo->AddStudio($datos)){
