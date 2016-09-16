@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 content">
+                <div class="col-lg-3 content">
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-perfil">
