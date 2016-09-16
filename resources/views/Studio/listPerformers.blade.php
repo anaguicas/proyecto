@@ -8,10 +8,6 @@
 
             <div class="col-md-6 content" align="center" >
                 <img class= "resize" src="../../public/media/img/registrostudioperformer/caja1.png">
-                <div class="col-md-4 content" align="center">
-                    Oeeee
-
-                </div>
             </div>
 
             <div class="col-md-6 content" align="center">
