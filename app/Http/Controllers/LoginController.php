@@ -44,7 +44,10 @@ class LoginController extends Controller
     	if($validation->fails()){					
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
-			if(Auth::attempt(['name'=> $request['username'], 'password' => $request['password']])){
+			$a = Auth::attempt(['name'=> $request['username'], 'password' => $request['password']]);
+				var_dump($a);
+				die();
+			if($a){
             	return Redirect::to('subscriber.inicio');
 	        }else{
 	        	Session::flash('message-error', 'datos incorrectos');

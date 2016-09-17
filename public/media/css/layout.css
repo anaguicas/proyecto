@@ -4,6 +4,7 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
@@ -29,12 +30,30 @@ body{
 	padding-top: 20px;
 }
 
-.user>div>a img{
-	width: 50%;
-	height: 50%;
+.user-login{
+	padding: 0;
+}
+.user-login>a img{
+	width: 140%;
+}
+
+.user-sigup{
+	padding: 0;
+}
+.user-sigup>a img{
+	width: 160%;
+}
+
+.user-row{
+	display: inline;
+}
+
+.user-bar{
+	padding: 0;
+	text-align: center;
 }
 
 #barra{
-	width: 1%;
-	height: 1%;
+	width: 3.7%;
+	height: 3.7%;
 }
