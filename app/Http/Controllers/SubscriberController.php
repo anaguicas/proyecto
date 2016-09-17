@@ -11,6 +11,10 @@ use App\Http\Controllers\Controller;
 use App\Repositories\SubscriberRepo;
 
 
+use Session;
+use Redirect;
+
+
 class SubscriberController extends Controller{
 		
 
@@ -19,7 +23,13 @@ class SubscriberController extends Controller{
 	}
 
 	public function Inicio(){
-		return view('subscriber/inicio');
+		//validacion de inicio de sesion
+		if(Auth::check()){
+			return view('subscriber/inicio');	
+		}else{
+			return Redirect::to('/');
+		}
+		
 	}
 
 	public function FormRegister(){

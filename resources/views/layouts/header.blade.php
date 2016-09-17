@@ -21,28 +21,29 @@
 				</h1>
 			</div>
 
-			<div class="col-lg-2 pull-right vertical-center user">
-				<div>
-					<a href="{{route('login')}}">
-						<img src="../public/media/img/layout/log_in.png">
-					</a>
-				</div>
+			<div class="col-lg-2 pull-right">
+				<div class="row user-row">
+					<div class="col-lg-4 user-login">
+						<a href="{{route('login')}}">
+							<img src="../public/media/img/layout/log_in.png">
+						</a>
+					</div>
 
-				<div>
-					<a>
-						<img id="barra" src="../public/media/img/layout/barra.png">
-					</a>
-				</div>
+					<div class="col-lg-4 user-bar">
+						<a>
+							<img id="barra" src="../public/media/img/layout/barra.png">
+						</a>
+					</div>
 
-				<div>
-					<a href="{{route('subscriber.register')}}">
-						<img src="../public/media/img/layout/sign_up.png">
-					</a>
-				</div>
-				
-				<!--li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li-->
-	    	
+					<div class="col-lg-4 user-sigup">
+						<a href="{{route('subscriber.register')}}">
+							<img src="../public/media/img/layout/sign_up.png">
+						</a>
+					</div>
+					
+					<!--li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li-->
+	    		</div>
 			</div>
 		</div>
 	</div>

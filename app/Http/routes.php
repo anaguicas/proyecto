@@ -31,9 +31,19 @@ Route::get('login', [
     'uses' => 'LoginController@Inicio'
 ]);
 
+Route::post('login', [
+
+	'as' => 'login',
+    'uses' => 'LoginController@store'
+]);
+
+
+//Route::resource('log','LoginController');
+
 Route::get('SignUp',function(){
 	return view('Singup');
 });
+
 
 Route::get('inicio', function () {
     return view('performers/inicio');

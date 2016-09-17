@@ -41,7 +41,7 @@
 					{{Form::text('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
 				</div>
 				<div class="form-group">
-					{{Form::text('password',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD'))}}
+					{{Form::password('password',['class' => 'form-control input-label', 'placeholder' => 'PASSWORD'])}}
 				@if($errors->has('password'))
 				<p class="text-danger">
 					{{ $errors->first('password') }}
