@@ -1,7 +1,8 @@
 @extends('layouts.formularios')
 @section('content')
-@include('alerts.errors')
+
 <div align="center">
+
 	<div class="formulario">		
 		{{  Form::open(['route'=>'log.store', 'method'=>'POST']) }} 
 			<div class="col-lg-12">

@@ -34,11 +34,25 @@ class LoginController extends Controller
     }
 
     public function store(LoginRequest $request){
-    	if(Auth::attempt(['username'=> $request['email'], 'password' => $request['password']])){
-            return Redirect::to('subscriber.inicio');
-        }
-        Session::flash('message-error', 'datos incorrectos');
 
-        return Redirect::to('landing');
+    	$validation = validator::make($request->all(), [
+			
+			'username'				=> 'required',
+			'password' 				=> 'required'				
+			]);
+
+    	if($validation->fails()){					
+			return redirect()->back()->withInput()->withErrors($validation->errors());			
+		}else{
+			if(Auth::attempt(['name'=> $request['username'], 'password' => $request['password']])){
+            	return Redirect::to('subscriber.inicio');
+	        }else{
+	        	Session::flash('message-error', 'datos incorrectos');
+	        	//return Redirect::to('/');	
+	        }	
+		}
+
+    	
+        
     }
 }
