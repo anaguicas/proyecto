@@ -94,7 +94,7 @@ class StudioController extends Controller
 				'studio_owner'			=> $request->input('studio_owner'),
 				'number'				=> $request->input('number'),
 				'bank'					=> $request->input('bank'),
-				'id_user'				=> $studio_user;
+				'id_user'				=> $studio_user
 				);
 
 			if($this->studioRepo->AddStudio($datos)){

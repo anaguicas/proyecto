@@ -58,16 +58,8 @@
 					{{ $errors->first('city') }}
 				</p>
 				@endif
-				</div>					
-				<div class="form-group">
-					{{Form::text('number',null,array('class' => 'form-control input-label', 'placeholder' => 'CREDIT CARD NUMBER'))}}
-				@if($errors->has('number'))
-				<p class="text-danger">
-					{{ $errors->first('number') }}
-				</p>
-				@endif					
-				</div>					
-				<div class="form-group">					
+				</div>				
+				<!-- <div class="form-group">					
 					<img class="col-lg-3 control-label" src="../public/media/img/Usuario/Tienda2/vencimien.png">
 					<div class="col-lg-5 date">
 						<div class="input-group input-append date" id="datePicker">
@@ -77,15 +69,15 @@
 							</span>
 						</div>
 					</div>
-				</div>
-				<div class="form-group">
+				</div> -->
+				<!-- <div class="form-group">
 					{{Form::text('security_code',null,array('class' => 'form-control input-label', 'placeholder' => 'CREDIT CARD SECURITY CODE'))}}
 				@if($errors->has('security_code'))
 				<p class="text-danger">
 					{{ $errors->first('security_code') }}
 				</p>
 				@endif
-				</div>
+				</div> -->
 
 				<div class="form-group">
 					{{ Form::submit('REGISTRARME', array('class' => 'btn boton-registro')) }}

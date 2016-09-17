@@ -34,13 +34,12 @@ class SubscriberController extends Controller{
 			'name'			 		=> 'required',
 			'last_name' 			=> 'required',
 			'identification' 		=> 'required|num',
-			'username'				=> 'required',
-			'email' 				=> 'required|email|unique',		
-			'password' 				=> 'required|alphanum|min:5',				
 			'city' 					=> 'required',
 			'country' 				=> 'required',
-			'number'				=> 'required|num',
-			'security_code'			=> 'required'	
+			'username'				=> 'required',
+			'email' 				=> 'required|email|unique',		
+			'password' 				=> 'required|min:6|confirmed',
+			'password_confirmation'	=> 'required|min:6'				
 			]);
 
 		/*$errors = array(			
@@ -53,25 +52,28 @@ class SubscriberController extends Controller{
 		if($validation->fails()){					
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
-			/*$name 					=\Input::get('name');
-			$last_name 				=\Input::get('last_name');
-			$identification			=\Input::get('identification');
-			$username				=\Input::get('username');
-			$email 					=\Input::get('email');
-			$password				=\Input::get('password');
-			$city					=\Input::get('city');
-			$number					=\Input::get('number');
-			$due_date 				=\Input::get('due_date');
-			$security_code			=\Input::get('securty_code');*/
 			
-			$name 					= $request->input('name');
-			$last_name 				= $request->input('last_name');
-			$identification 		= $request->input('identification');
-			$username			 	= $request->input('username');
-			$email 					= $request->input('email');
-			$password				= $request->input('password');
-			$city 					= $request->input('city');
-			$country				= $request->input('country');
+			$datos_user = array(
+			'username' 	=> $request->input('username'),
+			'email'		=> $request->input('email'),
+			'password'	=> $request->input('password')
+			);
+
+			$this->UsersRepo->addUser($datos_user);
+
+			$user = $datos_user['email'];
+		
+			$performer_user = $this->UsersRepo->findUser($user)->first()->id;	
+
+			$datos_subscriber = array(
+			'name'					=> $request->input('name'),
+			'last_name'				=> $request->input('last_name'),
+			'identification'		=> $request->input('identification'),
+			'city'					=> $request->input('city'),
+			'country'				=> $request->input('country'),
+			'username' 				=> $request->input('username'),							
+			'id_user'				=> $performer_user
+			);
 		}
 	}
 }
