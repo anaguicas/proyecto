@@ -35,16 +35,16 @@ class StudioController extends Controller
         return view('Studio/listPerformers', ['performers' => $consulta]);
     }
 
-	public function Bank(){
+	public function Bank()
+    {
+        $bank = array(
+            'Davivienda' => 'Davivienda',
+            'Bancolombia' => 'Bancolombia',
+            'Banco de Bogota' => 'Banco de Bogotá'
+        );
 
-		$bank = array(
-			'Davivienda' => 'Davivienda',
-			'Bancolombia' => 'Bancolombia',
-			'Banco de Bogota' => 'Banco de Bogotá'
-			);
-
-		return $bank;
-	}
+        return $bank;
+    }
 
 	public function Inicio(){
 		return view('Studio/inicio');
@@ -93,6 +93,7 @@ class StudioController extends Controller
 
 			$studio_user = $this->usersRepo->findUser($user)->first()->id;	
 
+
 			$datos_studio = array(
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
@@ -104,6 +105,8 @@ class StudioController extends Controller
 				'bank'					=> $request->input('bank'),
 				'number'				=> $request->input('number'),
 				'id_user'				=> $studio_user
+				'id_user'				=> $studio_user,
+				'bank'					=> $request->input('bank')
 				);
 
 			$credit_card = $this->creditRepo->addCreditCard($datos_card);			

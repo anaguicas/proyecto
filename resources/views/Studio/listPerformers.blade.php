@@ -14,8 +14,11 @@
         <div class="row pandora">
             <h1>
                 <a href="{{route('landing')}}">
-                    <img src="../../public/media/img/Pantalla de inicio png/registro studio performer/pandora.png">
+                    <br><img width= 300px height=80px src="../../public/media/img/Pantalla de inicio png/registro studio performer/pandora.png">
                 </a>
+                <div class="tittle-font">
+                    <br><span style="color: #ffcc99; ">PERFORMERS</span>
+                </div>
             </h1>
         </div>
     </div>
@@ -23,9 +26,8 @@
 
 
     <div class="container" >
-
         <div class="col-md-12 border-container">
-
+            @foreach($performers as $performer)
             <div class="col-md-6 content-1"   >
                     <div class="col-md-12">
                         <div class="col-md-4">
@@ -33,62 +35,61 @@
                                 <img class= "circle" src="../../public/media/img/log in/usuario.png">
                             </div>
                             <div class="row">
-                                <h2>HELLO!</h2>
+                                <h2>{{$performer->nombreperformer}}</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="col-md-12">
+
+                                <div class="col-md-9">
+                                    MEMBER SINCE:
+                                </div>
+
+                                <div class="col-md-3">
+                                    2010/10/12
+                                </div>
+
+
+                                <div class="col-md-9">
+                                    MONTH'S TOKENS:
+                                </div>
+
+                                <div class="col-md-3">
+                                    12345
+                                </div>
+
+                                <div class="col-md-9">
+                                    TOTAL:
+                                </div>
+
+                                <div class="col-md-3">
+                                    12345
+                                </div>
                             </div>
 
-                        </div>
-                        <div class="col-md-8">TEXTO!</div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img class= "resize" src="../../public/media/img/registrostudioperformer/edit.png">
+                                </div>
 
-                    </div>
-            </div>
+                                <div class="col-md-9">
+                                    EDITAR
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p><span class="glyphicon glyphicon-remove"></span></p>
+                                </div>
 
-            <div class="col-md-6 content-1"  >
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <div class="row fotico">
-                            <img class= "circle" src="../../public/media/img/log in/usuario.png">
-                        </div>
-                        <div class="row">
-                            <h2>{{$performers[0]->nombreperformer}}</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-8">TEXTO!</div>
-
-                </div>
-            </div>
-
-
-
-            <div class="col-md-6 content-1"  >
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <div class="row fotico">
-                            <img class= "circle" src="../../public/media/img/log in/usuario.png">
-                        </div>
-                        <div class="row">
-                            <h2>HELLO!</h2>
+                                <div class="col-md-9">
+                                    ELIMINAR
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-8">TEXTO!</div>
-
-                </div>
             </div>
-
-
-            <div class="col-md-6 content" align="center">
-                <img class= "resize" src="../../public/media/img/registrostudioperformer/caja1.png">
-            </div>
-
-
-            <div class="col-md-6 content" align="center">
-                <img class= "resize" src="../../public/media/img/registrostudioperformer/caja1.png">
-
-            </div>
-
-            <div class="col-md-6 content" align="center">
-                <img class= "resize" src="../../public/media/img/registrostudioperformer/caja1.png">
-            </div>
+            @endforeach
         </div>
     </div>
 </body >

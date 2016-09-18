@@ -1,14 +1,24 @@
+.tittle-font{
+  font-family: "Impact", Charcoal, sans-serif;
+}
+
+.glyphicon.glyphicon-remove {
+  font-size: 35px;
+}
+
+
 .content{
   padding-top: 67px;
 }
 
 .content-1{
-  padding: 0px 0px 0px 0px;
-  width: 40%;
-  height: 200px;
+  padding: 10px 50px 10px 50px;
+  width: 50%;
+  height: 170px;
   background: url('../img/registrostudioperformer/caja1.png') center no-repeat fixed;
   background-size: auto auto;
-  background-position: left bottom;
+  background-clip: content-box;
+
 
 }
 
