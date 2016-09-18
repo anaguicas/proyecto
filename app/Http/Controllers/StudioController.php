@@ -28,20 +28,18 @@ class StudioController extends Controller
 
     }
 
-    
-    public function __construct(){
-		$this->studioRepo = New StudioRepo;
-	}
+	public function Bank()
+    {
 
-	public function Bank(){
+        $bank = array(
+            'Davivienda' => 'Davivienda',
+            'Bancolombia' => 'Bancolombia',
+            'Banco de Bogota' => 'Banco de Bogotá'
+        );
 
-		$bank = array(
-			'Davivienda' => 'Davivienda',
-			'Bancolombia' => 'Bancolombia',
-			'Banco de Bogota' => 'Banco de Bogotá'
-			);
+        return $bank;
 
-		return $bank;
+    }
     public function __construct(StudioRepo $studio){
 		$this->studioRepo = $studio;
 	}
@@ -94,14 +92,14 @@ class StudioController extends Controller
 
 			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
 
-			$datos_studio = array(
+			//$datos_studio = array(
 			$datos = array(
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
 				'studio_owner'			=> $request->input('studio_owner'),
 				'number'				=> $request->input('number'),
 				'bank'					=> $request->input('bank'),
-				'id_user'				=> $studio_user
+				'id_user'				=> $studio_user,
 				'bank'					=> $request->input('bank')
 				);
 
