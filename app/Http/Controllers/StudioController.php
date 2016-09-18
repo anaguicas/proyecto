@@ -9,6 +9,7 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\StudioRepo;
+use App\Repositories\UsersRepo;
 
 
 
@@ -28,6 +29,19 @@ class StudioController extends Controller
     }
 
     
+    public function __construct(){
+		$this->studioRepo = New StudioRepo;
+	}
+
+	public function Bank(){
+
+		$bank = array(
+			'Davivienda' => 'Davivienda',
+			'Bancolombia' => 'Bancolombia',
+			'Banco de Bogota' => 'Banco de Bogotá'
+			);
+
+		return $bank;
     public function __construct(StudioRepo $studio){
 		$this->studioRepo = $studio;
 	}
@@ -37,6 +51,8 @@ class StudioController extends Controller
 	}
 
 	public function FormRegister(){
+		$bank	 = $this->Bank();
+		return view('Studio/registro', ['bank' => $bank]);
 		return view('Studio/registro');
 	}
 
@@ -46,8 +62,10 @@ class StudioController extends Controller
 		$validation = validator::make($request->all(), [			
 			'studio_name'			=> 'required',
 			'description'			=> 'required',
-			'email' 				=> 'required|email|unique',		
-			'password' 				=> 'required|alphanum|min:5',				
+			'email' 				=> 'required|email|unique',
+			'username'				=> 'required',		
+			'email' 				=> 'required|email|unique',
+			'password' 				=> 'required|alphanum|min:5',
 			'studio_owner'			=> 'required',
 			'number' 				=> 'required',
 			'bank'					=> 'required'	
@@ -63,13 +81,27 @@ class StudioController extends Controller
 		if($validation->fails()){			
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
+
+			$datos_user = array(
+				'username' 	=> $request->input('username'),
+				'email'		=> $request->input('email'),
+				'password'	=> $request->input('password')
+				);
+
+			$this->UsersRepo->addUser($datos_user);
+
+			$user = $datos_user['email'];
+
+			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
+
+			$datos_studio = array(
 			$datos = array(
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
-				'email '				=> $request->input('email'),
-				'password'				=> $request->input('password'),
 				'studio_owner'			=> $request->input('studio_owner'),
 				'number'				=> $request->input('number'),
+				'bank'					=> $request->input('bank'),
+				'id_user'				=> $studio_user
 				'bank'					=> $request->input('bank')
 				);
 

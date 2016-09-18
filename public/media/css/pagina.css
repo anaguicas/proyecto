@@ -210,6 +210,7 @@ input{
   font-weight: bold;
 }
 
+
 .form-control::-webkit-input-placeholder { 
   color: rgba(0, 0, 0, 0.82);
   font-weight: bold; 
@@ -294,3 +295,68 @@ input{
 .country{
   padding-bottom: 14px;
 }
+
+/*---- Login ----
+-----------------
+*/
+
+.row-centered{
+  text-align: center;
+}
+
+.col-centered{
+  display: inline-block;
+}
+
+.formulario-login{
+  background-image: url('../img/log in/caja.png');
+  background-size: 65% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.login-mi-cuenta img{
+  width: 40%;
+  height: 40%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.boton-login{
+  width: 42%;
+  height: 40px;
+  font-weight: bold;
+  /*color: rgba(0, 0, 0, 0.82);*/
+  text-align: center;
+  /*background-image: url('../img/Pantalla de inicio png/registro studio performer/boton registro.png');*/
+  background-color: rgba(198, 154, 123, 0.9);
+
+
+  margin-top: 54px;
+  color: black;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 20px;
+}
+
+.display-inline{
+  display: inline-block;
+}
+
+#img-cuenta img{
+  width: 50%;
+  height: 50%;
+}
+
+.boton-login:hover{
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+}
+
+/*
+#img-cuenta{
+  background-color: rgba(204, 204, 204, 0.78);
+  background-size: cover;
+}
+
+*/

@@ -5,7 +5,7 @@
 		{{  Form::open(array('action'=>'PerformerController@Register', 'method' => 'post')) }} 		
 		<div class="col-lg-12">
 			@if(Session::has('message'))
-			    <div class="alert alert-info col-xs-12">{{Session::get('message')}}</div>
+			    <div class="alert alert-success col-xs-12">{{Session::get('message')}}</div>
 			@endif
 			<div class="form-group col-lg-5">		
 				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}								
@@ -84,6 +84,17 @@
 					{{ $errors->first('number') }}
 				</p>
 				@endif					
+			</div>
+			<div class="form-group">
+				{{Form::label('bank', 'BANK', array('class' => 'col-lg-4 control-label'))}}
+				<div class="col-lg-5 country">
+					{{ Form::select('bank', $bank, null, array('class'=>'form-control select-label ', 'required' => 'required')) }}
+					@if ($errors->has('bank'))
+					<p class="text-danger">
+						{{ $errors->first('bank') }}
+					</p>
+					@endif
+				</div>
 			</div>					
 			<div class="form-group">					
 				{{Form::label('birthdate', 'BIRTHDATE', array('class' => 'col-lg-6 control-label'))}}

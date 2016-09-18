@@ -14,12 +14,14 @@ class StudioRepo extends BaseRepo{
 
     public function AddStudio($studio){
         $studios = new Studio;
+
+        $performers->id_user    = $datos['id_user'];
         $studios->name          = $studio['studio_name'];
         $studios->description   = $studio['description'];
-        $studios->email         = $studio['email'];
-        $studios->password      = $studio['password'];
-        $studios->owner         = $studio['studio-owner'];
-        $studios->password      = $studio['password'];
+        $studios->responsible   = $studio['studio-owner'];
+        $studio->save();
+
+        return true;
     }
 
 
