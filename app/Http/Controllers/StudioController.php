@@ -176,7 +176,7 @@ class StudioController extends Controller
 			if($this->studioRepo->AddStudio($datos)){
 				return redirect()->back()->with('message','Successful.');
 			}else{
-				return redirect()->back()->with('error','An error has ocurred.');
+				return redirect()->back()->with('error','There was a problem. Please try again');
 			}
 		}
 	}

@@ -31,7 +31,7 @@
 			<div class="row pandora">
 				<h1>
 					<a href="{{route('landing')}}">
-						<img src="../../public/media/img/Pantalla de inicio png/registro studio performer/pandora.png">
+						<img width= 300px height=80px src="../../public/media/img/Pantalla de inicio png/registro studio performer/pandora.png">
 					</a>
 				</h1>    	
 			</div>

@@ -92,9 +92,14 @@ Route::post('performer-register',[
 	'uses' => 'PerformerController@Register'
 ]);
 
-Route::get('edit-profile',[
+Route::get('performer/edit-profile',[
 	'as' => 'performer.editprofile',
 	'uses' => 'PerformerController@FormProfile'
+]);
+
+Route::get('performer/edit-profile',[
+	'as' => 'performer.save',
+	'uses' => 'PerformerController@saveProfile'
 ]);
 
 /*---------Studio---------*/

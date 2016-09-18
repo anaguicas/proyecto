@@ -15,7 +15,7 @@
 				<div class="formulario-profile col-lg-7">		
 					{{  Form::model($studio, array('route' => 'studio.save', 'method' => 'PATCH')) }} 
 					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
-					<div class="form-group">
+					<div class="form-group">						
 						{{Form::text('studio_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}
 						@if($errors->has('studio_name'))
 						<p class="text-danger">
