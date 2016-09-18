@@ -15,13 +15,14 @@
 		<div class="row">
 			<div class="col-lg-1 logo">
 				<h1>
-					<a href="#">
+					<a href="{{route('landing')}}">
 						<img src="../public/media/img/layout/pandora.png">
 					</a>
 				</h1>
 			</div>
 
 			<div class="col-lg-2 pull-right">
+			@if(!Auth::check())
 				<div class="row user-row">
 					<div class="col-lg-4 user-login">
 						<a href="{{route('login')}}">
@@ -44,6 +45,27 @@
 					<!--li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li-->
 	    		</div>
+	    	@else
+	    		<div class="row">
+	    			<div class="dropdown categorias">
+					    <!--img src="../public/media/img/layout/menu.png" lass="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"-->
+					    <!--a href="" class="dropdown-toggle"  data-toggle="dropdown">
+					    	<i class="fa fa-gear fa-fw"></i>
+					    	<i class="fa fa-caret-down"></i>
+					    </a-->
+					    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+					    {{Auth::user()->name}}
+  						<span class="caret"></span>
+  						</button>
+					    <ul class="dropdown-menu inverse-dropdown">
+					      <li><a href="{{route('subscriber.inicio')}}">Menu</a></li>
+					      <li><a href="#">Profile</a></li>
+					      <li><a href="{{route('logout')}}">Log out</a></li>
+					    </ul>
+				  	</div>
+	    		</div>
+	    	@endif
+
 			</div>
 		</div>
 	</div>

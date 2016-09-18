@@ -44,18 +44,42 @@ class LoginController extends Controller
     	if($validation->fails()){					
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
-			$a = Auth::attempt(['name'=> $request['username'], 'password' => $request['password']]);
-				var_dump($a);
-				die();
+			$a = Auth::attempt(['name'=> $request['username'], 'password' => $request['password'], 'is_active' =>'TRUE']);
 			if($a){
-            	return Redirect::to('subscriber.inicio');
+            	return Redirect::to('subscriber/inicio');
 	        }else{
-	        	Session::flash('message-error', 'datos incorrectos');
-	        	//return Redirect::to('/');	
+	        	Session::flash('message-error', 'Unregistered user');
+	        	return Redirect::to('login');	
 	        }	
 		}
 
-    	
+    	/*
+	if($validation->fails()){					
+			return redirect()->back()->withInput()->withErrors($validation->errors());			
+		}else{
+			$a = Auth::attempt(['name'=> $request['username'], 'password' => $request['password']]);
+			if($a){
+				if(Auth::attempt(['is_active' =>'TRUE'])){
+					//usuario con permisos
+            		return Redirect::to('subscriber/inicio');
+				}else{	
+						//usuario registrado inactivo
+						Session::flash('message-error', 'User without permissions');
+	        			return Redirect::to('login');	
+				}
+
+	        }else{
+	        	//no registrado
+	        	Session::flash('message-error', 'Unregistered user');
+	        	return Redirect::to('login');	
+	        }	
+		}
+    	*/
         
+    }
+
+    public function logout(){
+    	Auth::logout();
+    	return Redirect::to('/');
     }
 }

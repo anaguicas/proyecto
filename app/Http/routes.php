@@ -37,6 +37,11 @@ Route::post('login', [
     'uses' => 'LoginController@store'
 ]);
 
+Route::get('logout', [
+
+	'as' => 'logout',
+    'uses' => 'LoginController@logout'
+]);
 
 //Route::resource('log','LoginController');
 
@@ -74,6 +79,11 @@ Route::get('edit-profile',[
 	'as' => 'subscriber.editprofile',
 	'uses' => 'SubscriberController@FormProfile'
 ]);
+Route::post('edit-profile',[
+	'as' => 'subscriber.editprofile',
+	'uses' => 'SubscriberController@FormProfile'
+]);
+
 
 /*--------Performer-----------*/
 
