@@ -22,7 +22,7 @@ class StudioController extends Controller
         $ListaPerformers = new StudioRepo();
         $consulta = $ListaPerformers->listPerformers();
         //dump ($consulta); die;
-        return view('Studio/listPerformers');
+        return view('Studio/listPerformers', ['performers' => $consulta]);
 
 
     }
