@@ -5,6 +5,9 @@
 		{{  Form::open(array('action'=>'StudioController@Register', 'method' => 'post')) }} 
 		<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
 		<div class="col-lg-12">
+			@if(Session::has('message'))
+			    <div class="alert alert-success col-xs-12">{{Session::get('message')}}</div>
+			@endif
 			<div class="form-group">
 				{{Form::text('studio_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}
 				@if($errors->has('studio_name'))

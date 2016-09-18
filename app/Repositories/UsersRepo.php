@@ -17,7 +17,7 @@ class UsersRepo extends BaseRepo{
 		$user->email				= $datos['email'];
 		$user->password				= bcrypt($datos['password']);
 		$user->is_active			= false;
-		$user->user_type 			= 1;
+		$user->user_type 			= $datos['user_type'];
 		$user->save();
 
 		return true;
