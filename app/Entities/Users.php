@@ -14,18 +14,22 @@ class Users extends Model{
 	protected $table ='users';
 	
 	public function performers(){
-		return $this->hasMany('App\Entities\Performers','id_user_performer','id');
+		return $this->hasMany('App\Entities\Performers','Performers_id_user_fkey','id');
 	}	
 
 	public function Subscriber(){
-		return $this->hasMany('App\Entities\Performers','id_user','id');	
+		return $this->hasMany('App\Entities\Subscriber','Subscriber_id_user_fkey','id');	
 	}
 
 	public function Studio(){
-		return $this->hasMany('App\Entities\Performers','id_user_studio','id');	
+		return $this->hasMany('App\Entities\Studio','Studio_id_user_fkey','id');	
 	}
 
 	public function Admin(){
-		return $this->hasMany('App\Entities\Admin', 'id_user_admin','id');
+		return $this->hasMany('App\Entities\Admin', 'Admin_id_user_fkey','id');
+	}
+
+	public function creditCard(){
+		return $this->hasOne('App\Entities\Credit_card','credit_card_user','id');
 	}
 }

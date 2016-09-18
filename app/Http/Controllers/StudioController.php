@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\StudioRepo;
 use App\Repositories\UsersRepo;
+use App\Repositories\CreditCardRepo;
+use Illuminate\Support\Facades\Redirect;
 
 
 
@@ -18,20 +20,20 @@ class StudioController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showPerformers(){
-
-        $ListaPerformers = new StudioRepo();
-        $consulta = $ListaPerformers->listPerformers();
-        //dump ($consulta); die;
-        return view('Studio/listPerformers', ['performers' => $consulta]);
-
-
-    }
 
     
     public function __construct(){
-		$this->studioRepo = New StudioRepo;
+		$this->studioRepo 	= New StudioRepo;
+		$this->usersRepo 	= New UsersRepo;
+		$this->creditRepo	= New CreditCardRepo;
 	}
+
+    public function showPerformers(){
+
+        $consulta = $this->studioRepo->listPerformers();
+        //dump ($consulta); die;
+        return view('Studio/listPerformers', ['performers' => $consulta]);
+    }
 
 	public function Bank(){
 
@@ -42,8 +44,6 @@ class StudioController extends Controller
 			);
 
 		return $bank;
-    public function __construct(StudioRepo $studio){
-		$this->studioRepo = $studio;
 	}
 
 	public function Inicio(){
@@ -53,7 +53,6 @@ class StudioController extends Controller
 	public function FormRegister(){
 		$bank	 = $this->Bank();
 		return view('Studio/registro', ['bank' => $bank]);
-		return view('Studio/registro');
 	}
 
 	public function Register(Request $request){
@@ -61,10 +60,10 @@ class StudioController extends Controller
 		$validation = validator::make($request->all(), [			
 			'studio_name'			=> 'required',
 			'description'			=> 'required',
-			'email' 				=> 'required|email|unique',
 			'username'				=> 'required',		
-			'email' 				=> 'required|email|unique',
-			'password' 				=> 'required|alphanum|min:5',
+			'email'					=> 'required|email|max:255|unique:users',
+			'password' => 'required|min:6|confirmed',
+			'password_confirmation'	=> 'required|min:6',
 			'studio_owner'			=> 'required',
 			'number' 				=> 'required',
 			'bank'					=> 'required'	
@@ -88,36 +87,54 @@ class StudioController extends Controller
 				'password'	=> $request->input('password')
 				);
 
-			$this->UsersRepo->addUser($datos_user);
+			$this->usersRepo->addUser($datos_user);
 
 			$user = $datos_user['email'];
 
-			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
+			$studio_user = $this->usersRepo->findUser($user)->first()->id;	
 
 			$datos_studio = array(
-			$datos = array(
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
-				'studio_owner'			=> $request->input('studio_owner'),
-				'number'				=> $request->input('number'),
-				'bank'					=> $request->input('bank'),
-				'id_user'				=> $studio_user
-				'bank'					=> $request->input('bank')
+				'studio_owner'			=> $request->input('studio_owner'),				
+				'id_user'				=> $studio_user		
 				);
 
-			if($this->studioRepo->AddStudio($datos)){
+			$datos_card = array(
+				'bank'					=> $request->input('bank'),
+				'number'				=> $request->input('number'),
+				'id_user'				=> $studio_user
+				);
+
+			$credit_card = $this->creditRepo->addCreditCard($datos_card);			
+
+			if($this->studioRepo->AddStudio($datos_studio)){
 				return redirect()->back()->with('message','Successful.');
 			}else{
-				return redirect()->back()->with('error','An error has ocurred.');
+				return redirect()->back()->with('error','There was a problem. Pleas try again');
 			}
 		}
 	}
 
 	public function FormProfile(){
-		return view('Studio/editarPerfil');
+		$bank	 = $this->Bank();
+		$user = 'studio prueba';
+		$studio = $this->studioRepo->editProfile($user);		
+		/*var_dump($studio);
+		die();*/
+		/*$studio_name 	= $studio[0]->name;
+		$description 	= $studio[0]->description;
+		$email			= $studio[0]->email;
+		$username		= $studio[0]->name;
+		$studio_owner	= $studio[0]->responsible;
+		$number			= $studio[0]->number;
+		$bank 			= $studio[0]->bank;*/
+		
+		return view('Studio/editarPerfil', compact('studio'));
+		//return view('Studio/editarPerfil', ['studio' => $studio]);
 	}
 
-	public function editProfile(){
+	public function saveProfile(){
 		$validation = validator::make($request->all(), [			
 			'studio_name'			=> 'required',
 			'description'			=> 'required',

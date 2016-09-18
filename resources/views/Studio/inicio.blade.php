@@ -30,6 +30,7 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-foto">
+                            <img src="../../public/media/img/log in/usuario.png">
                         </div>
                     </div>
                 </div>
@@ -38,7 +39,9 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-perfil">
-                            <a href="subscriber/edit-profile"></a>
+                            <a href="{{route('studio.editprofile')}}">
+                                <img class="perfil" src="../../public/media/img/Usuario/Índice/perfil-2.png">
+                            </a>                            
                         </div>
                     </div>
                 </div>
@@ -47,6 +50,7 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-inicio">
+                            <img class="perfil" src="../../public/media/img/Usuario/Índice/streaming.png">
                         </div>
                     </div>
                 </div>
@@ -55,6 +59,7 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-publicidad">
+                            <img class="perfil" src="../../public/media/img/Usuario/Índice/perfil-2.png">
                         </div>
                     </div>
                 </div>
@@ -63,6 +68,7 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-tokens">
+                            <img class="perfil" src="../../public/media/img/Usuario/Índice/actividad tokens.png">
                         </div>
                     </div>
                 </div>
@@ -71,6 +77,7 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-tienda">
+                            <img class="perfil" src="../../public/media/img/Usuario/Índice/tienda.png">
                         </div>
                     </div>
                 </div>

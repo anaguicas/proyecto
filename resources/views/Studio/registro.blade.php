@@ -44,7 +44,7 @@
 				{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
 			</div>
 			<div class="form-group">
-				{{Form::text('password',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD'))}}
+				{{Form::password('password',['class' => 'form-control input-label', 'placeholder' => 'PASSWORD'])}}
 				@if($errors->has('password'))
 				<p class="text-danger">
 					{{ $errors->first('password') }}
@@ -52,8 +52,8 @@
 				@endif
 			</div>
 			<div class="form-group">
-				{{Form::text('password_confirmation',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD CONFIRMATION'))}}
-				@if($errors->has('password_confirmation'))
+				{{Form::password('password_confirmation',['class' => 'form-control input-label', 'placeholder' => 'PASSWORD CONFIRMATION'])}}
+				@if($errors->has('password:confirmatio'))
 				<p class="text-danger">
 					{{ $errors->first('password_confirmation') }}
 				</p>

@@ -42,4 +42,14 @@ class SubscriberRepo extends BaseRepo{
 
 		return true;
 	}
+
+	public function editProfile($user){
+        $subscriber = DB::table('Subscriber')
+            ->join('users','Subscriber.id_user','=','users.id')
+            ->select('users.email','users.password','Subscriber.name','Subscriber.last_name','Subscriber.identification','Subscriber.country')
+            ->where('Subscriber.name','=',$user)
+            ->get();
+
+        return $subscriber;
+    }
 }

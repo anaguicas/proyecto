@@ -70,7 +70,7 @@ Route::post('subscriber-register',[
 	'uses' => 'SubscriberController@Register'
 ]);
 
-Route::get('/edit-profile',[
+Route::get('edit-profile',[
 	'as' => 'subscriber.editprofile',
 	'uses' => 'SubscriberController@FormProfile'
 ]);
@@ -92,6 +92,11 @@ Route::post('performer-register',[
 	'uses' => 'PerformerController@Register'
 ]);
 
+Route::get('edit-profile',[
+	'as' => 'performer.editprofile',
+	'uses' => 'PerformerController@FormProfile'
+]);
+
 /*---------Studio---------*/
 Route::get('studio/inicio', [
 	'as' => 'studio.inicio',
@@ -109,10 +114,14 @@ Route::post('studio-register', [
 	'uses' => 'StudioController@Register'
 ]);
 
-
 Route::get('studio/edit-profile',[
 	'as' => 'studio.editprofile',
 	'uses' => 'StudioController@FormProfile'
+]);
+
+Route::post('studio/edit-profile',[
+	'as' => 'studio.save',
+	'uses' => 'StudioController@saveProfile'
 ]);
 
 Route::post('registro',function(){
