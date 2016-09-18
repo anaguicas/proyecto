@@ -1,0 +1,115 @@
+.content{
+  padding-top: 67px;
+}
+
+.hexagon {
+  width: 165px;
+  height: 230px;
+  overflow: hidden;
+  visibility: hidden;
+  transform: rotate(75deg);
+  cursor: pointer;
+}
+
+.hexagon-in1 {
+  overflow: hidden;
+  width: 166px;
+  height: 192px;
+  transform: rotate(-63deg);
+}
+
+.hexagon-foto{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  /*background-image: url('../img/log in/usuario.png');*/
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-perfil{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  /*background-image: url('../img/Usuario/Índice/perfil-2.png');*/
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-inicio{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/streaming.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-publicidad{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/perfil-2.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-tokens{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/actividad tokens.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-tienda{
+  width: 168px;
+  height: 191px;
+  visibility: visible;
+  transform: rotate(-63deg)  ;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: url('../img/Usuario/Índice/tienda.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hexagon-foto > img{
+  padding: 95px 0px 124px 0px;
+ -ms-transform: rotate(20deg); /* IE 9 */
+ -webkit-transform: rotate(20deg); /* Safari */
+ transform: rotate(50deg);
+
+}
+
+.hexagon-perfil > a > img{
+  padding: 95px 0px 124px 0px;
+ -ms-transform: rotate(20deg); /* IE 9 */
+ -webkit-transform: rotate(20deg); /* Safari */
+ transform: rotate(50deg);
+
+}
+
+.formulario-profile{
+  width: 500px;
+  padding-top: 41px;
+}
+
+.edicion{
+  margin-left: 254px;
+}
+
+img.resize{
+  max-width:70%;
+  max-height:70%;
+}

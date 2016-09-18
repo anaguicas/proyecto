@@ -44,9 +44,17 @@
   visibility: visible;
   transform: rotate(-63deg)  ;
   background-color: rgba(204, 204, 204, 0.8);
-  background-image: url('../img/log in/usuario.png');
+  /*background-image: url('../img/log in/usuario.png');*/
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+.hexagon-foto > img{
+  padding: 95px 0px 124px 0px;
+ -ms-transform: rotate(20deg); /* IE 9 */
+ -webkit-transform: rotate(20deg); /* Safari */
+ transform: rotate(50deg);
+
 }
 
 .formulario-profile{

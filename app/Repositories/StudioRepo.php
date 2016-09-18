@@ -18,13 +18,16 @@ class StudioRepo extends BaseRepo{
         $performers->id_user    = $datos['id_user'];
         $studios->name          = $studio['studio_name'];
         $studios->description   = $studio['description'];
-        $studios->responsible   = $studio['studio-owner'];
+        $studios->responsible   = $studio['studio-owner'];        
+        $studio->timestamps             = false;
         $studio->save();
 
         return true;
     }
 
-
+    public function editProfile(){
+        
+    }
 
 	//Resta verificar la cantidad de Tokens del performer.
 	public function listPerformers(){

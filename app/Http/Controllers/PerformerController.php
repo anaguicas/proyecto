@@ -151,7 +151,7 @@ public function Register(Request $request){
 		if($this->PerformerRepo->addPerformer($datos_performer)){
 			return redirect()->back()->with('message','Successfull');
 		}else{
-			return redirect()->back()->with('message','');
+			return redirect()->back()->with('error','An error has ocurred.');
 		}
 
 
