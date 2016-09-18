@@ -6,7 +6,20 @@
 		<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
 		<div class="col-lg-12">
 			@if(Session::has('message'))
-			    <div class="alert alert-success col-xs-12">{{Session::get('message')}}</div>
+			    <div class="alert alert-success alert-dissmissible col-xs-12">
+			    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    		<span aria-hidden="true">×</span>
+			    	</button>			    	
+			    	{{Session::get('message')}}
+			    </div>
+			@endif
+			@if(Session::has('error'))
+			    <div class="alert alert-danger alert-dissmissible col-xs-12">
+			    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    		<span aria-hidden="true">×</span>
+			    	</button>			    	
+			    	{{Session::get('error')}}
+			    </div>
 			@endif
 			<div class="form-group col-lg-5">		
 				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}								

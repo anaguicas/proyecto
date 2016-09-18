@@ -70,6 +70,11 @@ Route::post('subscriber-register',[
 	'uses' => 'SubscriberController@Register'
 ]);
 
+Route::get('/edit-profile',[
+	'as' => 'subscriber.editprofile',
+	'uses' => 'SubscriberController@FormProfile'
+]);
+
 /*--------Performer-----------*/
 
 Route::get('performer/inicio', [

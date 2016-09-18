@@ -53,7 +53,6 @@ class StudioController extends Controller
 
 	public function Register(Request $request){
 
-
 		$validation = validator::make($request->all(), [			
 			'studio_name'			=> 'required',
 			'description'			=> 'required',
@@ -71,6 +70,56 @@ class StudioController extends Controller
 			'email' 	=> 'El campo :attribute debe ser un email válido',
 			'unique' 	=> 'El email ingresado ya existe en la base de datos'
 			);*/
+
+		if($validation->fails()){			
+			return redirect()->back()->withInput()->withErrors($validation->errors());			
+		}else{
+
+			$datos_user = array(
+				'username' 	=> $request->input('username'),
+				'email'		=> $request->input('email'),
+				'user_type'	=> 3,
+				'password'	=> $request->input('password')
+				);
+
+			$this->UsersRepo->addUser($datos_user);
+
+			$user = $datos_user['email'];
+
+			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
+
+			$datos_studio = array(
+				'studio_name'			=> $request->input('studio_name'),
+				'description'			=> $request->input('description'),
+				'studio_owner'			=> $request->input('studio_owner'),
+				'number'				=> $request->input('number'),
+				'bank'					=> $request->input('bank'),
+				'id_user'				=> $studio_user
+				);
+
+			if($this->studioRepo->AddStudio($datos)){
+				return redirect()->back()->with('message','Successful.');
+			}else{
+				return redirect()->back()->with('error','An error has ocurred.');
+			}
+		}
+	}
+
+	public function FormProfile(){
+		return view('Studio/editarPerfil');
+	}
+
+	public function editProfile(){
+		$validation = validator::make($request->all(), [			
+			'studio_name'			=> 'required',
+			'description'			=> 'required',
+			'email' 				=> 'required|email|unique',
+			'username'				=> 'required',		
+			'password' 				=> 'required|alphanum|min:5',				
+			'studio_owner'			=> 'required',
+			'number' 				=> 'required',
+			'bank'					=> 'required'	
+			]);
 
 		if($validation->fails()){			
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
@@ -99,13 +148,10 @@ class StudioController extends Controller
 
 			if($this->studioRepo->AddStudio($datos)){
 				return redirect()->back()->with('message','Successful.');
+			}else{
+				return redirect()->back()->with('error','An error has ocurred.');
 			}
-			return redirect()->back()->with('message','There was a problem.');
 		}
-	}
-
-	public function FormProfile(){
-		return view('Studio/editarPerfil');
 	}
 
 }

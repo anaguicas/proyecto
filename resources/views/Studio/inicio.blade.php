@@ -6,6 +6,7 @@
     <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/layout.css">
     <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/pagina.css">
     <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/datepicker.css">
+    <!-- <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/studio.css"> -->
     <!--link media="all" type="text/css" rel="stylesheet" href="{{env('MEDIA_URL')}}/css/bootstrap.css"-->
     <link media="all" type="text/css" rel="stylesheet" href="">
     @yield('styles')
@@ -37,7 +38,7 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-perfil">
-                            <a href="studio/edit-profile"></a>
+                            <a href="subscriber/edit-profile"></a>
                         </div>
                     </div>
                 </div>
