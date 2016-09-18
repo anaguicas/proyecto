@@ -41,7 +41,7 @@ class StudioRepo extends BaseRepo{
 		$performers=DB::table('Performers')
             ->join('Performer_studio','Performers.id', '=', 'Performer_studio.id_performer')
             ->join('Studio', 'Studio.id', '=', 'Performer_studio.id_studio' )
-            ->select('Performers.name as nombreperformer' , 'Performer_studio.id_studio', 'Studio.name' )
+            ->select('Performers.name as nombreperformer' , 'Performer_studio.id_studio', 'Studio.studio_name' )
             ->get ();
         return ($performers);
     }

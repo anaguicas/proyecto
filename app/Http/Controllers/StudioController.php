@@ -104,7 +104,6 @@ class StudioController extends Controller
 			$datos_card = array(
 				'bank'					=> $request->input('bank'),
 				'number'				=> $request->input('number'),
-				'id_user'				=> $studio_user
 				'id_user'				=> $studio_user,
 				'bank'					=> $request->input('bank')
 				);
