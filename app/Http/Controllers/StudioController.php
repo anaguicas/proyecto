@@ -23,7 +23,9 @@ class StudioController extends Controller
         $ListaPerformers = new StudioRepo();
         $consulta = $ListaPerformers->listPerformers();
         //dump ($consulta); die;
-        return view('Studio/listPerformers');
+        return view('Studio/listPerformers', ['performers' => $consulta]);
+
+
     }
 
     
@@ -40,6 +42,8 @@ class StudioController extends Controller
 			);
 
 		return $bank;
+    public function __construct(StudioRepo $studio){
+		$this->studioRepo = $studio;
 	}
 
 	public function Inicio(){
@@ -49,6 +53,7 @@ class StudioController extends Controller
 	public function FormRegister(){
 		$bank	 = $this->Bank();
 		return view('Studio/registro', ['bank' => $bank]);
+		return view('Studio/registro');
 	}
 
 	public function Register(Request $request){
@@ -58,7 +63,8 @@ class StudioController extends Controller
 			'description'			=> 'required',
 			'email' 				=> 'required|email|unique',
 			'username'				=> 'required',		
-			'password' 				=> 'required|alphanum|min:5',				
+			'email' 				=> 'required|email|unique',
+			'password' 				=> 'required|alphanum|min:5',
 			'studio_owner'			=> 'required',
 			'number' 				=> 'required',
 			'bank'					=> 'required'	
@@ -89,12 +95,14 @@ class StudioController extends Controller
 			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
 
 			$datos_studio = array(
+			$datos = array(
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
 				'studio_owner'			=> $request->input('studio_owner'),
 				'number'				=> $request->input('number'),
 				'bank'					=> $request->input('bank'),
 				'id_user'				=> $studio_user
+				'bank'					=> $request->input('bank')
 				);
 
 			if($this->studioRepo->AddStudio($datos)){
