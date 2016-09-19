@@ -44,13 +44,32 @@ class LoginController extends Controller
     	if($validation->fails()){					
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
-			$a = Auth::attempt(['name'=> $request['username'], 'password' => $request['password'], 'is_active' =>'TRUE']);
-			if($a){
-            	return Redirect::to('subscriber/inicio');
+
+			//performer
+			if(Auth::attempt(['name'=> $request['username'], 'password' => $request['password'], 'user_type' => 1, 'is_active' =>'TRUE'])){
+            	return Redirect::to('performer/inicio');
 	        }else{
-	        	Session::flash('message-error', 'Unregistered user');
+
+	        	//suscriptor
+				if(Auth::attempt(['name'=> $request['username'], 'password' => $request['password'], 'user_type' => 2, 'is_active' =>'TRUE'])){
+	            	return Redirect::to('subscriber/inicio');
+		        }else{
+		        	//studio
+			        if(Auth::attempt(['name'=> $request['username'], 'password' => $request['password'], 'user_type' => 3, 'is_active' =>'TRUE'])){
+		            	return Redirect::to('studio/inicio');
+			        }else{
+			        	Session::flash('message-error', 'Unregistered user 3');
+			        	return Redirect::to('login');	
+			        }
+		        }
+
+	        	Session::flash('message-error', 'Unregistered user 1');
 	        	return Redirect::to('login');	
-	        }	
+	        }
+
+			
+
+	        
 		}
 
     	/*

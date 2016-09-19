@@ -13,6 +13,7 @@ use App\Repositories\UsersRepo;
 use App\Repositories\CreditCardRepo;
 use Illuminate\Support\Facades\Redirect;
 
+use Session;
 
 
 class StudioController extends Controller
@@ -47,7 +48,13 @@ class StudioController extends Controller
     }
 
 	public function Inicio(){
-		return view('Studio/inicio');
+		
+		//validacion de inicio de sesion
+		if(Auth::check()){
+			return view('Studio/inicio');
+		}else{
+			return Redirect::to('/');
+		}
 	}
 
 	public function FormRegister(){

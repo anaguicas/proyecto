@@ -10,6 +10,9 @@ use App\Repositories\UsersRepo;
 use App\Repositories\CreditCardRepo;
 use Validator;
 
+use Auth;
+use Session;
+use Redirect;
 
 class PerformerController extends Controller{
 
@@ -83,7 +86,13 @@ class PerformerController extends Controller{
 	}
 
 	public function Inicio(){
-		return view('performers/inicio');
+		
+		//validacion de inicio de sesion
+		if(Auth::check()){
+			return view('performers/inicio');
+		}else{
+			return Redirect::to('/');
+		}
 	}
 
 	public function FormRegister(){		

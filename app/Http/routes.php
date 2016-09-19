@@ -106,6 +106,10 @@ Route::get('performer/edit-profile',[
 	'as' => 'performer.editprofile',
 	'uses' => 'PerformerController@FormProfile'
 ]);
+Route::post('performer/edit-profile',[
+	'as' => 'performer.editprofile',
+	'uses' => 'PerformerController@FormProfile'
+]);
 
 Route::get('performer/edit-profile',[
 	'as' => 'performer.save',
@@ -130,6 +134,12 @@ Route::post('studio-register', [
 ]);
 
 Route::get('studio/edit-profile',[
+	'as' => 'studio.editprofile',
+	'uses' => 'StudioController@FormProfile'
+]);
+
+//no se si sirve xD
+Route::post('studio/edit-profile',[
 	'as' => 'studio.editprofile',
 	'uses' => 'StudioController@FormProfile'
 ]);
