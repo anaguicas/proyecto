@@ -123,3 +123,19 @@ Route::get('studio/showPerformers',[
     'as'=> 'studio.showperformers',
     'uses' => 'StudioController@showPerformers'
 ]);
+
+Route::get('studio/removeperformer/{id}',[
+    'as'=> 'studio.removeperformer',
+    'uses' => 'StudioController@removePerformer'
+]);
+
+Route::get('studio/addperformer',[
+    'as' => 'studio.addperformer',
+    'uses' => 'StudioController@performerRegister'
+]);
+
+
+
+
+
+
