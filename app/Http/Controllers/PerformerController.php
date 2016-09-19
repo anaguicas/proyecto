@@ -109,7 +109,7 @@ class PerformerController extends Controller{
 			'perfor_name' 			=> 'required',
 			'last_name' 			=> 'required',
 			'identification' 		=> 'required|numeric',
-			//'photo_identification'	=> 'required|image|mimes:jpeg,jpg|max:10240',
+			'photo_identification'	=> 'required|mimes:jpeg,jpg,png|max:10240',
 			'city' 					=> 'required',
 			'country'				=> 'required',
 			'name' 					=> 'required|unique:users',	
@@ -130,12 +130,12 @@ class PerformerController extends Controller{
 		if($validation->fails()){
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{		
-			/*$imagen = $request->file('photo_identification');	
+			$imagen = $request->file('photo_identification');	
 
 			$new_name = time().$imagen->getClientOriginalName();
 			$img_dir = env('IMG_UPLOAD');
 			$img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
-			$imagen->move($img_dir,$new_name);*/
+			$imagen->move($img_dir,$new_name);
 			$datos_user = array(
 				'username' 	=> $request->input('name'),
 				'email'		=> $request->input('email'),
@@ -157,7 +157,7 @@ class PerformerController extends Controller{
 				'name'					=> $request->input('perfor_name'),
 				'last_name'				=> $request->input('last_name'),
 				'identification'		=> $request->input('identification'),
-				//'photo_identification'	=> $img_url,
+				'photo_identification'	=> $img_url,
 				'city'					=> $request->input('city'),
 				'country'				=> $request->input('country'),
 				'username' 				=> $request->input('name'),	
