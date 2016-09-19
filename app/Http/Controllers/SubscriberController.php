@@ -153,15 +153,12 @@ class SubscriberController extends Controller{
 		return view('subscriber/editarPerfil',compact('subscriber'));
 	}
 
-	public function editProfile(Request $request){
-		$validation = validator::make($request->all(), [			
-			'subs_name' 		    => 'required',
-			'last_name' 			=> 'required',
-			'identification' 		=> 'required|numeric',
-			'country' 				=> 'required',
-			'name'					=> 'required|unique:users',
-			'email' 				=> 'required|email|max:255|unique:users',				
-			'password_confirmation'	=> 'required|min:6'	
+	public function saveProfile(Request $request){
+		$validation = validator::make($request->all(), [
+			'identification' 		=> 'numeric',
+			'name'					=> 'unique:users',
+			'email' 				=> 'email|max:255|unique:users',
+			'password' 				=> 'alphanum|min:5'
 			]);
 
 		if($validation->fails()){			

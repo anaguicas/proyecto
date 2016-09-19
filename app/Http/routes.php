@@ -81,7 +81,7 @@ Route::get('subscriber/edit-profile',[
 ]);
 Route::post('subscriber/edit-profile',[
 	'as' => 'subscriber.save',
-	'uses' => 'SubscriberController@FormProfile'
+	'uses' => 'SubscriberController@saveProfile'
 ]);
 
 

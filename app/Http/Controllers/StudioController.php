@@ -137,15 +137,9 @@ class StudioController extends Controller
 	}
 
 	public function saveProfile(){
-		$validation = validator::make($request->all(), [			
-			'studio_name'			=> 'required',
-			'description'			=> 'required',
-			'email' 				=> 'required|email|unique',
-			'username'				=> 'required',		
-			'password' 				=> 'required|alphanum|min:5',				
-			'studio_owner'			=> 'required',
-			'number' 				=> 'required',
-			'bank'					=> 'required'	
+		$validation = validator::make($request->all(), [						
+			'email' 				=> 'email|unique',	
+			'password' 				=> 'alphanum|min:5',	
 			]);
 
 		if($validation->fails()){			
@@ -174,9 +168,9 @@ class StudioController extends Controller
 				);
 
 			if($this->studioRepo->AddStudio($datos)){
-				return redirect()->back()->with('message','Successful.');
+				return redirect()->back()->with('message','User update successful.');
 			}else{
-				return redirect()->back()->with('error','There was a problem. Please try again');
+				return redirect()->back()->with('error','There was a problem updating user information. Please try again');
 			}
 		}
 	}
