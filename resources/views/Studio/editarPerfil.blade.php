@@ -1,32 +1,5 @@
-<html>
-<head>
-	<title>Pandora</title>
-	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/bootstrap.min.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/landing.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/layout.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/pagina.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/studio.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/datepicker.css">
-	<!--link media="all" type="text/css" rel="stylesheet" href="{{env('MEDIA_URL')}}/css/bootstrap.css"-->
-	<link media="all" type="text/css" rel="stylesheet" href="">
-	@yield('styles')
-
-</head>
-<body>
-	<div class="col-lg-12">
-		<div class="row">
-			<div align="center">
-				<div class="col-lg-12">
-					<div class="row pandora">
-						<h1>
-							<a href="inicio">
-								<img src="../../public/media/img/Usuario/Índice/pandora.png">
-							</a>
-						</h1>       
-					</div>
-				</div>
-			</div>
-		</div>
+@extends('layouts.editProfile')
+@section('content')
 		<div align="center">
 			<div class="edit-profile">
 				<div class="row col-lg-12">
@@ -40,9 +13,9 @@
 					</div>
 				</div>
 				<div class="formulario-profile col-lg-7">		
-					{{  Form::open(array('action'=>'StudioController@Register', 'method' => 'post')) }} 
+					{{  Form::model($studio, array('route' => 'studio.save', 'method' => 'PATCH')) }} 
 					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
-					<div class="form-group">
+					<div class="form-group">						
 						{{Form::text('studio_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}
 						@if($errors->has('studio_name'))
 						<p class="text-danger">
@@ -57,23 +30,31 @@
 							{{ $errors->first('description') }}
 						</p>
 						@endif
-					</div>					
+					</div>	
+					<div class="form-group">
+						{{Form::text('responsible',null,array('class' => 'form-control input-label', 'placeholder' => 'STUDIO OWNER'))}}
+						@if($errors->has('studio_owner'))
+						<p class="text-danger">
+							{{ $errors->first('studio_owner') }}
+						</p>
+						@endif
+					</div>				
 					<div class="form-group">
 						{{Form::text('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
+					</div>
+					<div class="form-group">
+						{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
+						@if($errors->has('name'))
+						<p class="text-danger">
+							{{ $errors->first('name') }}
+						</p>
+						@endif
 					</div>
 					<div class="form-group">
 						{{Form::text('password',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD'))}}
 						@if($errors->has('password'))
 						<p class="text-danger">
 							{{ $errors->first('password') }}
-						</p>
-						@endif
-					</div>
-					<div class="form-group">
-						{{Form::text('studio_owner',null,array('class' => 'form-control input-label', 'placeholder' => 'STUDIO OWNER'))}}
-						@if($errors->has('studio_owner'))
-						<p class="text-danger">
-							{{ $errors->first('studio_owner') }}
 						</p>
 						@endif
 					</div>
@@ -103,5 +84,4 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+@stop

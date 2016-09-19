@@ -2,7 +2,7 @@
 @section('content')
 <div align="center">
 	<div class="formulario">		
-		{{  Form::open(array('action'=>'PerformerController@Register', 'method' => 'post')) }} 		
+		{{  Form::open(array('action'=>'PerformerController@Register', 'method' => 'post', 'enctype' => 'multipart/form-data')) }} 		
 		<div class="col-lg-12">
 			@if(Session::has('message'))
 			    <div class="alert alert-success alert-dissmissible col-xs-12">
@@ -21,10 +21,10 @@
 			    </div>
 			@endif
 			<div class="form-group col-lg-5">		
-				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}								
-				@if($errors->has('name'))
+				{{Form::text('perfor_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}								
+				@if($errors->has('perfor_name'))
 				<p class="text-danger">
-					{{ $errors->first('name') }}
+					{{ $errors->first('perfor_name') }}
 				</p>
 				@endif
 			</div>
@@ -45,18 +45,23 @@
 				@endif
 			</div>
 			<div class="form-group">
-				{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'NICKNAME'))}}
-				@if($errors->has('username'))
+				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
+				@if($errors->has('name'))
 				<p class="text-danger">
-					{{ $errors->first('username') }}
+					{{ $errors->first('name') }}
 				</p>
 				@endif
 			</div>
 			<div class="form-group">
-				{{Form::text('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
+				{{Form::email('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
+				@if($errors->has('email'))
+				<p class="text-danger">
+					{{ $errors->first('email') }}
+				</p>
+				@endif
 			</div>
 			<div class="form-group">
-				{{Form::text('password',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD'))}}
+				{{Form::password('password',['class' => 'form-control input-label', 'placeholder' => 'PASSWORD'])}}
 				@if($errors->has('password'))
 				<p class="text-danger">
 					{{ $errors->first('password') }}
@@ -64,8 +69,8 @@
 				@endif
 			</div>	
 			<div class="form-group">
-				{{Form::text('password_confirmation',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD CONFIRMATION'))}}
-				@if($errors->has('password_confirmation'))
+				{{Form::password('password_confirmation',['class' => 'form-control input-label', 'placeholder' => 'PASSWORD CONFIRMATION'])}}
+				@if($errors->has('password:confirmatio'))
 				<p class="text-danger">
 					{{ $errors->first('password_confirmation') }}
 				</p>
@@ -114,24 +119,29 @@
 				<!-- <img class="col-lg-3 control-label" src="../public/media/img/Usuario/Tienda2/vencimien.png"> -->
 				<div class="col-lg-6 date">
 					<div class="input-group input-append date" id="datePicker">
-						<input type="text" class="form-control input-label-2" name="due_date" />
+						{{Form::text('birthdate',null,array('class' => 'form-control input-label'))}}
 						<span class="input-group-addon add-on">
 							<span class="glyphicon glyphicon-calendar"></span>
 						</span>
 					</div>
+					@if ($errors->has('birthdate'))
+					<p class="text-danger">
+						{{ $errors->first('birthdate') }}
+					</p>
+					@endif
 				</div>
 			</div>
-			<!-- <div class="form-group">
+			<div class="form-group">
 				{{Form::label('imagen', 'PHOTO IDENTIFICATION', array('class' => 'col-lg-3 control-label'))}}
 				<div class="col-lg-9 ">
-					{{Form::file('photo_identification',null,array('class' => 'form-control field'))}}
+					{{Form::file('photo_identification',null,array('class' => 'form-control '))}}
 					@if($errors->has('photo_identification'))
 					<p class="text-danger">
 						{{ $errors->first('photo_identification') }}
 					</p>
 					@endif
 				</div>									
-			</div> -->
+			</div>
 			<div class="form-group">
 				{{ Form::submit('REGISTRARME', array('class' => 'btn boton-registro')) }}
 			</div>					

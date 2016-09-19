@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Entities\Subscriber;
-
+use Illuminate\Support\Facades\DB;
 
 class SubscriberRepo extends BaseRepo{
 
@@ -33,7 +33,7 @@ class SubscriberRepo extends BaseRepo{
 		$subscriber = new Subscriber;
 		
 		$subscriber->id_user 				= $datos['id_user'];
-		$subscriber->name 					= $datos['name'];
+		$subscriber->subs_name 				= $datos['name'];
 		$subscriber->last_name 				= $datos['last_name'];
 		$subscriber->identification 		= $datos['identification'];
 		$subscriber->country 				= $datos['country'];		
@@ -42,4 +42,14 @@ class SubscriberRepo extends BaseRepo{
 
 		return true;
 	}
+
+	public function editProfile($user){
+        $subscriber = DB::table('Subscriber')
+            ->join('users','Subscriber.id_user','=','users.id')
+            ->select('users.email','users.password','Subscriber.subs_name','Subscriber.last_name','Subscriber.identification','Subscriber.country')
+            ->where('Subscriber.subs_name','=',$user)
+            ->get();
+
+        return $subscriber;
+    }
 }

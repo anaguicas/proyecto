@@ -18,7 +18,7 @@
             <div class="col-lg-12">
                 <div class="row pandora">
                     <h1>
-                        <a href="inicio">
+                        <a href="{{route('landing')}}">
                             <img src="../../public/media/img/Usuario/Índice/pandora.png">
                         </a>
                     </h1>       
@@ -39,7 +39,7 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-perfil">
-                            <a href="/edit-profile">
+                            <a href="{{route('subscriber.editprofile')}}">
                                 <img class="perfil" src="../../public/media/img/Usuario/Índice/perfil-2.png">
                             </a>
                         </div>
@@ -78,6 +78,18 @@
                     <div class="hexagon-in1">
                         <div class="hexagon-tienda">
                             <img class="perfil" src="../../public/media/img/Usuario/Índice/tienda.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 content">
+                <div class="hexagon">
+                    <div class="hexagon-in1">
+                        <div class="hexagon-tienda">
+                            <a href="{{route('logout')}}">
+                                <!--img class="perfil" src="../../public/media/img/Usuario/Índice/tienda.png"-->
+                                Log out<span class="glyphicon glyphicon-log-out"></span>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -16,18 +16,24 @@ class StudioRepo extends BaseRepo{
         $studios = new Studio;
         $performers->id_user    = $datos['id_user'];
         $studios->name          = $studio['studio_name'];
+        $studios->id_user       = $studio['id_user'];
+        $studios->studio_name   = $studio['studio_name'];
         $studios->description   = $studio['description'];
-        $studios->responsible   = $studio['studio-owner'];        
-        $studio->timestamps             = false;
-        $studio->save();
-
+        $studios->responsible   = $studio['studio_owner'];        
+        $studios->timestamps    = false;
+        $studios->save();
         return true;
     }
 
-    public function editProfile(){
-        
-    }
+    public function editProfile($user){
+        $studio = DB::table('Studio')
+            ->join('users','Studio.id_user','=','users.id')
+            ->join('credit_card','credit_card.id_user', '=','users.id')
+            ->select('users.email','users.password','users.name','Studio.studio_name','Studio.description','Studio.responsible','credit_card.number', 'credit_card.bank')
+            ->where('Studio.studio_name','=',$user)
+            ->get();
 
+        return $studio;
 
     public function removePerformer($id){
         $performer=DB::table('users')
@@ -43,14 +49,13 @@ class StudioRepo extends BaseRepo{
             ->join('Studio', 'Studio.id', '=', 'Performer_studio.id_studio' )
             ->join('users', 'users.id', '=', 'Performers.id_user')
             ->where('users.is_active', 1)
-            ->select('Performers.name as nombreperformer' ,
+            ->select('Performers.name as nombreperformer',
                 'Performer_studio.id_studio',
-                'Studio.name',
                 'Performers.created_at',
                 'Performers.id_user',
-                'users.is_active')
+                'Studio.studio_name',
+                'users.is_active)
             ->get ();
-
         //dump($performers); die;
 
         return ($performers);

@@ -14,13 +14,13 @@ class PerformerRepo extends BaseRepo{
 		$performers = new Performers;
 		
 		$performers->id_user 				= $datos['id_user'];
-		$performers->name 					= $datos['name'];
+		$performers->perfor_name			= $datos['name'];
 		$performers->last_name 				= $datos['last_name'];
 		$performers->identification 		= $datos['identification'];
-		//$performers->photo_identification 	= $datos['photo_identification'];
+		$performers->photo_identification 	= $datos['photo_identification'];
 		$performers->city 					= $datos['city'];
 		$performers->country 				= $datos['country'];
-		//$performers->birthdate				= $datos['birthdate'];
+		$performers->birthdate				= $datos['birthdate'];
 		$performers->alias 					= $datos['username'];
 		$performers->independent 			= true;	
 		$performers->save();

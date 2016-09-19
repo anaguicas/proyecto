@@ -44,18 +44,61 @@ class LoginController extends Controller
     	if($validation->fails()){					
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
-			$a = Auth::attempt(['name'=> $request['username'], 'password' => $request['password']]);
-				var_dump($a);
-				die();
-			if($a){
-            	return Redirect::to('subscriber.inicio');
+
+			//performer
+			if(Auth::attempt(['name'=> $request['username'], 'password' => $request['password'], 'user_type' => 1, 'is_active' =>'TRUE'])){
+            	return Redirect::to('performer/inicio');
 	        }else{
-	        	Session::flash('message-error', 'datos incorrectos');
-	        	//return Redirect::to('/');	
-	        }	
+
+	        	//suscriptor
+				if(Auth::attempt(['name'=> $request['username'], 'password' => $request['password'], 'user_type' => 2, 'is_active' =>'TRUE'])){
+	            	return Redirect::to('subscriber/inicio');
+		        }else{
+		        	//studio
+			        if(Auth::attempt(['name'=> $request['username'], 'password' => $request['password'], 'user_type' => 3, 'is_active' =>'TRUE'])){
+		            	return Redirect::to('studio/inicio');
+			        }else{
+			        	Session::flash('message-error', 'Unregistered user 3');
+			        	return Redirect::to('login');	
+			        }
+		        }
+
+	        	Session::flash('message-error', 'Unregistered user 1');
+	        	return Redirect::to('login');	
+	        }
+
+			
+
+	        
 		}
 
-    	
+    	/*
+	if($validation->fails()){					
+			return redirect()->back()->withInput()->withErrors($validation->errors());			
+		}else{
+			$a = Auth::attempt(['name'=> $request['username'], 'password' => $request['password']]);
+			if($a){
+				if(Auth::attempt(['is_active' =>'TRUE'])){
+					//usuario con permisos
+            		return Redirect::to('subscriber/inicio');
+				}else{	
+						//usuario registrado inactivo
+						Session::flash('message-error', 'User without permissions');
+	        			return Redirect::to('login');	
+				}
+
+	        }else{
+	        	//no registrado
+	        	Session::flash('message-error', 'Unregistered user');
+	        	return Redirect::to('login');	
+	        }	
+		}
+    	*/
         
+    }
+
+    public function logout(){
+    	Auth::logout();
+    	return Redirect::to('/');
     }
 }

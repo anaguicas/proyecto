@@ -7,8 +7,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\PerformerRepo;
 use App\Repositories\UsersRepo;
+use App\Repositories\CreditCardRepo;
 use Validator;
 
+use Auth;
+use Session;
+use Redirect;
 
 class PerformerController extends Controller{
 
@@ -18,6 +22,7 @@ class PerformerController extends Controller{
 	public function __construct(){
 		$this->PerformerRepo 	= New PerformerRepo();
 		$this->UsersRepo 		= New UsersRepo();	
+		$this->creditRepo	= New CreditCardRepo;
 	}
 
 	public function Country(){
@@ -81,7 +86,13 @@ class PerformerController extends Controller{
 	}
 
 	public function Inicio(){
-		return view('performers/inicio');
+		
+		//validacion de inicio de sesion
+		if(Auth::check()){
+			return view('performers/inicio');
+		}else{
+			return Redirect::to('/');
+		}
 	}
 
 	public function FormRegister(){		
@@ -92,67 +103,82 @@ class PerformerController extends Controller{
 		return view('performers/registro', ['country' => $country, 'bank' => $bank]);
 	}
 
-public function Register(Request $request){
+	public function Register(Request $request){
 
-	$validation = validator::make($request->all(), [			
-		'name' => 'required',
-		'last_name' => 'required',
-		'identification' => 'required|numeric',
-		//'photo_identification' => 'required|image|mimes:jpeg,jpg|max:10240',
-		'city' => 'required',
-		'country' => 'required',
-		'username' => 'required',	
-		'email' => 'required|email|max:255|unique:users',		
-		'password' => 'required|min:6|confirmed',
-		'password_confirmation'	=> 'required|min:6',
-		'bank'	=> 'required'
-		]);
+		$validation = validator::make($request->all(), [			
+			'perfor_name' 			=> 'required',
+			'last_name' 			=> 'required',
+			'identification' 		=> 'required|numeric',
+			'photo_identification'	=> 'required|mimes:jpeg,jpg,png|max:10240',
+			'city' 					=> 'required',
+			'country'				=> 'required',
+			'name' 					=> 'required|unique:users',	
+			'email' 				=> 'required|email|max:255|unique:users',		
+			'password' 				=> 'required|min:6|confirmed',
+			'password_confirmation'	=> 'required|min:6',
+			'birthdate'				=> 'required|date',
+			'bank'					=> 'required'
+			]);	
 
-	/*$errors = array(			
-		'required' => 'El campo :attribute es obligatorio',
-		'min' => 'El campo :attribute no puede tener menos de :min carácteres',
-		'email' => 'El campo :attribute debe ser un email válido',
-		'unique' => 'El email ingresado ya existe en la base de datos'
-		);*/
+		/*$errors = array(			
+			'required' => 'El campo :attribute es obligatorio',
+			'min' => 'El campo :attribute no puede tener menos de :min carácteres',
+			'email' => 'El campo :attribute debe ser un email válido',
+			'unique' => 'El email ingresado ya existe en la base de datos'
+			);*/	
 
-	if($validation->fails()){
-		return redirect()->back()->withInput()->withErrors($validation->errors());			
-	}else{		
-		/*$imagen = $request->file('photo_identification');
+		if($validation->fails()){
+			return redirect()->back()->withInput()->withErrors($validation->errors());			
+		}else{		
+			$imagen = $request->file('photo_identification');	
 
-		$new_name = time().$imagen->getClientOriginalName();
-		$img_dir = env('IMG_UPLOAD');
-		$img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
-		$imagen->move($img_dir,$new_name);*/
-		$datos_user = array(
-			'username' 	=> $request->input('username'),
-			'email'		=> $request->input('email'),
-			'user_type'	=> 1,
-			'password'	=> $request->input('password')
-			);
+			$new_name = time().$imagen->getClientOriginalName();
+			$img_dir = env('IMG_UPLOAD');
+			$img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
+			$imagen->move($img_dir,$new_name);
+			$datos_user = array(
+				'username' 	=> $request->input('name'),
+				'email'		=> $request->input('email'),
+				'user_type'	=> 1,
+				'password'	=> $request->input('password')
+				);	
 
-		$this->UsersRepo->addUser($datos_user);
+			$user = $datos_user['email'];
 
-		$user = $datos_user['email'];
-		
-		$performer_user = $this->UsersRepo->findUser($user)->first()->id;		
-				
-		$datos_performer = array(
-			'name'					=> $request->input('name'),
-			'last_name'				=> $request->input('last_name'),
-			'identification'		=> $request->input('identification'),
-			//'photo_identification'	=> $img_url,
-			'city'					=> $request->input('city'),
-			'country'				=> $request->input('country'),
-			'username' 				=> $request->input('username'),		
-			'id_user'				=> $performer_user
-			);
+			/*if($this->UsersRepo->validateUser($user)){
+				return redirect()->back()->with('error','There was a problem. Please try again.');
+			}*/
 
-		if($this->PerformerRepo->addPerformer($datos_performer)){
-			return redirect()->back()->with('message','Successfull');
-		}else{
-			return redirect()->back()->with('error','An error has ocurred.');
-		}
+			$this->UsersRepo->addUser($datos_user);	
+			
+			$performer_user = $this->UsersRepo->findUser($user)->first()->id;		
+					
+			$datos_performer = array(
+				'name'					=> $request->input('perfor_name'),
+				'last_name'				=> $request->input('last_name'),
+				'identification'		=> $request->input('identification'),
+				'photo_identification'	=> $img_url,
+				'city'					=> $request->input('city'),
+				'country'				=> $request->input('country'),
+				'username' 				=> $request->input('name'),	
+				'birthdate'				=> $request->input('birthdate'),	
+				'id_user'				=> $performer_user
+				);	
+
+			$datos_card = array(
+				'bank'					=> $request->input('bank'),
+				'number'				=> $request->input('number'),
+				'id_user'				=> $performer_user,
+				'bank'					=> $request->input('bank')
+				);
+
+			$credit_card = $this->creditRepo->addCreditCard($datos_card);
+
+			if($this->PerformerRepo->addPerformer($datos_performer)){
+				return redirect()->back()->with('message','Successfull');
+			}else{
+				return redirect()->back()->with('error','There was a problem. Please try again.');
+			}
 
 
 		}

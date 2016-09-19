@@ -37,6 +37,11 @@ Route::post('login', [
     'uses' => 'LoginController@store'
 ]);
 
+Route::get('logout', [
+
+	'as' => 'logout',
+    'uses' => 'LoginController@logout'
+]);
 
 //Route::resource('log','LoginController');
 
@@ -70,10 +75,15 @@ Route::post('subscriber-register',[
 	'uses' => 'SubscriberController@Register'
 ]);
 
-Route::get('/edit-profile',[
+Route::get('subscriber/edit-profile',[
 	'as' => 'subscriber.editprofile',
 	'uses' => 'SubscriberController@FormProfile'
 ]);
+Route::post('subscriber/edit-profile',[
+	'as' => 'subscriber.save',
+	'uses' => 'SubscriberController@saveProfile'
+]);
+
 
 /*--------Performer-----------*/
 
@@ -90,6 +100,20 @@ Route::get('performer-register',[
 Route::post('performer-register',[
 	'as' => 'performer.register',
 	'uses' => 'PerformerController@Register'
+]);
+
+Route::get('performer/edit-profile',[
+	'as' => 'performer.editprofile',
+	'uses' => 'PerformerController@FormProfile'
+]);
+Route::post('performer/edit-profile',[
+	'as' => 'performer.editprofile',
+	'uses' => 'PerformerController@FormProfile'
+]);
+
+Route::get('performer/edit-profile',[
+	'as' => 'performer.save',
+	'uses' => 'PerformerController@saveProfile'
 ]);
 
 /*---------Studio---------*/
@@ -109,10 +133,20 @@ Route::post('studio-register', [
 	'uses' => 'StudioController@Register'
 ]);
 
-
 Route::get('studio/edit-profile',[
 	'as' => 'studio.editprofile',
 	'uses' => 'StudioController@FormProfile'
+]);
+
+//no se si sirve xD
+Route::post('studio/edit-profile',[
+	'as' => 'studio.editprofile',
+	'uses' => 'StudioController@FormProfile'
+]);
+
+Route::post('studio/edit-profile',[
+	'as' => 'studio.save',
+	'uses' => 'StudioController@saveProfile'
 ]);
 
 Route::post('registro',function(){
