@@ -17,7 +17,7 @@ class PerformerRepo extends BaseRepo{
 		$performers->perfor_name			= $datos['name'];
 		$performers->last_name 				= $datos['last_name'];
 		$performers->identification 		= $datos['identification'];
-		//$performers->photo_identification 	= $datos['photo_identification'];
+		$performers->photo_identification 	= $datos['photo_identification'];
 		$performers->city 					= $datos['city'];
 		$performers->country 				= $datos['country'];
 		$performers->birthdate				= $datos['birthdate'];
