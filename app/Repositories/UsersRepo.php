@@ -41,4 +41,8 @@ class UsersRepo extends BaseRepo{
         return $user;
 	}
 
+	public function validateUser($user){
+		$user = $this->model->select('name')->where('email','=',$user)->get();
+		return $user;
+	}
 }

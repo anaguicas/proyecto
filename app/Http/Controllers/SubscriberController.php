@@ -91,12 +91,12 @@ class SubscriberController extends Controller{
 	public function Register(Request $request){
 
 		$validation = validator::make($request->all(), [
-			'name'			 		=> 'required',
+			'subs_name'		 		=> 'required',
 			'last_name' 			=> 'required',
 			'identification' 		=> 'required|numeric',
 			//'city' 					=> 'required',
 			'country' 				=> 'required',
-			'username'				=> 'required',
+			'name'					=> 'required|unique:users',
 			'email' 				=> 'required|email|max:255|unique:users',	
 			'password' 				=> 'required|min:6|confirmed',
 			'password_confirmation'	=> 'required|min:6'				
@@ -114,7 +114,7 @@ class SubscriberController extends Controller{
 		}else{
 			
 			$datos_user = array(
-			'username' 	=> $request->input('username'),
+			'username' 	=> $request->input('name'),
 			'email'		=> $request->input('email'),
 			'user_type'	=> 2,
 			'password'	=> $request->input('password')
@@ -127,7 +127,7 @@ class SubscriberController extends Controller{
 			$subscriber_user = $this->UsersRepo->findUser($user)->first()->id;				
 
 			$datos_subscriber = array(
-			'name'					=> $request->input('name'),
+			'name'					=> $request->input('subs_name'),
 			'last_name'				=> $request->input('last_name'),
 			'identification'		=> $request->input('identification'),
 			//'city'					=> $request->input('city'),
@@ -148,22 +148,20 @@ class SubscriberController extends Controller{
 	public function FormProfile(){
 
 		$user = Auth::user()->name;
-		var_dump($user);
-		die();
-		$subscriber = $this->SubscriberRepo->editProfile($user);
-		return view('subscriber/edit-profile');
+		
+		$subscriber = $this->SubscriberRepo->editProfile($user);		
+		return view('subscriber/editarPerfil',compact('subscriber'));
 	}
 
 	public function editProfile(Request $request){
 		$validation = validator::make($request->all(), [			
-			'studio_name'			=> 'required',
-			'description'			=> 'required',
-			'email' 				=> 'required|email|unique',
-			'username'				=> 'required',		
-			'password' 				=> 'required|alphanum|min:5',				
-			'studio_owner'			=> 'required',
-			'number' 				=> 'required',
-			'bank'					=> 'required'	
+			'subs_name' 		    => 'required',
+			'last_name' 			=> 'required',
+			'identification' 		=> 'required|numeric',
+			'country' 				=> 'required',
+			'name'					=> 'required|unique:users',
+			'email' 				=> 'required|email|max:255|unique:users',				
+			'password_confirmation'	=> 'required|min:6'	
 			]);
 
 		if($validation->fails()){			
@@ -171,7 +169,7 @@ class SubscriberController extends Controller{
 		}else{
 
 			$datos_user = array(
-				'username' 	=> $request->input('username'),
+				'username' 	=> $request->input('name'),
 				'email'		=> $request->input('email'),
 				'password'	=> $request->input('password')
 				);
@@ -182,17 +180,17 @@ class SubscriberController extends Controller{
 
 			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
 
-			$datos_studio = array(
-				'studio_name'			=> $request->input('studio_name'),
-				'description'			=> $request->input('description'),
-				'studio_owner'			=> $request->input('studio_owner'),
-				'number'				=> $request->input('number'),
-				'bank'					=> $request->input('bank'),
-				'id_user'				=> $studio_user
+			$datos_subscriber = array(
+				'name'					=> $request->input('subs_name'),
+				'last_name'				=> $request->input('last_name'),
+				'identification'		=> $request->input('identification'),
+			//'city'					=> $request->input('city'),
+				'country'				=> $request->input('country'),			
+				'id_user'				=> $subscriber_user
 				);
 
-			if($this->studioRepo->AddStudio($datos)){
-				return redirect()->back()->with('message','Successful.');
+			if($this->SubscriberRepo->addSubscriber($datos_subscriber)){
+				return redirect()->back()->with('message','Successfull.');
 			}else{
 				return redirect()->back()->with('error','An error has ocurred.');
 			}

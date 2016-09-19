@@ -97,17 +97,18 @@ class PerformerController extends Controller{
 	public function Register(Request $request){
 
 		$validation = validator::make($request->all(), [			
-			'name' => 'required',
-			'last_name' => 'required',
-			'identification' => 'required|numeric',
-			//'photo_identification' => 'required|image|mimes:jpeg,jpg|max:10240',
-			'city' => 'required',
-			'country' => 'required',
-			'username' => 'required',	
-			'email' => 'required|email|max:255|unique:users',		
-			'password' => 'required|min:6|confirmed',
+			'perfor_name' 			=> 'required',
+			'last_name' 			=> 'required',
+			'identification' 		=> 'required|numeric',
+			//'photo_identification'	=> 'required|image|mimes:jpeg,jpg|max:10240',
+			'city' 					=> 'required',
+			'country'				=> 'required',
+			'name' 					=> 'required|unique:users',	
+			'email' 				=> 'required|email|max:255|unique:users',		
+			'password' 				=> 'required|min:6|confirmed',
 			'password_confirmation'	=> 'required|min:6',
-			'bank'	=> 'required'
+			'birthdate'				=> 'required|date',
+			'bank'					=> 'required'
 			]);	
 
 		/*$errors = array(			
@@ -127,33 +128,38 @@ class PerformerController extends Controller{
 			$img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
 			$imagen->move($img_dir,$new_name);*/
 			$datos_user = array(
-				'username' 	=> $request->input('username'),
+				'username' 	=> $request->input('name'),
 				'email'		=> $request->input('email'),
 				'user_type'	=> 1,
 				'password'	=> $request->input('password')
 				);	
 
-			$this->UsersRepo->addUser($datos_user);	
-
 			$user = $datos_user['email'];
+
+			/*if($this->UsersRepo->validateUser($user)){
+				return redirect()->back()->with('error','There was a problem. Please try again.');
+			}*/
+
+			$this->UsersRepo->addUser($datos_user);	
 			
 			$performer_user = $this->UsersRepo->findUser($user)->first()->id;		
 					
 			$datos_performer = array(
-				'name'					=> $request->input('name'),
+				'name'					=> $request->input('perfor_name'),
 				'last_name'				=> $request->input('last_name'),
 				'identification'		=> $request->input('identification'),
 				//'photo_identification'	=> $img_url,
 				'city'					=> $request->input('city'),
 				'country'				=> $request->input('country'),
-				'username' 				=> $request->input('username'),		
+				'username' 				=> $request->input('name'),	
+				'birthdate'				=> $request->input('birthdate'),	
 				'id_user'				=> $performer_user
 				);	
 
 			$datos_card = array(
 				'bank'					=> $request->input('bank'),
 				'number'				=> $request->input('number'),
-				'id_user'				=> $studio_user,
+				'id_user'				=> $performer_user,
 				'bank'					=> $request->input('bank')
 				);
 

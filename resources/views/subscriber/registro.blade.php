@@ -22,10 +22,10 @@
 			    </div>
 			@endif
 			<div class="form-group col-lg-5">		
-				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}								
-				@if($errors->has('name'))
+				{{Form::text('subs_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}								
+				@if($errors->has('subs_name'))
 				<p class="text-danger">
-					{{ $errors->first('name') }}
+					{{ $errors->first('subs_name') }}
 				</p>
 				@endif
 			</div>
@@ -46,15 +46,20 @@
 				@endif
 			</div>
 			<div class="form-group">
-				{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'NICKNAME'))}}
-				@if($errors->has('username'))
+				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
+				@if($errors->has('name'))
 				<p class="text-danger">
-					{{ $errors->first('username') }}
+					{{ $errors->first('name') }}
 				</p>
 				@endif
 			</div>
 			<div class="form-group">
-				{{Form::text('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
+				{{Form::email('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
+				@if($errors->has('email'))
+				<p class="text-danger">
+					{{ $errors->first('email') }}
+				</p>
+				@endif
 			</div>
 			<div class="form-group">
 				{{Form::password('password',['class' => 'form-control input-label', 'placeholder' => 'PASSWORD'])}}

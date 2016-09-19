@@ -60,9 +60,9 @@ class StudioController extends Controller
 		$validation = validator::make($request->all(), [			
 			'studio_name'			=> 'required',
 			'description'			=> 'required',
-			'username'				=> 'required',		
+			'name'					=> 'required|unique:users',		
 			'email'					=> 'required|email|max:255|unique:users',
-			'password' => 'required|min:6|confirmed',
+			'password' 				=> 'required|min:6|confirmed',
 			'password_confirmation'	=> 'required|min:6',
 			'studio_owner'			=> 'required',
 			'number' 				=> 'required',
@@ -81,7 +81,7 @@ class StudioController extends Controller
 		}else{
 
 			$datos_user = array(
-				'username' 	=> $request->input('username'),
+				'username' 	=> $request->input('name'),
 				'email'		=> $request->input('email'),
 				'user_type'	=> 3,
 				'password'	=> $request->input('password')

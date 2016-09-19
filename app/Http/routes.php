@@ -75,12 +75,12 @@ Route::post('subscriber-register',[
 	'uses' => 'SubscriberController@Register'
 ]);
 
-Route::get('edit-profile',[
+Route::get('subscriber/edit-profile',[
 	'as' => 'subscriber.editprofile',
 	'uses' => 'SubscriberController@FormProfile'
 ]);
-Route::post('edit-profile',[
-	'as' => 'subscriber.editprofile',
+Route::post('subscriber/edit-profile',[
+	'as' => 'subscriber.save',
 	'uses' => 'SubscriberController@FormProfile'
 ]);
 

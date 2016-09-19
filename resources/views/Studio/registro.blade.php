@@ -38,10 +38,20 @@
 				@endif
 			</div>					
 			<div class="form-group">
-				{{Form::text('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
+				{{Form::email('email',null,array('class' => 'form-control input-label', 'placeholder' => 'EMAIL'))}}
+				@if($errors->has('email'))
+				<p class="text-danger">
+					{{ $errors->first('email') }}
+				</p>
+				@endif
 			</div>
 			<div class="form-group">
-				{{Form::text('username',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
+				{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}
+				@if($errors->has('name'))
+				<p class="text-danger">
+					{{ $errors->first('name') }}
+				</p>
+				@endif
 			</div>
 			<div class="form-group">
 				{{Form::password('password',['class' => 'form-control input-label', 'placeholder' => 'PASSWORD'])}}
