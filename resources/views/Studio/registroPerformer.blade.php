@@ -29,7 +29,7 @@
 </div>
     <div>
         <div class="formulario">
-            {{  Form::open(array('action'=>'PerformerController@Register', 'method' => 'post', 'enctype' => 'multipart/form-data')) }}
+            {{  Form::open(array('action'=>'StudioController@savePerformer', 'method' => 'post', 'enctype' => 'multipart/form-data')) }}
             <div class="col-lg-12">
                 @if(Session::has('message'))
                     <div class="alert alert-success alert-dissmissible col-xs-12">
