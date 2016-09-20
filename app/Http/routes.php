@@ -50,14 +50,6 @@ Route::get('SignUp',function(){
 });
 
 
-Route::get('inicio', function () {
-    return view('performers/inicio');
-});
-
-Route::get('registro-performer',function(){
-	return view('performers/registro');
-});
-
 /*-------Subscriber-----------*/
 Route::get('subscriber/inicio', [
 
