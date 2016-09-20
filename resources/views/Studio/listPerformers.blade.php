@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    2010/10/12
+                                    {{ date('m/d/Y', strtotime($performer->created_at)) }}
                                 </div>
 
 
@@ -78,13 +78,15 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-3">
-                                    <p><span class="glyphicon glyphicon-remove"></span></p>
-                                </div>
+                               <a href="{{route('studio.removeperformer', ['id' => $performer->id_user])}}">
+                                    <div class="col-md-3">
+                                        <p><span class="glyphicon glyphicon-remove"></span></p>
+                                    </div>
 
-                                <div class="col-md-9">
-                                    ELIMINAR
-                                </div>
+                                    <div class="col-md-9">
+                                        ELIMINAR
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
