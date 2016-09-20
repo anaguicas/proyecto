@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-
+use App\Http\Request\RegistroFormRequest;
 use Illuminate\Cache\Repository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -328,7 +328,4 @@ class StudioController extends Controller
 			}
 		}
 	}
-
-
-
 }
