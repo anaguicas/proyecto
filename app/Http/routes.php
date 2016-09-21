@@ -168,8 +168,7 @@ Route::get('studio/addPerformer',[
     'uses' => 'StudioController@performerRegister'
 ]);
 
-
-
-
-
-
+Route::post('studio/addPerformer',[
+    'as' => 'studio.addperformer',
+    'uses' => 'studioController@savePerformer'
+]);

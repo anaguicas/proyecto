@@ -5,7 +5,7 @@
 
 	<div class="formulario">
 	@include('alerts.errors')		
-		{{  Form::open(['route'=>'login', 'method'=>'POST']) }} 
+		{{  Form::open(['route'=>'login', 'method'=>'POST']) }}
 			<div class="row row-centered">
 				<div class="col-lg-12 col-centered formulario-login">
 				
