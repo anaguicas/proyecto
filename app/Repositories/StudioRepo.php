@@ -66,10 +66,18 @@ class StudioRepo extends BaseRepo{
 
 	public function AddPerformer(){
 
-		
 	}
 
 	public function performerAuth($user){
 		
 	}
+
+	public function update($id,$datos){
+	    $studio_name = $datos['studio_name'];
+        $responsible = $datos['reponsible'];
+        $description = $datos['description'];
+
+        $performer=DB::table('Studio')->where('id_user','=',$id)->update(['studio_name'=>$studio_name,'responsible'=>$responsible,'description'=>$description]);
+        //$this->model->update(['studio_name'=>$studio_name,'responsible'=>$responsible,'description'=>$description])->where('id_user','=',$id);
+    }
 }

@@ -126,13 +126,7 @@ Route::get('studio/edit-profile',[
 	'uses' => 'StudioController@FormProfile'
 ]);
 
-//no se si sirve xD
-Route::post('studio/edit-profile',[
-	'as' => 'studio.editprofile',
-	'uses' => 'StudioController@FormProfile'
-]);
-
-Route::post('studio/edit-profile',[
+Route::put('studio/edit-profile',[
 	'as' => 'studio.save',
 	'uses' => 'StudioController@saveProfile'
 ]);

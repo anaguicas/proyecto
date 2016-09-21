@@ -131,17 +131,17 @@
 					@endif
 				</div>
 			</div>
-			<div class="form-group">
-				{{Form::label('imagen', 'PHOTO IDENTIFICATION', array('class' => 'col-lg-3 control-label'))}}
-				<div class="col-lg-9 ">
-					{{Form::file('photo_identification',null,array('class' => 'form-control '))}}
-					@if($errors->has('photo_identification'))
-					<p class="text-danger">
-						{{ $errors->first('photo_identification') }}
-					</p>
-					@endif
-				</div>									
-			</div>
+				<div class="form-group">
+					{{Form::label('imagen', 'PHOTO IDENTIFICATION', array('class' => 'col-lg-3 control-label'))}}
+					<div class="col-lg-9 ">
+						{{Form::file('photo_identification',null,array('class' => 'form-control '))}}
+						@if($errors->has('photo_identification'))
+							<p class="text-danger">
+								{{ $errors->first('photo_identification') }}
+							</p>
+						@endif
+					</div>
+				</div>
 			<div class="form-group">
 				{{ Form::submit('REGISTRARME', array('class' => 'btn boton-registro')) }}
 			</div>					

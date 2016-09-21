@@ -129,20 +129,19 @@ class PerformerController extends Controller{
 
 		if($validation->fails()){
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
-		}else{		
-			$imagen = $request->file('photo_identification');	
+		}else{
+			$imagen = $request->file('photo_identification');
 
 			$new_name = time().$imagen->getClientOriginalName();
 			$img_dir = env('IMG_UPLOAD');
 			$img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
 			$imagen->move($img_dir,$new_name);
-
 			$datos_user = array(
 				'username' 	=> $request->input('name'),
 				'email'		=> $request->input('email'),
 				'user_type'	=> 1,
 				'password'	=> $request->input('password')
-				);	
+				);
 
 			$user = $datos_user['email'];
 
@@ -150,10 +149,10 @@ class PerformerController extends Controller{
 				return redirect()->back()->with('error','There was a problem. Please try again.');
 			}*/
 
-			$this->UsersRepo->addUser($datos_user);	
-			
-			$performer_user = $this->UsersRepo->findUser($user)->first()->id;		
-					
+			$this->UsersRepo->addUser($datos_user);
+
+			$performer_user = $this->UsersRepo->findUser($user)->first()->id;
+
 			$datos_performer = array(
 				'name'					=> $request->input('perfor_name'),
 				'last_name'				=> $request->input('last_name'),
@@ -161,10 +160,10 @@ class PerformerController extends Controller{
 				'photo_identification'	=> $img_url,
 				'city'					=> $request->input('city'),
 				'country'				=> $request->input('country'),
-				'username' 				=> $request->input('name'),	
-				'birthdate'				=> $request->input('birthdate'),	
+				'username' 				=> $request->input('name'),
+				'birthdate'				=> $request->input('birthdate'),
 				'id_user'				=> $performer_user
-				);	
+				);
 
 			$datos_card = array(
 				'bank'					=> $request->input('bank'),
@@ -184,89 +183,5 @@ class PerformerController extends Controller{
 
 		}
 
-	}
-
-	public function FormProfile(){
-
-		$user = Auth::user()->name;
-		$performer = $this->PerformerRepo->editProfile($user);		
-	
-		$perfor =  array(
-			'perfor_name' 			=> $performer[0]->perfor_name,
-			'last_name' 			=> $performer[0]->last_name,
-			'identification' 		=> $performer[0]->identification,
-			'photo_identification'	=> $performer[0]->photo_identification,
-			'city' 					=> $performer[0]->city,
-			'country'				=> $performer[0]->country,
-			'name' 					=> $performer[0]->name,	
-			'email' 				=> $performer[0]->email,		
-			'password' 				=> $performer[0]->password
-			);
-		/*var_dump($perfor['photo_identification']);
-		die();*/
-		
-		return view('performers/editarPerfil',compact('perfor'));
-	}
-
-	public function saveProfile(Request $request){
-		$validation = validator::make($request->all(), [						
-			'identification' 		=> 'numeric',
-			'photo_identification'	=> 'mimes:jpeg,jpg,png|max:10240',
-			'name' 					=> 'unique:users',	
-			'email' 				=> 'email|max:255|unique:users',		
-			'password' 				=> 'min:6|confirmed',
-			'password_confirmation'	=> 'min:6',
-			'birthdate'				=> 'date'
-			]);		
-
-		if($validation->fails()){
-			return redirect()->back()->withInput()->withErrors($validation->errors());			
-		}else{					
-
-			$datos_user = array(
-				'username' 	=> $request->input('name'),
-				'email'		=> $request->input('email'),
-				'user_type'	=> 1,
-				'password'	=> $request->input('password')
-				);	
-
-			$user = $datos_user['email'];
-
-			/*if($this->UsersRepo->validateUser($user)){
-				return redirect()->back()->with('error','There was a problem. Please try again.');
-			}*/
-
-			$this->UsersRepo->addUser($datos_user);	
-			
-			$performer_user = $this->UsersRepo->findUser($user)->first()->id;		
-					
-			$datos_performer = array(
-				'name'					=> $request->input('perfor_name'),
-				'last_name'				=> $request->input('last_name'),
-				'identification'		=> $request->input('identification'),
-				'city'					=> $request->input('city'),
-				'country'				=> $request->input('country'),
-				'username' 				=> $request->input('name'),	
-				'birthdate'				=> $request->input('birthdate'),	
-				'id_user'				=> $performer_user
-				);	
-
-			$datos_card = array(
-				'bank'					=> $request->input('bank'),
-				'number'				=> $request->input('number'),
-				'id_user'				=> $performer_user,
-				'bank'					=> $request->input('bank')
-				);
-
-			$credit_card = $this->creditRepo->addCreditCard($datos_card);
-
-			if($this->PerformerRepo->addPerformer($datos_performer)){
-				return redirect()->back()->with('message','Successfull');
-			}else{
-				return redirect()->back()->with('error','There was a problem. Please try again.');
-			}
-
-
-		}
 	}
 }

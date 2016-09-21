@@ -13,8 +13,24 @@
 					</div>
 				</div>
 				<div class="formulario-profile col-lg-7">		
-					{{  Form::model($studio, array('route' => 'studio.save', 'method' => 'PATCH')) }} 
+					{{  Form::model($studio, array('route' => 'studio.save', 'method' => 'PUT')) }}
 					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
+						@if(Session::has('message'))
+							<div class="alert alert-success alert-dissmissible col-xs-12">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+								{{Session::get('message')}}
+							</div>
+						@endif
+						@if(Session::has('error'))
+							<div class="alert alert-danger alert-dissmissible col-xs-12">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+								{{Session::get('error')}}
+							</div>
+						@endif
 					<div class="form-group">						
 						{{Form::text('studio_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}
 						@if($errors->has('studio_name'))
@@ -33,9 +49,9 @@
 					</div>	
 					<div class="form-group">
 						{{Form::text('responsible',null,array('class' => 'form-control input-label', 'placeholder' => 'STUDIO OWNER'))}}
-						@if($errors->has('studio_owner'))
+						@if($errors->has('responsible'))
 						<p class="text-danger">
-							{{ $errors->first('studio_owner') }}
+							{{ $errors->first('responsible') }}
 						</p>
 						@endif
 					</div>				
@@ -47,30 +63,6 @@
 						@if($errors->has('name'))
 						<p class="text-danger">
 							{{ $errors->first('name') }}
-						</p>
-						@endif
-					</div>
-					<div class="form-group">
-						{{Form::text('password',null,array('class' => 'form-control input-label', 'placeholder' => 'PASSWORD'))}}
-						@if($errors->has('password'))
-						<p class="text-danger">
-							{{ $errors->first('password') }}
-						</p>
-						@endif
-					</div>
-					<div class="form-group">
-						{{Form::text('number',null,array('class' => 'form-control input-label', 'placeholder' => 'BANK ACCOUNT NUMBER'))}}
-						@if($errors->has('number'))
-						<p class="text-danger">
-							{{ $errors->first('number') }}
-						</p>
-						@endif					
-					</div>
-					<div class="form-group">
-						{{Form::text('bank',null,array('class' => 'form-control input-label', 'placeholder' => 'BANK'))}}
-						@if($errors->has('bank'))
-						<p class="text-danger">
-							{{ $errors->first('bank') }}
 						</p>
 						@endif
 					</div>
