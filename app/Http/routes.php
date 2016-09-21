@@ -98,12 +98,8 @@ Route::get('performer/edit-profile',[
 	'as' => 'performer.editprofile',
 	'uses' => 'PerformerController@FormProfile'
 ]);
-Route::post('performer/edit-profile',[
-	'as' => 'performer.editprofile',
-	'uses' => 'PerformerController@FormProfile'
-]);
 
-Route::get('performer/edit-profile',[
+Route::post('performer/edit-profile',[
 	'as' => 'performer.save',
 	'uses' => 'PerformerController@saveProfile'
 ]);
@@ -158,6 +154,11 @@ Route::get('studio/removeperformer/{id}',[
 Route::get('studio/addperformer',[
     'as' => 'studio.addperformer',
     'uses' => 'StudioController@performerRegister'
+]);
+
+Route::post('studio/addperformer',[
+    'as' => 'studio.addperformer',
+    'uses' => 'StudioController@savePerformer'
 ]);
 
 

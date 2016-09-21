@@ -46,7 +46,7 @@ class SubscriberRepo extends BaseRepo{
 	public function editProfile($user){
         $subscriber = DB::table('Subscriber')
             ->join('users','Subscriber.id_user','=','users.id')
-            ->select('users.email','users.password','Subscriber.subs_name','Subscriber.last_name','Subscriber.identification','Subscriber.country')
+            ->select('users.email','users.password','users.name','Subscriber.subs_name','Subscriber.last_name','Subscriber.identification','Subscriber.country')
             ->where('Subscriber.subs_name','=',$user)
             ->get();
 

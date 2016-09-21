@@ -6,18 +6,17 @@
 				<div class="col-lg-5">
 					<div class="hexagon">
 						<div class="hexagon-in1">
-							<div class="hexagon-foto">
-								<img src="{{$subs->}}">
+							<div class="hexagon-foto" style="background: url('../../public/media/img/upload/<?php echo $perfor['photo_identification'];?>')">								
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="formulario-profile col-lg-7">		
-					{{  Form::model($subs,array('route'=>'subscriber.save', 'method' => 'PATCH')) }} 					
+					{{  Form::model($perfor,array('route'=>'subscriber.save', 'method' => 'PATCH')) }} 					
 					
 					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->					
 					<div class="form-group">
-						{{Form::text('subs_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}
+						{{Form::text('perfor_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}
 						@if($errors->has('subs_name'))
 						<p class="text-danger">
 							{{ $errors->first('subs_name') }}
@@ -64,6 +63,14 @@
 						@if($errors->has('country'))
 						<p class="text-danger">
 							{{ $errors->first('country') }}
+						</p>
+						@endif
+					</div>
+					<div class="form-group">
+						{{Form::text('city',null,array('class' => 'form-control input-label', 'placeholder' => 'COUNTRY'))}}
+						@if($errors->has('city'))
+						<p class="text-danger">
+							{{ $errors->first('city') }}
 						</p>
 						@endif
 					</div>
