@@ -50,14 +50,6 @@ Route::get('SignUp',function(){
 });
 
 
-Route::get('inicio', function () {
-    return view('performers/inicio');
-});
-
-Route::get('registro-performer',function(){
-	return view('performers/registro');
-});
-
 /*-------Subscriber-----------*/
 Route::get('subscriber/inicio', [
 
@@ -106,12 +98,8 @@ Route::get('performer/edit-profile',[
 	'as' => 'performer.editprofile',
 	'uses' => 'PerformerController@FormProfile'
 ]);
-Route::post('performer/edit-profile',[
-	'as' => 'performer.editprofile',
-	'uses' => 'PerformerController@FormProfile'
-]);
 
-Route::get('performer/edit-profile',[
+Route::post('performer/edit-profile',[
 	'as' => 'performer.save',
 	'uses' => 'PerformerController@saveProfile'
 ]);
@@ -168,7 +156,15 @@ Route::get('studio/addPerformer',[
     'uses' => 'StudioController@performerRegister'
 ]);
 
-Route::post('studio/addPerformer',[
+
+Route::post('studio/addperformer',[
     'as' => 'studio.addperformer',
-    'uses' => 'studioController@savePerformer'
+    'uses' => 'StudioController@savePerformer'
 ]);
+
+
+
+
+
+
+

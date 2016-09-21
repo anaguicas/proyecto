@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Entities\Performers;
+use Illuminate\Support\Facades\DB;
 
 
 class PerformerRepo extends BaseRepo{
@@ -44,4 +45,14 @@ class PerformerRepo extends BaseRepo{
 	public function performerAuth($user){
 		
 	}
+
+	public function editProfile($user){
+        $performer = DB::table('Performers')
+            ->join('users','Performers.id_user','=','users.id')
+            ->select('users.email','users.password','users.name','Performers.perfor_name','Performers.last_name','Performers.identification','Performers.photo_identification','Performers.country','Performers.city')
+            ->where('Performers.perfor_name','=',$user)
+            ->get();
+
+        return $performer;
+    }
 }

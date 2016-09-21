@@ -148,9 +148,21 @@ class SubscriberController extends Controller{
 	public function FormProfile(){
 
 		$user = Auth::user()->name;
-		
 		$subscriber = $this->SubscriberRepo->editProfile($user);		
-		return view('subscriber/editarPerfil',compact('subscriber'));
+		/*var_dump($subscriber);	
+		die();*/
+
+		$subs =  array(
+			'name'				=> $subscriber[0]->name,
+			'subs_name'			=> $subscriber[0]->subs_name,
+			'last_name'			=> $subscriber[0]->last_name,
+			'identification'	=> $subscriber[0]->identification,
+			'email'				=> $subscriber[0]->email,
+			'country'			=> $subscriber[0]->country,
+			'password'			=> $subscriber[0]->password
+			);
+		
+		return view('subscriber/editarPerfil',compact('subs'));
 	}
 
 	public function saveProfile(Request $request){

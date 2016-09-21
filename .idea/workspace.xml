@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd56e34b-6a54-4d7b-a86c-1ba1e1f54b44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/img/upload/1474419564angelica_aguirre.JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/css/performer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/performers/editarPerfil.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PerformerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PerformerController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Studio/registroPerformer.blade.php" afterPath="$PROJECT_DIR$/resources/views/Studio/registroPerformer.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/PerformerRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/PerformerRepo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SubscriberRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/SubscriberRepo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/css/pagina.css" afterPath="$PROJECT_DIR$/public/media/css/pagina.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/media/css/studio.css" afterPath="$PROJECT_DIR$/public/media/css/studio.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Studio/inicio.blade.php" afterPath="$PROJECT_DIR$/resources/views/Studio/inicio.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/subscriber/editarPerfil.blade.php" afterPath="$PROJECT_DIR$/resources/views/subscriber/editarPerfil.blade.php" />
     </list>
     <ignored path="proyecto-x.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+            <state relative-caret-position="219">
+              <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
               <folding>
                 <element signature="e#7#392#0#PHP" expanded="true" />
               </folding>
@@ -98,7 +106,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registroPerformer.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registroPerformer.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/Studio/registroPerformer.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
@@ -112,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/app/Repositories/PerformerRepo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -122,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PerformerController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+              <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -158,8 +166,8 @@
         <option value="$PROJECT_DIR$/app/Repositories/PerformerRepo.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StudioController.php" />
         <option value="$PROJECT_DIR$/resources/views/login.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/Studio/registroPerformer.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -529,7 +537,7 @@
       <workItem from="1473646854240" duration="15000" />
       <workItem from="1473647384416" duration="30954000" />
       <workItem from="1473944959265" duration="35567000" />
-      <workItem from="1474232016159" duration="29881000" />
+      <workItem from="1474232016159" duration="30143000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/anaguicas/proyecto-x&#10;&#10;# Conflicts:&#10;#&#9;app/Http/routes.php&#10;">
       <created>1473394891287</created>
@@ -542,7 +550,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108341000" />
+    <option name="totallyTimeSpent" value="108603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="1" width="1370" height="744" extended-state="0" />
@@ -925,7 +933,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PerformerController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -933,7 +941,7 @@
     <entry file="file://$PROJECT_DIR$/app/Repositories/PerformerRepo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -988,21 +996,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
-          <folding>
-            <element signature="e#7#392#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/Studio/registroPerformer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding>
+            <element signature="e#7#392#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

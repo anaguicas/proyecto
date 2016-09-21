@@ -33,29 +33,31 @@
 
 .hexagon-in1 {
   overflow: hidden;
-  width: 252px;
-  height: 296px;
+  width: 100%;
+  height: 100%;
   transform: rotate(-63deg);
 }
 
 .hexagon-foto{
-  width: 257px;
-  height: 297px;
+  width: 100%;
+  height: 100%;
   visibility: visible;
-  transform: rotate(-63deg)  ;
+  transform: rotate(-63deg);
+  repeat: no-repeat;
+  position: 60%;
   background-color: rgba(204, 204, 204, 0.8);
-  /*background-image: url('../img/log in/usuario.png');*/
   background-position: center center;
   background-repeat: no-repeat;
 }
 
-.hexagon-foto > img{
+/*.hexagon-foto > img{
   padding: 95px 0px 124px 0px;
- -ms-transform: rotate(20deg); /* IE 9 */
- -webkit-transform: rotate(20deg); /* Safari */
+ -ms-transform: rotate(20deg); 
+ -webkit-transform: rotate(20deg); 
  transform: rotate(50deg);
-
-}
+ width: 260px;
+ height: 300px;
+}*/
 
 .formulario-profile{
   width: 500px;
