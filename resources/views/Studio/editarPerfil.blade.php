@@ -13,16 +13,24 @@
 					</div>
 				</div>
 				<div class="formulario-profile col-lg-7">		
-					{{  Form::model($studio, array('route' => array('studio.save', $id) , 'method' => 'PUT')) }} 
-					@if(Session::has('message'))
-					<div class="alert alert-success alert-dissmissible col-xs-12">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-						{{Session::get('message')}}
-					</div>
-					@endif
+					{{  Form::model($studio, array('route' => array('studio.save', $id) , 'method' => 'PUT')) }} 					
 					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
+						@if(Session::has('message'))
+							<div class="alert alert-success alert-dissmissible col-xs-12">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+								{{Session::get('message')}}
+							</div>
+						@endif
+						@if(Session::has('error'))
+							<div class="alert alert-danger alert-dissmissible col-xs-12">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+								{{Session::get('error')}}
+							</div>
+						@endif
 					<div class="form-group">						
 						{{Form::text('studio_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}
 						@if($errors->has('studio_name'))
@@ -82,7 +90,6 @@
 						</p>
 						@endif
 					</div> -->
-
 					<div class="form-group">
 						{{ Form::submit('SAVE', array('class' => 'btn boton-registro')) }}
 					</div>	

@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-
+use App\Http\Request\RegistroFormRequest;
 use Illuminate\Cache\Repository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +11,7 @@ use App\Repositories\StudioRepo;
 use App\Repositories\UsersRepo;
 use App\Http\Controllers\PerformerController;
 use App\Repositories\CreditCardRepo;
+use App\Repositories\PerformerRepo;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 
@@ -23,6 +24,7 @@ class StudioController extends Controller
     public function __construct(){
 		$this->studioRepo 	= New StudioRepo;
 		$this->usersRepo 	= New UsersRepo;
+        $this->performerRepo = New PerformerRepo;
 		$this->creditRepo	= New CreditCardRepo;
 	}
 
@@ -58,6 +60,7 @@ class StudioController extends Controller
             'last_name' 			=> 'required',
             'identification' 		=> 'required|numeric',
             'photo_identification'	=> 'required|mimes:jpeg,jpg,png|max:10240',
+            //'photo_identification'	=> 'required',
             'city' 					=> 'required',
             'country'				=> 'required',
             'name' 					=> 'required|unique:users',
@@ -68,16 +71,11 @@ class StudioController extends Controller
             'bank'					=> 'required'
         ]);
 
-        /*$errors = array(
-            'required' => 'El campo :attribute es obligatorio',
-            'min' => 'El campo :attribute no puede tener menos de :min carácteres',
-            'email' => 'El campo :attribute debe ser un email válido',
-            'unique' => 'El email ingresado ya existe en la base de datos'
-            );*/
-
         if($validation->fails()){
             return redirect()->back()->withInput()->withErrors($validation->errors());
         }else{
+            $performer_studio = Auth::user()->name;
+            //dump($performer_studio); die;
             $imagen = $request->file('photo_identification');
 
             $new_name = time().$imagen->getClientOriginalName();
@@ -90,16 +88,15 @@ class StudioController extends Controller
                 'user_type'	=> 1,
                 'password'	=> $request->input('password')
             );
-
             $user = $datos_user['email'];
 
             /*if($this->UsersRepo->validateUser($user)){
                 return redirect()->back()->with('error','There was a problem. Please try again.');
             }*/
 
-            $this->UsersRepo->addUser($datos_user);
+            $this->usersRepo->addUser($datos_user);
 
-            $performer_user = $this->UsersRepo->findUser($user)->first()->id;
+            $performer_user = $this->usersRepo->findUser($user)->first()->id;
 
             $datos_performer = array(
                 'name'					=> $request->input('perfor_name'),
@@ -122,7 +119,11 @@ class StudioController extends Controller
 
             $credit_card = $this->creditRepo->addCreditCard($datos_card);
 
-            if($this->PerformerRepo->addPerformer($datos_performer)){
+
+
+
+
+            if($this->performerRepo->addPerformer($datos_performer)){
                 return redirect()->back()->with('message','Successfull');
             }else{
                 return redirect()->back()->with('error','There was a problem. Please try again.');
@@ -252,14 +253,12 @@ class StudioController extends Controller
 				'id_user'				=> $studio_user
 				);
 
-			$datos_card = array(
-				'studio_owner'			=> $request->input('studio_owner'),
-				'number'				=> $request->input('number'),
-				'bank'					=> $request->input('bank'),
-				'number'				=> $request->input('number'),
-				'id_user'				=> $studio_user,
-				'bank'					=> $request->input('bank')
-				);
+            $datos_card = array(
+                'bank'					=> $request->input('bank'),
+                'number'				=> $request->input('number'),
+                'id_user'				=> $studio_user,
+                'bank'					=> $request->input('bank')
+            );
 			$credit_card = $this->creditRepo->addCreditCard($datos_card);
 
 			if($this->studioRepo->AddStudio($datos_studio)){
@@ -272,6 +271,7 @@ class StudioController extends Controller
 
     	public function FormProfile($id){
 		$bank	 = $this->Bank();
+
 		$user = Auth::user()->name;
 		$studios = $this->studioRepo->editProfile($user);		
         $studio_id =  Auth::user()->id;
@@ -290,46 +290,56 @@ class StudioController extends Controller
 		//return \Redirect::route('studio.editprofile', ['studio' => $studio]);
 	}
 
-	public function saveProfile(Request $request,$id){
-		$validation = validator::make($request->all(), [						
-			'studio_name'           => 'required',
-            'description'           => 'required',
-            'email'                 => 'required|email|max:255|unique:users',
-            'password'              => 'required|min:6',
-            'name'                  => 'required',
-            'responsible'          => 'required',
+	public function saveProfile(Request $request){
+		$validation = validator::make($request->all(), [
+            'studio_name'			=> 'required',
+            'description'			=> 'required',
+            'email'					=> 'required|email|max:255|unique:users',
+            'password' 				=> 'required|min:6',
+            'name'  				=> 'required',
+            'responsible'			=> 'required',
+            'number' 				=> 'required',
+            'bank'					=> 'required'
 			]);
-		if($validation->fails()){
-			return redirect()->back()->withInput()->withErrors($validation->errors());			
+        return redirect()->back()->with('message','User update successful.');
+		/*if($validation->fails()){
+			return redirect()->back()->withInput()->withErrors($validation->errors());
 		}else{
+            return redirect()->back()->with('message','User update successful.');
 			$datos_user = array(
-				'username' 	=> $request->input('username'),
+				'username' 	=> $request->input('name'),
 				'email'		=> $request->input('email'),
 				'password'	=> $request->input('password')
 				);
-
-			$this->UsersRepo->addUser($datos_user);
-
-			$user = $datos_user['email'];
-
-			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
+            var_dump($request->all());
+            die();
+            $id = Auth::user()->id;
+            $studio_user = $this->usersRepo->update($id,$datos_user);
+			//$studio_user = $this->UsersRepo->findUser($user)->first()->id;
 
 			$datos_studio = array(
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
 				'studio_owner'			=> $request->input('studio_owner'),
-				/*'number'				=> $request->input('number'),
-				'bank'					=> $request->input('bank'),*/
+				'number'				=> $request->input('number'),
+				'bank'					=> $request->input('bank'),
+
+				'studio_owner'			=> $request->input('studio_owner')
 				);
 
+            $datos_card = array(
+                'bank'					=> $request->input('bank'),
+                'number'				=> $request->input('number'),
+                'bank'					=> $request->input('bank')
+            );
+
 			if($this->studioRepo->update($datos_studio,$id)){
+
+			if($this->studioRepo->update($id,$datos_studio)){
 				return redirect()->back()->with('message','User update successful.');
 			}else{
 				return redirect()->back()->with('error','There was a problem updating user information. Please try again');
 			}
-		}
+		}*/
 	}
-
-
-
 }

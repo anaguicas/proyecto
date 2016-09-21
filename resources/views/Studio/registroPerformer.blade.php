@@ -29,8 +29,8 @@
 </div>
     <div>
         <div class="formulario">
-            {{  Form::open(array('action'=>'StudioController@savePerformer', 'method' => 'post', 'enctype' => 'multipart/form-data')) }}
-            <div class="col-lg-12">
+            {{  Form::open(array('route'=>'studio.addperformer', 'enctype' => 'multipart/form-data', 'method' => 'post')) }}
+                <div class="col-lg-12">
                 @if(Session::has('message'))
                     <div class="alert alert-success alert-dissmissible col-xs-12">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
