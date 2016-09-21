@@ -197,7 +197,9 @@ class StudioController extends Controller
 		
 		//validacion de inicio de sesion
 		if(Auth::check()){
-			return view('Studio/inicio');
+            $studio_id =  Auth::user()->id;
+			//return Redirect::route('studio.inicio',array('id' => $studio_id));
+            return view('Studio/inicio', ['id' => $studio_id]);
 		}else{
 			return Redirect::to('/');
 		}
@@ -268,34 +270,34 @@ class StudioController extends Controller
 		}
 	}
 
-    	public function FormProfile(){
+    	public function FormProfile($id){
 		$bank	 = $this->Bank();
-		$user = 'studio prueba';
-		$studio = $this->studioRepo->editProfile($user);		
+		$user = Auth::user()->name;
+		$studios = $this->studioRepo->editProfile($user);		
+        $studio_id =  Auth::user()->id;
 		/*var_dump($studio);
 		die();*/
-		/*$studio_name 	= $studio[0]->name;
-		$description 	= $studio[0]->description;
-		$email			= $studio[0]->email;
-		$username		= $studio[0]->name;
-		$studio_owner	= $studio[0]->responsible;
-		$number			= $studio[0]->number;
-		$bank 			= $studio[0]->bank;*/
+		$studio =  array(
+            'name'              => $studios[0]->name,
+            'description'       => $studios[0]->description,
+            'studio_name'       => $studios[0]->studio_name,
+            'responsible'       => $studios[0]->responsible,
+            'email'             => $studios[0]->email,
+            'password'          => $studios[0]->password
+            );
 		
-		return view('Studio/editarPerfil', compact('studio'));
-		//return view('Studio/editarPerfil', ['studio' => $studio]);
+		return view('Studio/editarPerfil', compact('studio','id'));
+		//return \Redirect::route('studio.editprofile', ['studio' => $studio]);
 	}
 
-	public function saveProfile(){
+	public function saveProfile(Request $request,$id){
 		$validation = validator::make($request->all(), [						
-			'studio_name'			=> 'required',
-			'description'			=> 'required',
-			'email' 				=> 'required|email|unique',
-			'username'				=> 'required',
-			'password' 				=> 'required|alphanum|min:5',
-			'studio_owner'			=> 'required',
-			'number' 				=> 'required',
-			'bank'					=> 'required'
+			'studio_name'           => 'required',
+            'description'           => 'required',
+            'email'                 => 'required|email|max:255|unique:users',
+            'password'              => 'required|min:6',
+            'name'                  => 'required',
+            'responsible'          => 'required',
 			]);
 		if($validation->fails()){
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
@@ -316,12 +318,11 @@ class StudioController extends Controller
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
 				'studio_owner'			=> $request->input('studio_owner'),
-				'number'				=> $request->input('number'),
-				'bank'					=> $request->input('bank'),
-				'id_user'				=> $studio_user
+				/*'number'				=> $request->input('number'),
+				'bank'					=> $request->input('bank'),*/
 				);
 
-			if($this->studioRepo->AddStudio($datos_studio)){
+			if($this->studioRepo->update($datos_studio,$id)){
 				return redirect()->back()->with('message','User update successful.');
 			}else{
 				return redirect()->back()->with('error','There was a problem updating user information. Please try again');

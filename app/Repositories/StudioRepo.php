@@ -30,7 +30,7 @@ class StudioRepo extends BaseRepo{
         $studio = DB::table('Studio')
             ->join('users', 'Studio.id_user', '=', 'users.id')
             ->join('credit_card', 'credit_card.id_user', '=', 'users.id')
-            ->select('users.email', 'users.password', 'users.name', 'Studio.studio_name', 'Studio.description', 'Studio.responsible', 'credit_card.number', 'credit_card.bank')
+            ->select('users.email', 'users.password', 'users.name', 'Studio.studio_name', 'Studio.description', 'Studio.responsible', 'credit_card.number', 'credit_card.bank','Studio.id')
             ->where('Studio.studio_name', '=', $user)
             ->get();
 
@@ -62,6 +62,10 @@ class StudioRepo extends BaseRepo{
         //dump($performers); die;
 
         return ($performers);
+    }
+
+    public function updateStudio($user,$id){
+        $studio->update($user);
     }
 
 	public function AddPerformer(){

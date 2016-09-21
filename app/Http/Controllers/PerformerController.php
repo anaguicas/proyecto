@@ -247,7 +247,7 @@ class PerformerController extends Controller{
 				'city'					=> $request->input('city'),
 				'country'				=> $request->input('country'),
 				'username' 				=> $request->input('name'),	
-				'birthdate'				=> $request->input('birthdate'),	
+				/*'birthdate'				=> $request->input('birthdate'),	*/
 				'id_user'				=> $performer_user
 				);	
 

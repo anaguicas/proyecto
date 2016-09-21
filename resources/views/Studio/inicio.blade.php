@@ -39,7 +39,7 @@
                 <div class="hexagon">
                     <div class="hexagon-in1">
                         <div class="hexagon-perfil">
-                            <a href="{{route('studio.editprofile')}}">
+                            <a href="{{route('studio.editprofile',$id)}}">
                                 <img class="perfil" src="../../public/media/img/Usuario/Índice/perfil-2.png">
                             </a>                            
                         </div>
