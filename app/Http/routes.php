@@ -146,7 +146,7 @@ Route::get('studio/removeperformer/{id}',[
 ]);
 
 Route::get('studio/addPerformer',[
-    'as' => 'studio.addperformer',
+    'as' => 'studio.addPerformer',
     'uses' => 'StudioController@performerRegister'
 ]);
 
@@ -155,6 +155,7 @@ Route::post('studio/addperformer',[
     'as' => 'studio.addperformer',
     'uses' => 'StudioController@savePerformer'
 ]);
+
 
 
 
