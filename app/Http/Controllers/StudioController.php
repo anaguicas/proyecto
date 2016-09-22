@@ -26,113 +26,7 @@ class StudioController extends Controller
 		$this->usersRepo 	= New UsersRepo;
         $this->performerRepo = New PerformerRepo;
 		$this->creditRepo	= New CreditCardRepo;
-	}
-
-    public function showPerformers(){
-        $repo = new StudioRepo();
-        $consulta = $repo->listPerformers();
-        //dump ($consulta); die;
-        return view('Studio/listPerformers', ['performers' => $consulta]);
-    }
-
-    public function removePerformer($id){
-        $repo= new StudioRepo();
-        $consulta = $repo->removePerformer($id);
-        //dump ($consulta); die;
-        return redirect('studio/showPerformers');
-    }
-
-    public function addPerformer(){
-        $repo= new StudioRepo();
-        $consulta = $repo->addPerformer();
-    }
-
-    public function performerRegister(){
-        $country = $this->Country();
-        $bank	 = $this->Bank();
-        return view('studio/registroPerformer', ['country' => $country, 'bank' => $bank]);
-    }
-
-    public function savePerformer(Request $request){
-
-        $validation = validator::make($request->all(), [
-            'perfor_name' 			=> 'required',
-            'last_name' 			=> 'required',
-            'identification' 		=> 'required|numeric',
-            'photo_identification'	=> 'required|mimes:jpeg,jpg,png|max:10240',
-            //'photo_identification'	=> 'required',
-            'city' 					=> 'required',
-            'country'				=> 'required',
-            'name' 					=> 'required|unique:users',
-            'email' 				=> 'required|email|max:255|unique:users',
-            'password' 				=> 'required|min:6|confirmed',
-            'password_confirmation'	=> 'required|min:6',
-            'birthdate'				=> 'required|date',
-            'bank'					=> 'required'
-        ]);
-
-        if($validation->fails()){
-            return redirect()->back()->withInput()->withErrors($validation->errors());
-        }else{
-            $performer_studio = Auth::user()->name;
-            //dump($performer_studio); die;
-            $imagen = $request->file('photo_identification');
-
-            $new_name = time().$imagen->getClientOriginalName();
-            $img_dir = env('IMG_UPLOAD');
-            $img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
-            $imagen->move($img_dir,$new_name);
-            $datos_user = array(
-                'username' 	=> $request->input('name'),
-                'email'		=> $request->input('email'),
-                'user_type'	=> 1,
-                'password'	=> $request->input('password')
-            );
-            $user = $datos_user['email'];
-
-            /*if($this->UsersRepo->validateUser($user)){
-                return redirect()->back()->with('error','There was a problem. Please try again.');
-            }*/
-
-            $this->usersRepo->addUser($datos_user);
-
-            $performer_user = $this->usersRepo->findUser($user)->first()->id;
-
-            $datos_performer = array(
-                'name'					=> $request->input('perfor_name'),
-                'last_name'				=> $request->input('last_name'),
-                'identification'		=> $request->input('identification'),
-                'photo_identification'	=> $img_url,
-                'city'					=> $request->input('city'),
-                'country'				=> $request->input('country'),
-                'username' 				=> $request->input('name'),
-                'birthdate'				=> $request->input('birthdate'),
-                'id_user'				=> $performer_user
-            );
-
-            $datos_card = array(
-                'bank'					=> $request->input('bank'),
-                'number'				=> $request->input('number'),
-                'id_user'				=> $performer_user,
-                'bank'					=> $request->input('bank')
-            );
-
-            $credit_card = $this->creditRepo->addCreditCard($datos_card);
-
-
-
-
-
-            if($this->performerRepo->addPerformer($datos_performer)){
-                return redirect()->back()->with('message','Successfull');
-            }else{
-                return redirect()->back()->with('error','There was a problem. Please try again.');
-            }
-
-
-        }
-
-    }
+	}    
 
 	public function Bank()
     {
@@ -194,22 +88,24 @@ class StudioController extends Controller
         return $country;
     }
 
-	public function Inicio(){
+	public function getInicio(){
 		
 		//validacion de inicio de sesion
 		if(Auth::check()){
-			return view('Studio/inicio');
+            $studio_id =  Auth::user()->id;
+			//return Redirect::route('studio.inicio',array('id' => $studio_id));
+            return view('Studio/inicio', ['id' => $studio_id]);
 		}else{
 			return Redirect::to('/');
 		}
 	}
 
-	public function FormRegister(){
+	public function getRegister(){
 		$bank	 = $this->Bank();
 		return view('Studio/registro', ['bank' => $bank]);
 	}
 
-	public function Register(Request $request){
+	public function postRegister(Request $request){
 
 		$validation = validator::make($request->all(), [			
 			'studio_name'			=> 'required',
@@ -267,40 +163,80 @@ class StudioController extends Controller
 		}
 	}
 
-    	public function FormProfile(){
+    	public function getEditar($id){
 		$bank	 = $this->Bank();
-            $user = Auth::user()->name;
-		$studios = $this->studioRepo->editProfile($user);
 
-        $studio = array(
-		'studio_name' 	=> $studios[0]->studio_name,
-		'description' 	=> $studios[0]->description,
-		'email'			=> $studios[0]->email,
-		'name'  		=> $studios[0]->name,
-		'responsible'	=> $studios[0]->responsible,
-		'number'		=> $studios[0]->number,
-		'bank' 			=> $studios[0]->bank
-        );
-		return view('Studio/editarPerfil', compact('studio'));
-		//return view('Studio/editarPerfil', ['studio' => $studio]);
+		$user = Auth::user()->name;
+		$studios = $this->studioRepo->editProfile($user);		
+        $studio_id =  Auth::user()->id;
+		/*var_dump($studio);
+		die();*/
+		$studio =  array(
+            'name'              => $studios[0]->name,
+            'description'       => $studios[0]->description,
+            'studio_name'       => $studios[0]->studio_name,
+            'responsible'       => $studios[0]->responsible,
+            'email'             => $studios[0]->email,
+            'bank'              => $studios[0]->bank,
+            'number'            => $studios[0]->number,
+            'password'          => $studios[0]->password
+            );
+		
+		return view('Studio/editarPerfil', compact('studio','id','bank'));
+		//return \Redirect::route('studio.editprofile', ['studio' => $studio]);
 	}
 
-	public function saveProfile(Request $request){
-		$validation = validator::make($request->all(), [
+	public function putEditar(){
+
+		$validation = validator::make(\Input::all(), [
             'studio_name'			=> 'required',
             'description'			=> 'required',
-            'email'					=> 'required|email|max:255|unique:users',
-            'password' 				=> 'required|min:6',
+            'email'					=> 'required|email|max:255',
+            //'password' 				=> 'required|min:6',
             'name'  				=> 'required',
             'responsible'			=> 'required',
             'number' 				=> 'required',
             'bank'					=> 'required'
 			]);
-        return redirect()->back()->with('message','User update successful.');
+        
+        if($validation->passes()){
+
+            $datos_user = array(
+                'username'  => \Input::get('name'),
+                'email'     => \Input::get('email'),
+                'password'  => \Input::get('password')
+                );
+            
+            $id = Auth::user()->id;
+
+            //$studio_user = $this->UsersRepo->findUser($user)->first()->id;
+
+            $datos_studio = array(
+                'studio_name'           => \Input::get('studio_name'),
+                'description'           => \Input::get('description'),
+                'responsible'           => \Input::get('responsible')
+                );
+
+            $datos_card = array(
+                'bank'                  => \Input::get('bank'),
+                'number'                => \Input::get('number')
+            );                
+
+            if($this->studioRepo->update($id,$datos_studio) && $this->creditRepo->update($id, $datos_card) && $this->usersRepo->update($id,$datos_user)){
+                return redirect()->back()->with('message','User update successful.');
+            }else{
+                return redirect()->back()->with('error','There was a problem updating user information. Please try again');
+            }
+
+        }else{
+            /*var_dump($validation->errors());
+            die(); */
+            return redirect()->back()->withInput()->withErrors($validation->errors());
+        }
 		/*if($validation->fails()){
 			return redirect()->back()->withInput()->withErrors($validation->errors());
 		}else{
-            return redirect()->back()->with('message','User update successful.');
+            
 			$datos_user = array(
 				'username' 	=> $request->input('name'),
 				'email'		=> $request->input('email'),
@@ -315,8 +251,13 @@ class StudioController extends Controller
 			$datos_studio = array(
 				'studio_name'			=> $request->input('studio_name'),
 				'description'			=> $request->input('description'),
+				'studio_owner'			=> $request->input('studio_owner'),
+				'number'				=> $request->input('number'),
+				'bank'					=> $request->input('bank'),
+
 				'studio_owner'			=> $request->input('studio_owner')
 				);
+
             $datos_card = array(
                 'bank'					=> $request->input('bank'),
                 'number'				=> $request->input('number'),
@@ -330,4 +271,106 @@ class StudioController extends Controller
 			}
 		}*/
 	}
+
+    public function getPerformers(){
+        $repo = new StudioRepo();
+        $consulta = $repo->listPerformers();
+        //dump ($consulta); die;
+        return view('Studio/listPerformers', ['performers' => $consulta]);
+    }
+
+    public function deletePerformer($id){
+        $repo= new StudioRepo();
+        $consulta = $repo->removePerformer($id);
+        //dump ($consulta); die;
+        return redirect('studio/showPerformers');
+    }
+
+    public function AddPerformer(){
+        $repo= new StudioRepo();
+        $consulta = $repo->addPerformer();
+    }
+
+    public function getPerformerRegister(){
+        $country = $this->Country();
+        $bank    = $this->Bank();
+        return view('studio/registroPerformer', ['country' => $country, 'bank' => $bank]);
+    }
+
+    public function postSavePerformer(Request $request){
+
+        $validation = validator::make($request->all(), [
+            'perfor_name'           => 'required',
+            'last_name'             => 'required',
+            'identification'        => 'required|numeric',
+            'photo_identification'  => 'required|mimes:jpeg,jpg,png|max:10240',
+            //'photo_identification'    => 'required',
+            'city'                  => 'required',
+            'country'               => 'required',
+            'name'                  => 'required|unique:users',
+            'email'                 => 'required|email|max:255|unique:users',
+            'password'              => 'required|min:6|confirmed',
+            'password_confirmation' => 'required|min:6',
+            'birthdate'             => 'required|date',
+            'bank'                  => 'required'
+        ]);
+
+        if($validation->fails()){
+            return redirect()->back()->withInput()->withErrors($validation->errors());
+        }else{
+            $performer_studio = Auth::user()->name;
+            //dump($performer_studio); die;
+            $imagen = $request->file('photo_identification');
+
+            $new_name = time().$imagen->getClientOriginalName();
+            $img_dir = env('IMG_UPLOAD');
+            $img_url = env('MEDIA_URL')."/img/uploads/".$new_name;
+            $imagen->move($img_dir,$new_name);
+            $datos_user = array(
+                'username'  => $request->input('name'),
+                'email'     => $request->input('email'),
+                'user_type' => 1,
+                'password'  => $request->input('password')
+            );
+            $user = $datos_user['email'];
+
+            /*if($this->UsersRepo->validateUser($user)){
+                return redirect()->back()->with('error','There was a problem. Please try again.');
+            }*/
+
+            $this->usersRepo->addUser($datos_user);
+
+            $performer_user = $this->usersRepo->findUser($user)->first()->id;
+
+            $datos_performer = array(
+                'name'                  => $request->input('perfor_name'),
+                'last_name'             => $request->input('last_name'),
+                'identification'        => $request->input('identification'),
+                'photo_identification'  => $img_url,
+                'city'                  => $request->input('city'),
+                'country'               => $request->input('country'),
+                'username'              => $request->input('name'),
+                'birthdate'             => $request->input('birthdate'),
+                'id_user'               => $performer_user
+            );
+
+            $datos_card = array(
+                'bank'                  => $request->input('bank'),
+                'number'                => $request->input('number'),
+                'id_user'               => $performer_user,
+                'bank'                  => $request->input('bank')
+            );
+
+            $credit_card = $this->creditRepo->addCreditCard($datos_card);
+
+            if($this->performerRepo->addPerformer($datos_performer)){
+                return redirect()->back()->with('message','Successfull');
+            }else{
+                return redirect()->back()->with('error','There was a problem. Please try again.');
+            }
+
+
+        }
+
+    }
 }

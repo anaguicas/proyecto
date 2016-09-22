@@ -30,7 +30,11 @@ class StudioRepo extends BaseRepo{
         $studio = DB::table('Studio')
             ->join('users', 'Studio.id_user', '=', 'users.id')
             ->join('credit_card', 'credit_card.id_user', '=', 'users.id')
-            ->select('users.email', 'users.password', 'users.name', 'Studio.studio_name', 'Studio.description', 'Studio.responsible', 'credit_card.number', 'credit_card.bank')
+            ->select(
+                'users.email', 'users.password', 
+                'users.name', 'Studio.studio_name', 
+                'Studio.description', 'Studio.responsible', 
+                'credit_card.number', 'credit_card.bank','Studio.id')
             ->where('Studio.studio_name', '=', $user)
             ->get();
 
@@ -64,6 +68,10 @@ class StudioRepo extends BaseRepo{
         return ($performers);
     }
 
+    public function updateStudio($user,$id){
+        $studio->update($user);
+    }
+
 	public function AddPerformer(){
 
 	}
@@ -74,10 +82,12 @@ class StudioRepo extends BaseRepo{
 
 	public function update($id,$datos){
 	    $studio_name = $datos['studio_name'];
-        $responsible = $datos['reponsible'];
+        $responsible = $datos['responsible'];
         $description = $datos['description'];
 
-        $performer=DB::table('Studio')->where('id_user','=',$id)->update(['studio_name'=>$studio_name,'responsible'=>$responsible,'description'=>$description]);
+        $this->model->where('id_user','=',$id)->update(['studio_name' => $studio_name, 'responsible' => $responsible, 'description' => $description]);
         //$this->model->update(['studio_name'=>$studio_name,'responsible'=>$responsible,'description'=>$description])->where('id_user','=',$id);
+
+        return true;
     }
 }

@@ -27,4 +27,13 @@ class CreditCardRepo extends BaseRepo{
         ]);*/
 	}
 
+	public function update($id, $card){
+		$number				= $card['number'];
+        $bank				= $card['bank'];
+
+	    $this->model->where('id_user','=',$id)->update(['number' => $number,'bank' => $bank]);
+
+	    return true;
+	}
+
 }

@@ -160,6 +160,8 @@ class PerformerController extends Controller{
 				'photo_identification'	=> $img_url,
 				'city'					=> $request->input('city'),
 				'country'				=> $request->input('country'),
+				'username' 				=> $request->input('name'),	
+				/*'birthdate'				=> $request->input('birthdate'),	*/
 				'username' 				=> $request->input('name'),
 				'birthdate'				=> $request->input('birthdate'),
 				'id_user'				=> $performer_user

@@ -7,13 +7,13 @@
 					<div class="hexagon">
 						<div class="hexagon-in1">
 							<div class="hexagon-foto">
-								<img src="../../public/media/img/log in/usuario.png">
+								<img src="../../../public/media/img/log in/usuario.png">
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="formulario-profile col-lg-7">		
-					{{  Form::model($studio, array('route' => 'studio.save', 'method' => 'PUT')) }}
+					{{  Form::model($studio, array('route' => array('studio.save', $id) , 'method' => 'PUT')) }} 					
 					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
 						@if(Session::has('message'))
 							<div class="alert alert-success alert-dissmissible col-xs-12">
@@ -66,7 +66,33 @@
 						</p>
 						@endif
 					</div>
-
+					<!-- <div class="form-group">
+						{{Form::password('password',['class' => 'form-control input-label', 'placeholder' => 'PASSWORD'])}}
+						@if($errors->has('password'))
+						<p class="text-danger">
+							{{ $errors->first('password') }}
+						</p>
+						@endif
+					</div> -->
+					<div class="form-group">
+						{{Form::text('number',null,array('class' => 'form-control input-label', 'placeholder' => 'BANK ACCOUNT NUMBER'))}}
+						@if($errors->has('number'))
+						<p class="text-danger">
+							{{ $errors->first('number') }}
+						</p>
+						@endif					
+					</div>
+					<div class="form-group">
+						{{Form::label('bank', 'BANK', array('class' => 'col-lg-4 control-label'))}}
+						<div class="col-lg-5 country">
+							{{ Form::select('bank', $bank, null, array('class'=>'form-control select-label ', 'required' => 'required')) }}
+							@if ($errors->has('bank'))
+							<p class="text-danger">
+								{{ $errors->first('bank') }}
+							</p>
+							@endif
+						</div>
+					</div>
 					<div class="form-group">
 						{{ Form::submit('SAVE', array('class' => 'btn boton-registro')) }}
 					</div>	
