@@ -50,5 +50,7 @@ class UsersRepo extends BaseRepo{
         $name 				= $datos['username'];
         $email				= $datos['email'];
 	    $this->model->where('id','=',$id)->update(['email' => $email,'name' => $name]);
+
+	    return true;
     }
 }

@@ -214,7 +214,7 @@ class StudioController extends Controller
             $datos_studio = array(
                 'studio_name'           => \Input::get('studio_name'),
                 'description'           => \Input::get('description'),
-                'responsible'           => \Input::get('studio_owner')
+                'responsible'           => \Input::get('responsible')
                 );
 
             $datos_card = array(
@@ -222,7 +222,7 @@ class StudioController extends Controller
                 'number'                => \Input::get('number')
             );                
 
-            if($this->studioRepo->update($id,$datos_studio && $this->creditRepo->update($id, $datos_card && $this->usersRepo->update($id,$datos_user)))){
+            if($this->studioRepo->update($id,$datos_studio) && $this->creditRepo->update($id, $datos_card) && $this->usersRepo->update($id,$datos_user)){
                 return redirect()->back()->with('message','User update successful.');
             }else{
                 return redirect()->back()->with('error','There was a problem updating user information. Please try again');

@@ -82,10 +82,12 @@ class StudioRepo extends BaseRepo{
 
 	public function update($id,$datos){
 	    $studio_name = $datos['studio_name'];
-        $responsible = $datos['reponsible'];
+        $responsible = $datos['responsible'];
         $description = $datos['description'];
 
         $this->model->where('id_user','=',$id)->update(['studio_name' => $studio_name, 'responsible' => $responsible, 'description' => $description]);
         //$this->model->update(['studio_name'=>$studio_name,'responsible'=>$responsible,'description'=>$description])->where('id_user','=',$id);
+
+        return true;
     }
 }
