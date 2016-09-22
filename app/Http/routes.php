@@ -105,30 +105,45 @@ Route::post('performer/edit-profile',[
 ]);
 
 /*---------Studio---------*/
+
+/*Route::group(array('laroute' => false, 'before'=>'auth|users'),function(){
+	Route::controller('studio','StudioController',array(
+		'getInicio'	=> 'studio.inicio',
+		'getRegister'	=> 'studio.register',
+		'postRegister'	=> 'studio.saveregister',
+		'getEditar'		=> 'studio.editprofile',
+		'putEditar'		=> 'studio.save',
+		'getPerformers'	=> 'studio.showperformers',
+		'deletePerformer'	=> 'studio.removeperformer',
+		'getPerformerRegister'	=> 'studio.addperformer',
+		'postSavePerformer'		=> 'studio.savePerformer',
+		));
+});*/
+
 Route::get('studio/inicio', [
 	'as' => 'studio.inicio',
-    'uses' => 'StudioController@Inicio'
+    'uses' => 'StudioController@getInicio'
 ]);
 
 
 Route::get('studio-register', [
 	'as' => 'studio.register',
-	'uses' => 'StudioController@FormRegister'
+	'uses' => 'StudioController@getRegister'
 ]);
 
 Route::post('studio-register', [
 	'as' => 'studio.register',
-	'uses' => 'StudioController@Register'
+	'uses' => 'StudioController@postRegister'
 ]);
 
 Route::get('studio/edit-profile/{id}',[
 	'as' => 'studio.editprofile',
-	'uses' => 'StudioController@FormProfile'
+	'uses' => 'StudioController@getEditar'
 ]);
 
 Route::put('studio/edit-profile/{id}',[
 	'as' => 'studio.save',
-	'uses' => 'StudioController@saveProfile'
+	'uses' => 'StudioController@putEditar'
 ]);
 
 Route::post('registro',function(){
@@ -137,23 +152,23 @@ Route::post('registro',function(){
 
 Route::get('studio/showPerformers',[
     'as'=> 'studio.showperformers',
-    'uses' => 'StudioController@showPerformers'
+    'uses' => 'StudioController@getPerformers'
 ]);
 
 Route::get('studio/removeperformer/{id}',[
     'as'=> 'studio.removeperformer',
-    'uses' => 'StudioController@removePerformer'
+    'uses' => 'StudioController@deletePerformer'
 ]);
 
 Route::get('studio/addPerformer',[
     'as' => 'studio.addperformer',
-    'uses' => 'StudioController@performerRegister'
+    'uses' => 'StudioController@getPerformerRegister'
 ]);
 
 
 Route::post('studio/addperformer',[
     'as' => 'studio.addperformer',
-    'uses' => 'StudioController@savePerformer'
+    'uses' => 'StudioController@postSavePerformer'
 ]);
 
 
