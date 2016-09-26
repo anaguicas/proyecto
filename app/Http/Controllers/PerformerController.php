@@ -89,7 +89,8 @@ class PerformerController extends Controller{
 		
 		//validacion de inicio de sesion
 		if(Auth::check()){
-			return view('performers/inicio');
+			$id = Auth::user()->id;
+			return view('performers/inicio',['id' => $id]);
 		}else{
 			return Redirect::to('/');
 		}
@@ -118,14 +119,7 @@ class PerformerController extends Controller{
 			'password_confirmation'	=> 'required|min:6',
 			'birthdate'				=> 'required|date',
 			'bank'					=> 'required'
-			]);	
-
-		/*$errors = array(			
-			'required' => 'El campo :attribute es obligatorio',
-			'min' => 'El campo :attribute no puede tener menos de :min carácteres',
-			'email' => 'El campo :attribute debe ser un email válido',
-			'unique' => 'El email ingresado ya existe en la base de datos'
-			);*/	
+			]);		
 
 		if($validation->fails()){
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
@@ -162,7 +156,6 @@ class PerformerController extends Controller{
 				'country'				=> $request->input('country'),
 				'username' 				=> $request->input('name'),	
 				/*'birthdate'				=> $request->input('birthdate'),	*/
-				'username' 				=> $request->input('name'),
 				'birthdate'				=> $request->input('birthdate'),
 				'id_user'				=> $performer_user
 				);
@@ -181,9 +174,73 @@ class PerformerController extends Controller{
 			}else{
 				return redirect()->back()->with('error','There was a problem. Please try again.');
 			}
-
-
 		}
+	}
 
+	public function getEditar($id){
+		$bank	 = $this->Bank();
+		$country = $this->Country();		
+		$performers = $this->PerformerRepo->editProfile($id);	
+
+		$performer =  array(
+            'perfor_name'       	=> $performers[0]->perfor_name,
+            'last_name'      		=> $performers[0]->last_name,
+            'identification'    	=> $performers[0]->identification,
+            'photo_identification' 	=> $performers[0]->photo_identification,
+            'city'       			=> $performers[0]->city,
+            'country'           	=> $performers[0]->country,
+            'bank'              	=> $performers[0]->bank,
+            'number'            	=> $performers[0]->number,
+            'email'					=> $performers[0]->email,
+            'name'          		=> $performers[0]->name
+            );
+		
+		return view('performers/editarPerfil', compact('performer','id','bank','country'));		
+	}
+
+	public function putEditar(){
+
+		$validation = validator::make(\Input::all(),[
+			'perfor_name'		=> 'required',
+			'last_name'			=> 'required',
+			'identification'	=> 'required|numeric',
+			'city'				=> 'required',
+			'country'			=> 'required',
+			//'birthdate'			=> 'required|date',
+			'email'				=> 'required|email|max:255',
+			'name'				=> 'required',
+			'bank'				=> 'required',
+			'number'			=> 'required'
+			]);
+        
+        if($validation->passes()){
+        	$datos_user = array(
+                'username'  => \Input::get('name'),
+                'email'     => \Input::get('email')
+                );
+            
+            $id = Auth::user()->id;
+
+            $datos_performer = array(
+            	'perfor_name'		=> \Input::get('perfor_name'),
+            	'last_name'			=> \Input::get('last_name'),
+            	'identification'	=> \Input::get('identification'),
+            	'city'				=> \Input::get('city'),
+            	'country'			=> \Input::get('country')
+            	);
+
+            $datos_card = array(
+                'bank'                  => \Input::get('bank'),
+                'number'                => \Input::get('number')
+            );
+
+            if($this->PerformerRepo->update($id,$datos_performer) && $this->creditRepo->update($id, $datos_card) && $this->UsersRepo->update($id,$datos_user)){
+        		return redirect()->back()->with('message','User update successful.');            	
+            }else{
+            	return redirect()->back()->with('error','There was a problem updating user information. Please try again');
+            }
+        }else{
+        	return redirect()->back()->withInput()->withErrors($validation->errors());
+        }
 	}
 }

@@ -46,13 +46,39 @@ class PerformerRepo extends BaseRepo{
 		
 	}
 
-	public function editProfile($user){
+	public function editProfile($id){
         $performer = DB::table('Performers')
             ->join('users','Performers.id_user','=','users.id')
-            ->select('users.email','users.password','users.name','Performers.perfor_name','Performers.last_name','Performers.identification','Performers.photo_identification','Performers.country','Performers.city')
-            ->where('Performers.perfor_name','=',$user)
+            ->join('credit_card', 'credit_card.id_user', '=', 'users.id')
+            ->select(
+            	'users.email','users.password',
+            	'users.name','Performers.perfor_name',
+            	'Performers.last_name','Performers.identification',
+            	'Performers.photo_identification','Performers.country',
+            	'Performers.city','credit_card.number', 'credit_card.bank','Performers.id')
+            ->where('users.id', '=', $id)
             ->get();
 
         return $performer;
+    }
+
+    public function update($id,$datos){
+    	$perfor_name 	= $datos['perfor_name'];
+        $last_name 		= $datos['last_name'];
+        $identification = $datos['identification'];
+        $country		= $datos['country'];
+        $city			= $datos['city'];
+        //$birthdate		= $datos['birthdate'];
+
+        $this->model->where('id_user','=',$id)->update(['perfor_name' 		=> $perfor_name, 
+        												'last_name' 		=> $last_name, 
+        												'identification' 	=> $identification,
+        												'country'			=> $country,
+        												'city'				=> $city
+        												//'birthdate'			=> $birthdate
+        												]);
+        //$this->model->update(['studio_name'=>$studio_name,'responsible'=>$responsible,'description'=>$description])->where('id_user','=',$id);
+
+        return true;
     }
 }

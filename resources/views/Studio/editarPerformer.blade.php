@@ -6,36 +6,20 @@
 				<div class="col-lg-5">
 					<div class="hexagon">
 						<div class="hexagon-in1">
-							<div class="hexagon-foto" style="background: url('../../../public/media/img/upload/<?php echo $performer['photo_identification'];?>')">								
+							<div class="hexagon-foto" style="background: url('../../public/media/img/upload/<?php echo $performer['photo_identification'];?>')">								
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="formulario-profile col-lg-7">		
-					{{  Form::model($performer,array('route'=>array('performer.save', $id), 'method' => 'PUT')) }} 					
+					{{  Form::model($performer,array('route'=>array('performer.save', $id), 'method' => 'PATCH')) }} 					
 					
-					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->	
-					@if(Session::has('message'))
-							<div class="alert alert-success alert-dissmissible col-xs-12">
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-								{{Session::get('message')}}
-							</div>
-						@endif
-						@if(Session::has('error'))
-							<div class="alert alert-danger alert-dissmissible col-xs-12">
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-								{{Session::get('error')}}
-							</div>
-						@endif				
+					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->					
 					<div class="form-group">
 						{{Form::text('perfor_name',null,array('class' => 'form-control input-label', 'placeholder' => 'NAME'))}}
-						@if($errors->has('perfor_name'))
+						@if($errors->has('subs_name'))
 						<p class="text-danger">
-							{{ $errors->first('perfor_name') }}
+							{{ $errors->first('subs_name') }}
 						</p>
 						@endif
 					</div>
@@ -49,11 +33,6 @@
 					</div>					
 					<div class="form-group">
 						{{Form::text('identification',null,array('class' => 'form-control input-label', 'placeholder' => 'IDENTIFICATION'))}}
-						@if($errors->has('identification'))
-						<p class="text-danger">
-							{{ $errors->first('identification') }}
-						</p>
-						@endif
 					</div>
 					<div class="form-group">
 						{{Form::text('name',null,array('class' => 'form-control input-label', 'placeholder' => 'USERNAME'))}}

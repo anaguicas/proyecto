@@ -52,14 +52,14 @@
                                 <td>12345</td>
                             </tr>
                         </table>
-                        <table class="row">
+                        <table class="row campos" id="opciones">
                             <tr>
                                 <td class="edit">
                                     <a href="{{route('studio.editprofile', ['id' => $performer->id_user])}}">
                                         <span class="glyphicon glyphicon-edit"></span>
                                     </a>
                                 </td>
-                                <td><p class="campos">EDIT</p></td>
+                                <td><p>EDIT</p></td>
                             </tr>
                             <tr>
                                 <td class="delete">
@@ -67,29 +67,9 @@
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
-                                <td><p class="campos">DELETE</p></td>
+                                <td><p>DELETE</p></td>
                             </tr>
-                        </table>                        
-                        <!-- <div class="row">
-                            <div class="editar">
-                                <a href="{{route('studio.editprofile', ['id' => $performer->id_user])}}">                        
-                                    <p></p>                        
-                                    <p class="campos"></p>
-                                </a>
-                            </div>
-
-                        </div>
-
-                    <div class="row delete">
-                       <a href="{{route('studio.removeperformer', ['id' => $performer->id_user])}}">
-                        <div class="col-md-3">
-                            <p></p>
-                        </div>
-                        <div class="col-md-9 campos">
-                            DELETE
-                        </div>
-                    </a>
-                </div> -->
+                        </table>  
             </div>
         </div>
     </div>

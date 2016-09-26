@@ -111,20 +111,13 @@ class StudioController extends Controller
 			'studio_name'			=> 'required',
 			'description'			=> 'required',
 			'email'					=> 'required|email|max:255|unique:users',
-			'password' 				=> 'required|min:6|confirmed',
-			'password_confirmation'	=> 'required|min:6',
+			'password' 				=> 'required|alpha_num|min:6|confirmed',
+			'password_confirmation'	=> 'required|alpha_num|min:6',
 			'username'				=> 'required',
 			'studio_owner'			=> 'required',
 			'number' 				=> 'required',
 			'bank'					=> 'required'	
 			]);
-
-		/*$errors = array(			
-			'required'  => 'El campo :attribute es obligatorio',
-			'min' 		=> 'El campo :attribute no puede tener menos de :min carácteres',
-			'email' 	=> 'El campo :attribute debe ser un email válido',
-			'unique' 	=> 'El email ingresado ya existe en la base de datos'
-			);*/
 
 		if($validation->fails()){			
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
@@ -163,11 +156,11 @@ class StudioController extends Controller
 		}
 	}
 
-    	public function getEditar($id){
+    public function getEditar($id){
 		$bank	 = $this->Bank();
 
 		$user = Auth::user()->name;
-		$studios = $this->studioRepo->editProfile($user);		
+		$studios = $this->studioRepo->editProfile($id);		
         $studio_id =  Auth::user()->id;
 		/*var_dump($studio);
 		die();*/
@@ -203,8 +196,7 @@ class StudioController extends Controller
 
             $datos_user = array(
                 'username'  => \Input::get('name'),
-                'email'     => \Input::get('email'),
-                'password'  => \Input::get('password')
+                'email'     => \Input::get('email')
                 );
             
             $id = Auth::user()->id;
@@ -233,43 +225,6 @@ class StudioController extends Controller
             die(); */
             return redirect()->back()->withInput()->withErrors($validation->errors());
         }
-		/*if($validation->fails()){
-			return redirect()->back()->withInput()->withErrors($validation->errors());
-		}else{
-            
-			$datos_user = array(
-				'username' 	=> $request->input('name'),
-				'email'		=> $request->input('email'),
-				'password'	=> $request->input('password')
-				);
-            var_dump($request->all());
-            die();
-            $id = Auth::user()->id;
-            $studio_user = $this->usersRepo->update($id,$datos_user);
-			//$studio_user = $this->UsersRepo->findUser($user)->first()->id;
-
-			$datos_studio = array(
-				'studio_name'			=> $request->input('studio_name'),
-				'description'			=> $request->input('description'),
-				'studio_owner'			=> $request->input('studio_owner'),
-				'number'				=> $request->input('number'),
-				'bank'					=> $request->input('bank'),
-
-				'studio_owner'			=> $request->input('studio_owner')
-				);
-
-            $datos_card = array(
-                'bank'					=> $request->input('bank'),
-                'number'				=> $request->input('number'),
-                'bank'					=> $request->input('bank')
-            );
-
-			if($this->studioRepo->update($id,$datos_studio)){
-				return redirect()->back()->with('message','User update successful.');
-			}else{
-				return redirect()->back()->with('error','There was a problem updating user information. Please try again');
-			}
-		}*/
 	}
 
     public function getPerformers(){
@@ -309,9 +264,9 @@ class StudioController extends Controller
             'country'               => 'required',
             'name'                  => 'required|unique:users',
             'email'                 => 'required|email|max:255|unique:users',
-            'password'              => 'required|min:6|confirmed',
-            'password_confirmation' => 'required|min:6',
-            'birthdate'             => 'required|date',
+            'password'              => 'required|alpha_num|min:6|confirmed',
+            'password_confirmation' => 'required|alpha_num|min:6',
+            'birthdate'             => 'required|date|before:18 years old',
             'bank'                  => 'required'
         ]);
 
@@ -333,10 +288,6 @@ class StudioController extends Controller
                 'password'  => $request->input('password')
             );
             $user = $datos_user['email'];
-
-            /*if($this->UsersRepo->validateUser($user)){
-                return redirect()->back()->with('error','There was a problem. Please try again.');
-            }*/
 
             $this->usersRepo->addUser($datos_user);
 
@@ -368,9 +319,10 @@ class StudioController extends Controller
             }else{
                 return redirect()->back()->with('error','There was a problem. Please try again.');
             }
-
-
         }
 
+        /*public function getEditarPerformer($id){
+
+        }*/
     }
 }

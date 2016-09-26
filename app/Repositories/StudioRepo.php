@@ -25,7 +25,7 @@ class StudioRepo extends BaseRepo{
         return true;
     }
 
-    public function editProfile($user)
+    public function editProfile($id)
     {
         $studio = DB::table('Studio')
             ->join('users', 'Studio.id_user', '=', 'users.id')
@@ -35,7 +35,7 @@ class StudioRepo extends BaseRepo{
                 'users.name', 'Studio.studio_name', 
                 'Studio.description', 'Studio.responsible', 
                 'credit_card.number', 'credit_card.bank','Studio.id')
-            ->where('Studio.studio_name', '=', $user)
+            ->where('users.id', '=', $id)
             ->get();
 
         return $studio;
