@@ -26,7 +26,8 @@ class SubscriberController extends Controller{
 	public function Inicio(){
 		//validacion de inicio de sesion
 		if(Auth::check()){
-			return view('subscriber/inicio');	
+			$id = Auth::user()->id;
+			return view('subscriber/inicio',['id' => $id]);	
 		}else{
 			return Redirect::to('/');
 		}
@@ -145,10 +146,10 @@ class SubscriberController extends Controller{
 		}
 	}
 
-	public function FormProfile(){
-
-		$user = Auth::user()->name;
-		$subscriber = $this->SubscriberRepo->editProfile($user);		
+	public function getEditar($id){
+		
+		$subscriber = $this->SubscriberRepo->editProfile($id);
+		$country = $this->Country();		
 		/*var_dump($subscriber);	
 		die();*/
 
@@ -158,50 +159,45 @@ class SubscriberController extends Controller{
 			'last_name'			=> $subscriber[0]->last_name,
 			'identification'	=> $subscriber[0]->identification,
 			'email'				=> $subscriber[0]->email,
-			'country'			=> $subscriber[0]->country,
-			'password'			=> $subscriber[0]->password
+			'country'			=> $subscriber[0]->country
 			);
 		
-		return view('subscriber/editarPerfil',compact('subs'));
+		return view('subscriber/editarPerfil',compact('subs','country','id'));
 	}
 
-	public function saveProfile(Request $request){
-		$validation = validator::make($request->all(), [
-			'identification' 		=> 'numeric',
-			'name'					=> 'unique:users',
-			'email' 				=> 'email|max:255|unique:users',
-			'password' 				=> 'alphanum|min:5'
+	public function putEditar(){
+		$validation = validator::make(\Input::all(), [
+			'subs_name'				=> 'required',
+			'last_name'				=> 'required',
+			'identification' 		=> 'required|numeric',
+			'name'					=> 'required',
+			'email' 				=> 'required|email|max:255',
+			'country'				=> 'required'
 			]);
 
 		if($validation->fails()){			
 			return redirect()->back()->withInput()->withErrors($validation->errors());			
 		}else{
 
+			$id = Auth::user()->id;
+
 			$datos_user = array(
-				'username' 	=> $request->input('name'),
-				'email'		=> $request->input('email'),
-				'password'	=> $request->input('password')
-				);
-
-			$this->UsersRepo->addUser($datos_user);
-
-			$user = $datos_user['email'];
-
-			$studio_user = $this->UsersRepo->findUser($user)->first()->id;	
+				'username' 	=> \Input::get('name'),
+				'email'		=> \Input::get('email'),
+				'password'	=> \Input::get('password')
+				);	
 
 			$datos_subscriber = array(
-				'name'					=> $request->input('subs_name'),
-				'last_name'				=> $request->input('last_name'),
-				'identification'		=> $request->input('identification'),
-			//'city'					=> $request->input('city'),
-				'country'				=> $request->input('country'),			
-				'id_user'				=> $subscriber_user
+				'subs_name'				=> \Input::get('subs_name'),
+				'last_name'			=> \Input::get('last_name'),
+				'identification'	=> \Input::get('identification'),
+				'country'			=> \Input::get('country')
 				);
 
-			if($this->SubscriberRepo->addSubscriber($datos_subscriber)){
-				return redirect()->back()->with('message','Successfull.');
+			if($this->SubscriberRepo->update($id,$datos_subscriber) && $this->UsersRepo->update($id,$datos_user)){
+				return redirect()->back()->with('message','User update successful.'); 
 			}else{
-				return redirect()->back()->with('error','An error has ocurred.');
+				return redirect()->back()->with('error','There was a problem updating user information. Please try again');
 			}
 		}
 	}

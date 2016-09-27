@@ -43,13 +43,31 @@ class SubscriberRepo extends BaseRepo{
 		return true;
 	}
 
-	public function editProfile($user){
+	public function editProfile($id){
         $subscriber = DB::table('Subscriber')
             ->join('users','Subscriber.id_user','=','users.id')
             ->select('users.email','users.password','users.name','Subscriber.subs_name','Subscriber.last_name','Subscriber.identification','Subscriber.country')
-            ->where('Subscriber.subs_name','=',$user)
+            ->where('users.id','=',$id)
             ->get();
 
         return $subscriber;
+    }
+
+    public function update($id,$datos){
+    	$subs_name 		= $datos['subs_name'];
+        $last_name 		= $datos['last_name'];
+        $identification = $datos['identification'];
+        $country		= $datos['country'];
+        //$birthdate		= $datos['birthdate'];
+
+        $this->model->where('id_user','=',$id)->update(['subs_name' 		=> $subs_name, 
+        												'last_name' 		=> $last_name, 
+        												'identification' 	=> $identification,
+        												'country'			=> $country
+        												//'birthdate'			=> $birthdate
+        												]);
+        //$this->model->update(['studio_name'=>$studio_name,'responsible'=>$responsible,'description'=>$description])->where('id_user','=',$id);
+
+        return true;
     }
 }

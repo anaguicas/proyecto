@@ -67,13 +67,13 @@ Route::post('subscriber-register',[
 	'uses' => 'SubscriberController@Register'
 ]);
 
-Route::get('subscriber/edit-profile',[
+Route::get('subscriber/edit-profile/{id}',[
 	'as' => 'subscriber.editprofile',
-	'uses' => 'SubscriberController@FormProfile'
+	'uses' => 'SubscriberController@getEditar'
 ]);
-Route::post('subscriber/edit-profile',[
+Route::put('subscriber/edit-profile/{id}',[
 	'as' => 'subscriber.save',
-	'uses' => 'SubscriberController@saveProfile'
+	'uses' => 'SubscriberController@putEditar'
 ]);
 
 
@@ -171,7 +171,12 @@ Route::post('studio/addperformer',[
     'uses' => 'StudioController@postSavePerformer'
 ]);
 
+/*----------Admin--------------*/
 
+Route::get('Admin/inicio',[
+	'as'	=> 'admin.inicio',
+	'uses'	=> 'AdminController@getInicio'
+]);
 
 
 

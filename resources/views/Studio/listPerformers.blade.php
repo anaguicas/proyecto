@@ -40,15 +40,15 @@
                     <div class="col-md-12 info">
                         <table class="row campos">
                             <tr>
-                                <td>MEMBER SINCE:</td>
+                                <td>MEMBER SINCE: </td>
                                 <td>{{ date('m/d/Y', strtotime($performer->created_at)) }}</td>
                             </tr>
                             <tr>
-                                <td>MONTH'S TOKENS:</td>
+                                <td>MONTH'S TOKENS: </td>
                                 <td>12345</td>
                             </tr>
                             <tr>
-                                <td>TOTAL:</td>
+                                <td>TOTAL: </td>
                                 <td>12345</td>
                             </tr>
                         </table>
@@ -70,12 +70,12 @@
                                 <td><p>DELETE</p></td>
                             </tr>
                         </table>  
+                    </div>
+                </div>
             </div>
         </div>
+        @endforeach
     </div>
-</div>
-@endforeach
-</div>
 </body >
 </html>
 
