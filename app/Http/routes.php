@@ -178,7 +178,10 @@ Route::get('Admin/inicio',[
 	'uses'	=> 'AdminController@getInicio'
 ]);
 
-
+Route::get('Admin/application',[
+	'as'	=> 'admin.application',
+	'uses'	=> 'AdminController@getApplications'
+]);
 
 
 

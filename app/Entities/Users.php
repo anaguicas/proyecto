@@ -32,4 +32,8 @@ class Users extends Model{
 	public function creditCard(){
 		return $this->hasOne('App\Entities\Credit_card','credit_card_user','id');
 	}
+
+	public function Solicitudes(){
+		return $this->hasMany('App\Entities\Admin','pqr_user_fk','id');
+	}
 }

@@ -21,4 +21,8 @@ class AdminController extends Controller{
 		return view('Admin/inicio');	
 		
 	}
+
+	public function getApplications(){
+		return view('Admin/solicitudes');
+	}
 }
