@@ -36,4 +36,8 @@ class Users extends Model{
 	public function Solicitudes(){
 		return $this->hasMany('App\Entities\Admin','pqr_user_fk','id');
 	}
+
+	public function PQR(){
+		return $this->hasMany('App\Entities\PQR','pqr_user_fk','id');
+	}
 }

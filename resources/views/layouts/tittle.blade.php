@@ -13,12 +13,13 @@
 <html>
 <head>
 	<title>Pandora</title>
-	<link media="all" type="text/css" rel="stylesheet" href="../../../public/media/css/bootstrap.min.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../../public/media/css/landing.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../../public/media/css/layout.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../../public/media/css/pagina.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../../public/media/css/admin.css">
-	<link media="all" type="text/css" rel="stylesheet" href="../../../public/media/css/datepicker.css">
+	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/bootstrap.min.css">
+	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/landing.css">
+	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/layout.css">
+	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/studio.css">
+	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/pagina.css">
+	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/admin.css">
+	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/datepicker.css">
 	<!--link media="all" type="text/css" rel="stylesheet" href="{{env('MEDIA_URL')}}/css/bootstrap.css"-->
 	<link media="all" type="text/css" rel="stylesheet" href="">
 	@yield('styles')
@@ -31,7 +32,7 @@
 			<div class="row pandora">
 				<h1>
 					<a href="{{route('landing')}}">
-						<img width= 300px height=80px src="../../../public/media/img/Pantalla de inicio png/registro studio performer/pandora.png">
+						<img width= 300px height=80px src="../../public/media/img/Pantalla de inicio png/registro studio performer/pandora.png">
 					</a>
 				</h1>    	
 			</div>
