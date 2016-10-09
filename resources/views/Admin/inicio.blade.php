@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="hexagon">      
-                    <a class="hexagon-in1" href="{{route('admin.requests')}}">
+                    <a class="hexagon-in1" href="{{route('admin.requestshistory')}}">
                         <span class="hexagon-in2">
                             <img class="perfil" src="../../public/media/img/Indice/applications-history-admin.png">
                         </span>

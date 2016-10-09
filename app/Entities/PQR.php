@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\SoftDelete;
 
 class PQR extends Model{
-	protected $table = "PQR";
+	protected $table = "pqr";
 
 	public function Usuarios(){
 		return $this->belongsTo('App\Entities\Users','pqr_user_fk','id');

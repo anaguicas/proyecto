@@ -29,23 +29,22 @@ class AdminController extends Controller{
 		
 	}
 
-	public function getRequests(){
+	public function getRequestsHistory(){
 
-		$pqr = $this->PqrRepo->getApplications();
-		$id_user = $pqr[0]->id_user;		
-		$user = $this->usersRepo->findUserById($id_user);
-		/*var_dump($user[0]->user_type);
+		$pqr = $this->PqrRepo->getApplicationsHistory();				
+
+		/*var_dump($pqr);
 		die();*/
-		if($user[0]->user_type==1){			
-			$users = $this->performerRepo->findPerformerById($id_user);
-			$datos = array(
-				'name' => $users[0]->perfor_name,
-				'photo' => $users[0]->photo_identification,
-				);			
-		}elseif ($user[0]->user_type==3) {
-			
-		}
+		return view('Admin/RequestsHistory',['pqrs' => $pqr]);
+	}
 
-		return view('Admin/solicitudes',['pqrs' => $pqr, 'user' => $datos]);
+	public function getRequest($id){
+
+	}
+
+	public function getRequests(){
+		$pqr = $this->PqrRepo->getRequests();
+
+		return view('Admin/Requests',['pqrs'=> $pqr]);
 	}
 }

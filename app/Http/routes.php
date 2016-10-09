@@ -178,6 +178,11 @@ Route::get('Admin/inicio',[
 	'uses'	=> 'AdminController@getInicio'
 ]);
 
+Route::get('Admin/requests-history',[
+	'as'	=> 'admin.requestshistory',
+	'uses'	=> 'AdminController@getRequestsHistory'
+]);
+
 Route::get('Admin/requests',[
 	'as'	=> 'admin.requests',
 	'uses'	=> 'AdminController@getRequests'
