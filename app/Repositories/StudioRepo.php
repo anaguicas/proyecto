@@ -90,4 +90,8 @@ class StudioRepo extends BaseRepo{
 
         return true;
     }
+
+    public function listStudios(){
+        return $this->model->all();
+    }
 }

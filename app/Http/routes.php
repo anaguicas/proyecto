@@ -193,6 +193,32 @@ Route::get('Admin/request/{id}',[
 	'uses'	=> 'AdminController@getRequest'
 ]);
 
+Route::get('Admin/reject-request/{id}',[
+	'as'	=> 'admin.rejectrequest',
+	'uses'	=> 'AdminController@rejectRequest'
+]);
 
+Route::get('Admin/approve-request',[
+	'as'	=> 'admin.approverequest',
+	'uses'	=> 'AdminController@approveRequest'
+]);
 
+Route::get('Admin/list',[
+	'as'	=> 'admin.lists',
+	'uses'	=> 'AdminController@getlists'
+]);
 
+Route::get('Admin/list-studios',[
+	'as' 	=> 'admin.liststudios',
+	'uses'	=> 'AdminController@listStudios'
+]);
+
+Route::get('Admin/list-performers',[
+	'as'	=> 'admin.listperformers',
+	'uses'	=> 'AdminController@listPerformers'
+]);
+
+Route::get('Admin/performers-studio/{id}',[
+	'as'	=> 'admin.perforstudio',
+	'uses'	=> 'AdminController@listPerformersStudio'
+]);

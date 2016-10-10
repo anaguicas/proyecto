@@ -19,6 +19,12 @@ body {
   font-family: 'Lato';
 }
 
+.tittle-font{
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: bold;
+  color: rgb(198, 154, 123);
+}
+
 .container {
   text-align: center;
   display: table-cell;
@@ -329,7 +335,7 @@ input{
 }
 
 .pandora{
-  padding-top: 59px;
+  padding-top: 35px;
   padding-bottom: 30px;
 }
 
@@ -405,4 +411,47 @@ input{
 .text-danger{
   font-weight: bold;
   font-size: 14px;
+}
+
+ul, .nav{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: black;
+    background-color: rgba(204, 204, 204, 0.8);
+}
+
+.nav-pills > li:nth-child(1){
+  color: rgb(198, 154, 123);
+  background-color: rgba(33, 32, 31, 0.69);
+}
+
+.nav-pills > li:nth-child(2){
+  color: rgb(198, 154, 123);
+  background-color: rgba(33, 32, 31, 0.69);
+}
+
+.nav-pills > li:nth-child(1) > a{
+  color: rgb(198, 154, 123);
+}
+
+.nav-pills > li:nth-child(2) > a{
+  color: rgb(198, 154, 123);
+}
+
+.nav-pills > li:nth-child(3) > a{
+  color: rgb(198, 154, 123);
+}
+
+.boton-toggle{  
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.82);
+  text-align: center;
+  background-color: rgba(33, 32, 31, 0.69);
+  color: rgb(198, 154, 123);
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 20px;
 }

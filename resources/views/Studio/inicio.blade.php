@@ -24,81 +24,55 @@
                     </h1>       
                 </div>
             </div>
+        </div>       
+         <div align="center">
+            <div class="col-md-12 menu">
+                <ul>
+                  <li class="hexagon">
+                    <a class="hexagon-in1" href="{{route('studio.addperformer')}}">
+                        <span class="hexagon-in2">
+                            <img class="perfil" src="../../public/media/img/Indice/register-model-studio.png">
+                        </span>
+                    </a>
+                </li>
+                <li class="hexagon">      
+                    <a class="hexagon-in1" href="{{route('studio.editprofile',$id)}}">
+                        <span class="hexagon-in2">
+                            <img class="perfil" src="../../public/media/img/Indice/applications-history-admin.png">
+                        </span>
+                    </a>
+                </li>
+                <li class="hexagon">      
+                    <a class="hexagon-in1" href="{{route('logout')}}">
+                        <span class="hexagon-in2">
+                            <img class="perfil" src="../../public/media/img/Indice/log-out.png">
+                        </span>
+                    </a>
+                </li>
+                <li class="hexagon">      
+                    <a class="hexagon-in1" href="{{route('studio.showperformers')}}">
+                        <span class="hexagon-in2">
+                            <img class="perfil" src="../../public/media/img/Admin/Indice/studio y modelo.png">
+                        </span>
+                    </a>
+                </li>
+                <li class="hexagon">      
+                    <a class="hexagon-in1" href="#">
+                        <span class="hexagon-in2">
+                            <img class="perfil" src="../../public/media/img/Indice/tokens-studio.png">
+                        </span>
+                    </a>
+                </li>
+                <li class="hexagon">      
+                    <a class="hexagon-in1" href="{{route('studio.editprofile',$id)}}">
+                        <span class="hexagon-in2">
+                            <img class="perfil" src="../../public/media/img/Indice/actividad-admin.png">
+                        </span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="col-lg-12 border-container">
-            <div class="col-lg-3 content">
-                <div class="hexagon">
-                    <div class="hexagon-in1">
-                        <div class="hexagon-foto">
-                            <img src="../../public/media/img/log in/usuario.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-                <div class="col-lg-3 content">
-                <div class="hexagon">
-                    <div class="hexagon-in1">
-                        <div class="hexagon-perfil">
-                            <a href="{{route('studio.editprofile',$id)}}">
-                                <img class="perfil" src="../../public/media/img/Usuario/Índice/perfil-2.png">
-                            </a>                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 content">
-                <div class="hexagon">
-                    <div class="hexagon-in1">
-                        <div class="hexagon-inicio">
-                            <a href="{{route('studio.addperformer')}}">
-                                <img class="perfil" src="../../public/media/img/Usuario/Índice/streaming.png">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 content">
-                <div class="hexagon">
-                    <div class="hexagon-in1">
-                        <div class="hexagon-publicidad">
-                            <a href="{{route('studio.showperformers')}}">
-                                <img class="perfil" src="../../public/media/img/Usuario/Índice/perfil-2.png">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 content">
-                <div class="hexagon">
-                    <div class="hexagon-in1">
-                        <div class="hexagon-tokens">
-                            <img class="perfil" src="../../public/media/img/Usuario/Índice/actividad tokens.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 content">
-                <div class="hexagon">
-                    <div class="hexagon-in1">
-                        <div class="hexagon-tienda">
-                            <img class="perfil" src="../../public/media/img/Usuario/Índice/tienda.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 content">
-                <div class="hexagon">
-                    <div class="hexagon-in1">
-                        <div class="hexagon-tienda">
-                            <a href="{{route('logout')}}">
-                                <!--img class="perfil" src="../../public/media/img/Usuario/Índice/tienda.png"-->
-                                Log out<span class="glyphicon glyphicon-log-out"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>   
     </div>
 </body>
 </html>

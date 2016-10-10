@@ -87,4 +87,8 @@ class PerformerRepo extends BaseRepo{
 		
         return $performer;
     }
+
+    public function listAdminPerformers(){
+    	return $this->model->all();
+    }
 }

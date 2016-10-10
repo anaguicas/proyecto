@@ -14,6 +14,6 @@ class PQR extends Model{
 	}
 
 	public function pqrType(){
-		return $this->belongsTo('App\Entities\PQRType','pqr_type','id');
+		return $this->belongsTo('App\Entities\PQRType','pqr_type_fk','id');
 	}
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\PqrRepo;
 use App\Repositories\UsersRepo;
 use App\Repositories\PerformerRepo;
+use App\Repositories\StudioRepo;
 
 use Session;
 use Redirect;
@@ -21,6 +22,7 @@ class AdminController extends Controller{
 		$this->PqrRepo 	= New PqrRepo();
 		$this->usersRepo 	= New UsersRepo;
 		$this->performerRepo = New PerformerRepo;
+		$this->studioRepo 	= New StudioRepo;
 	}
 
 	public function getInicio(){		
@@ -32,8 +34,8 @@ class AdminController extends Controller{
 	public function getRequestsHistory(){
 
 		$pqr = $this->PqrRepo->getApplicationsHistory();				
-
-		/*var_dump($pqr);
+/*
+		var_dump($pqr);
 		die();*/
 		return view('Admin/RequestsHistory',['pqrs' => $pqr]);
 	}
@@ -45,6 +47,32 @@ class AdminController extends Controller{
 	public function getRequests(){
 		$pqr = $this->PqrRepo->getRequests();
 
-		return view('Admin/Requests',['pqrs'=> $pqr]);
+		return view('Admin/ListRequests',['pqrs'=> $pqr]);
+	}
+
+	public function rejectRequest($id){
+
+	}
+
+	public function approveRequest($id){
+		
+	}
+
+	public function getlists(){		
+		$studios = $this->studioRepo->listStudios();
+		$performers = $this->performerRepo->listAdminPerformers();
+		return View('Admin/List',['studios' => $studios,'performers'=>$performers]);
+	}
+
+	public function listStudios(){
+		$studios = $this->studioRepo->getStudio();
+	}
+
+	public function listPerformers(){
+
+	}
+
+	public function listPerformersStudio($id){
+
 	}
 }

@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-md-12 container-performer">
 	<div class="tittle-font" align="center">
-		<h1><span>REQUESTS HISTORY</span></h1>
+		<h1><span>REQUESTS</span></h1>
 	</div>	
 	@foreach($pqrs as $pqr)
 	<div class="col-md-6 content-1">
@@ -15,8 +15,8 @@
 					{{$pqr->perfor_name}}
 				</div>
 			</div>
-			<div class="col-md-8 info">
-				<div class="col-md-12">
+			<div class="col-md-8">
+				<div class="col-md-12 info">
 					<table class="row campos">
 						<tr>
 							<td>REQUEST DATE: </td>
@@ -31,24 +31,26 @@
 							<td>{{$pqr->estado}}</td>
 						</tr>
 						<tr>
-							<td>TYPE: </td>
-							<td>{{$pqr->type}}</td>
+							<td>RESUME: </td>
+							<td>{{$pqr->descripcion}}</td>
 						</tr>							
 					</table> 
 					<table class="row campos" id="opciones">
 						<tr>
-							<td class="plus">
+							<td class="ok">
 								<a href="#">
-									<span class="glyphicon glyphicon-plus"></span>
+									<span class="glyphicon glyphicon-ok"></span>
 								</a>
 							</td>
-							<td class="edicion"><a href=""><p>SEE MORE</p></a></td>						
+							<td><p>APPROVE</p></td>
+						</tr>
+						<tr>
 							<td class="delete">
 								<a href="#">
 									<span class="glyphicon glyphicon-remove"></span>
 								</a>
 							</td>
-							<td class="edicion"><a href=""><p>DELETE</p></a></td>
+							<td><p>REJECT</p></td>
 						</tr>
 					</table> 
 				</div>

@@ -14,6 +14,7 @@
 <head>
 	<title>Pandora</title>
 	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/landing.css">
 	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/layout.css">
 	<link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/studio.css">
@@ -42,13 +43,12 @@
 		@yield('content')
 	</div>
 	<!-- footer-->
-	Footer
 </div>
 
-<script type="text/javascript" src="../public/media/js/jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="../public/media/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../public/media/js/bootstrap-datepicker.js"></script>	
-<script type="text/javascript" src="../public/media/js/formularios.js"></script>
+<script type="text/javascript" src="../../public/media/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="../../public/media/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../public/media/js/bootstrap-datepicker.js"></script>	
+<script type="text/javascript" src="../../public/media/js/formularios.js"></script>
 @yield('scripts')	
 </body>
 </html>

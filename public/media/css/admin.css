@@ -3,39 +3,38 @@
 }
 
 .pandora {
-    padding-top: 59px;
-    padding-bottom: 30px;
+  padding-bottom: 0px;
 }
 
- li:nth-child(1) span img{
-    /*background-position: -15px center;*/
-    padding: 53px 0px 16px 0px;
- }
+li:nth-child(1) span img{
+  /*background-position: -15px center;*/
+  padding: 53px 0px 16px 0px;
+}
 
 li:nth-child(2) span img{
-    /*background-position: -115px center;*/
-    padding: 76px 0px 58px 0px;
- }
+  /*background-position: -115px center;*/
+  padding: 76px 0px 58px 0px;
+}
 
 li:nth-child(3) span img{
-    /*background-position: -215px center;*/
-    padding: 76px 0px 58px 0px;
- }
+  /*background-position: -215px center;*/
+  padding: 76px 0px 58px 0px;
+}
 
 li:nth-child(4) span img{
-    /*background-position: -315px center;*/
-    padding: 76px 0px 58px 0px;
- }
+  /*background-position: -315px center;*/
+  padding: 76px 0px 58px 0px;
+}
 
 li:nth-child(5) span img{
-    /*background-position: -415px center;*/
-    padding: 76px 0px 58px 0px;
- }
+  /*background-position: -415px center;*/
+  padding: 76px 0px 58px 0px;
+}
 
 li:nth-child(6) span img{
-    /*background-position: -415px center;*/
-    padding: 40px 0px 7px 0px;
- }
+  /*background-position: -415px center;*/
+  padding: 40px 0px 7px 0px;
+}
 
 li:nth-child(1).hexagon, li:nth-child(6).hexagon{
   width: 262px;
@@ -49,15 +48,55 @@ li:nth-child(3).hexagon{
 }
 
 .hexagon-in2:hover {
-    /*background-position: -565px center;*/
-    background-color: rgba(204, 204, 204, 0.8);
-  }
+  /*background-position: -565px center;*/
+  background-color: rgba(204, 204, 204, 0.8);
+}
 
-  .content-1{
-    width: 40%;
-    height: 200px;
-  } 
+.content-1{
+  width: 40%;
+  height: 200px;
+} 
 
-  .info{
-    padding: 15px 0px 0px 0px;
-  }
+.info{
+  padding: 15px 0px 0px 0px;
+}
+
+.campos{
+  font-size: 11.5px;
+}
+
+.ok > a{
+  color: #37ad2e;
+}
+
+.edicion > a{
+  color: rgb(198, 154, 123);
+}
+
+.campos{
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.glyphicon.glyphicon-plus{
+  font-size:  20px;
+  color: white;
+}
+
+.ok{
+  display: flex;
+}
+
+.glyphicon.glyphicon-ok {
+  font-size: 18px;
+}
+
+.btn:active{
+  color: black;
+  background-color: rgba(204, 204, 204, 0.5);
+}
+
+.btn:focus{
+  color: black;
+  background-color: rgba(204, 204, 204, 0.5);
+}

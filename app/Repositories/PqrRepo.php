@@ -13,8 +13,9 @@ class PqrRepo extends BaseRepo{
 	public function getApplicationsHistory(){
 		$pqr = DB::table('pqr')
             ->join('users','pqr.id_user','=','users.id')    
-            ->join('Performers','Performers.id_user','=','users.id')       
-            ->select('pqr.*','Performers.photo_identification','Performers.perfor_name')
+            ->join('Performers','Performers.id_user','=','users.id')  
+            ->join('pqr_type','pqr_type.id','=','pqr.tipo')       
+            ->select('pqr.*','Performers.photo_identification','Performers.perfor_name','pqr_type.type')
             ->orderBy('pqr.fecha_solicitud','desc')
             ->get();
 		return $pqr;
@@ -24,9 +25,10 @@ class PqrRepo extends BaseRepo{
 	public function getRequests(){
 		$pqr = DB::table('pqr')
 			->join('users','pqr.id_user','=','users.id')    
-            ->join('Performers','Performers.id_user','=','users.id')       
-            ->select('pqr.*','Performers.photo_identification','Performers.perfor_name')
-            ->where('pqr.estado','!=','Espera')
+            ->join('Performers','Performers.id_user','=','users.id')  
+            ->join('pqr_type','pqr_type.id','=','pqr.tipo')     
+            ->select('pqr.*','Performers.photo_identification','Performers.perfor_name','pqr_type.type')
+            ->where('pqr.estado','=','Espera')
             ->orderBy('pqr.fecha_solicitud','desc')
             ->get();
 		return $pqr;

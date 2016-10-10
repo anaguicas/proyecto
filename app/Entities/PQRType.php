@@ -10,6 +10,6 @@ class PQRType extends Model{
 	protected $table = "PQR";
 
 	public function PQR(){
-		return $this->hasMany('App\Entities\PQR','pqr_type','id');
+		return $this->hasMany('App\Entities\PQR','pqr_type_fk','id');
 	}
 }
