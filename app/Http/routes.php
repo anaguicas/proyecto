@@ -198,7 +198,7 @@ Route::get('Admin/reject-request/{id}',[
 	'uses'	=> 'AdminController@rejectRequest'
 ]);
 
-Route::get('Admin/approve-request',[
+Route::get('Admin/approve-request/{id}',[
 	'as'	=> 'admin.approverequest',
 	'uses'	=> 'AdminController@approveRequest'
 ]);
