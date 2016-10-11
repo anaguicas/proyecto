@@ -88,7 +88,7 @@ class PerformerController extends Controller{
 	public function Inicio(){
 		
 		//validacion de inicio de sesion
-		if(Auth::check()){
+		if(Auth::check() and Auth::user()->user_type == 1){
 			$id = Auth::user()->id;
 			return view('performers/inicio',['id' => $id]);
 		}else{

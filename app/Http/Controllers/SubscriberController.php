@@ -25,7 +25,7 @@ class SubscriberController extends Controller{
 
 	public function Inicio(){
 		//validacion de inicio de sesion
-		if(Auth::check()){
+		if(Auth::check() and Auth::user()->user_type == 2){
 			$id = Auth::user()->id;
 			return view('subscriber/inicio',['id' => $id]);	
 		}else{

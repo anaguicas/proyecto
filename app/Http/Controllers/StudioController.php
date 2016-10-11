@@ -91,7 +91,7 @@ class StudioController extends Controller
 	public function getInicio(){
 		
 		//validacion de inicio de sesion
-		if(Auth::check()){
+		if(Auth::check() and Auth::user()->user_type == 3){
             $studio_id =  Auth::user()->id;
 			//return Redirect::route('studio.inicio',array('id' => $studio_id));
             return view('Studio/inicio', ['id' => $studio_id]);

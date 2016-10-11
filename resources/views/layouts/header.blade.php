@@ -58,7 +58,15 @@
   						<span class="caret"></span>
   						</button>
 					    <ul class="dropdown-menu inverse-dropdown">
-					      <li><a href="{{route('subscriber.inicio')}}">Menu</a></li>
+
+					    	@if(Auth::user()->user_type == 3)
+					      		<li><a href="{{route('studio.inicio')}}">Menu</a></li>
+					      		@elseif(Auth::user()->user_type == 2)
+					      		<li><a href="{{route('subscriber.inicio')}}">Menu</a></li>
+					      	@else
+					      		<li><a href="{{route('performer.inicio')}}">Menu</a></li>
+					      	@endif
+
 					      <li><a href="#">Profile</a></li>
 					      <li><a href="{{route('logout')}}">Log out</a></li>
 					    </ul>
