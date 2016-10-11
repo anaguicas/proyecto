@@ -184,5 +184,21 @@ Route::get('Admin/application',[
 ]);
 
 
+Route::get('streaming',[
+	'as'	=> 'streaming',
+	'uses'	=> 'StreamingController@getInit'
+]);
+
+
+Route::get('video',[
+	'as'	=> 'video',
+	'uses'	=> 'StreamingController@getCam'
+]);
+
+
+
+
+
+
 
 
