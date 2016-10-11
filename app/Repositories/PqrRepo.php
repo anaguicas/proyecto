@@ -33,4 +33,12 @@ class PqrRepo extends BaseRepo{
             ->get();
 		return $pqr;
 	}
+
+	public function approveRequest($id){
+
+	}
+
+	public function rejectRequest($id){
+
+	}
 }

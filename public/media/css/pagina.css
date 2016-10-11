@@ -455,3 +455,29 @@ ul, .nav{
   font-family: 'Fjalla One', sans-serif;
   font-size: 20px;
 }
+
+.boton-modal{
+  font-weight: bold;
+  width: auto;
+  text-align: center;
+  /*background-color: rgba(33, 32, 31, 0.69);*/
+  background-color: rgba(204, 204, 204, 0.5);
+  color: black;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 20px;
+}
+
+.modal-content{
+  background-color: rgba(33, 32, 31, 1);
+}
+
+.text-modal{
+  color: rgb(198, 154, 123);
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 15px;
+  text-align: left;
+}
+
+.imagen{
+  padding-top: 10px;
+}

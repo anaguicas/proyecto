@@ -17,9 +17,9 @@
 			@foreach($studios as $studio)
 			<div class="col-md-6 content-1">
 				<div class="col-md-12">
-					<div class="col-md-4">
-						<div class="row circle ">
-							<img align="middle" class= "fotico" src="">
+					<div class="col-md-4 imagen">
+						<div class="row circle">
+							<img align="middle" class= "fotico" src="../../public/media/img/log in/usuario.png">
 						</div>
 						<div class="row name">
 							{{$studio->studio_name}}
@@ -73,9 +73,17 @@
 				@foreach($performers as $performer)
 				<div class="col-md-6 content-1">
 					<div class="col-md-12">
-						<div class="col-md-4">
+						<div class="col-md-4 imagen">
 							<div class="row circle ">
-								<img align="middle" class= "fotico" src="">
+								<?php
+								if(isset($performer->photo_identification)){
+									?>
+									<img align="middle" class= "fotico" src="../../public/media/img/upload/<?php echo $performer->photo_identification;?>">
+									<?php
+								}else{
+									?>	
+									<img align="middle" class= "fotico" src="../../public/media/img/log in/usuario.png">								
+									<?php }?>							
 							</div>
 							<div class="row name">
 								{{$performer->perfor_name}}
