@@ -178,12 +178,22 @@ Route::get('Admin/inicio',[
 	'uses'	=> 'AdminController@getInicio'
 ]);
 
-Route::get('Admin/application',[
-	'as'	=> 'admin.application',
-	'uses'	=> 'AdminController@getApplications'
+Route::get('Admin/requests-history',[
+	'as'	=> 'admin.requestshistory',
+	'uses'	=> 'AdminController@getRequestsHistory'
 ]);
 
+Route::get('Admin/requests',[
+	'as'	=> 'admin.requests',
+	'uses'	=> 'AdminController@getRequests'
+]);
 
+Route::get('Admin/request/{id}',[
+	'as'	=> 'admin.request',
+	'uses'	=> 'AdminController@getRequest'
+]);
+
+<<<<<<< HEAD
 Route::get('streaming',[
 	'as'	=> 'streaming',
 	'uses'	=> 'StreamingController@getInit'
@@ -200,5 +210,34 @@ Route::get('video',[
 
 
 
+=======
+Route::get('Admin/reject-request/{id}',[
+	'as'	=> 'admin.rejectrequest',
+	'uses'	=> 'AdminController@rejectRequest'
+]);
 
+Route::get('Admin/approve-request/{id}',[
+	'as'	=> 'admin.approverequest',
+	'uses'	=> 'AdminController@approveRequest'
+]);
+>>>>>>> a3eda2504d626a66a0f8e4ed5cf55bc5d753ebd9
 
+Route::get('Admin/list',[
+	'as'	=> 'admin.lists',
+	'uses'	=> 'AdminController@getlists'
+]);
+
+Route::get('Admin/list-studios',[
+	'as' 	=> 'admin.liststudios',
+	'uses'	=> 'AdminController@listStudios'
+]);
+
+Route::get('Admin/list-performers',[
+	'as'	=> 'admin.listperformers',
+	'uses'	=> 'AdminController@listPerformers'
+]);
+
+Route::get('Admin/performers-studio/{id}',[
+	'as'	=> 'admin.perforstudio',
+	'uses'	=> 'AdminController@listPerformersStudio'
+]);

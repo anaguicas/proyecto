@@ -1,6 +1,4 @@
-.tittle-font{
-  font-family: "Impact", Charcoal, sans-serif;
-}
+
 
 .glyphicon.glyphicon-remove {
   font-size: 21px;
@@ -96,16 +94,17 @@ img.resize{
   position: absolute;
 }
 
-.circle{
+.circle{  
   border-radius: 50%;
   width:100%;
   height: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
 }
 
-
 .fotico{
-  width: 70px;
-  height:70px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .name{

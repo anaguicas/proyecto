@@ -53,4 +53,10 @@ class UsersRepo extends BaseRepo{
 
 	    return true;
     }
+
+    public function findUserById($id){
+    	$user = $this->model->where('id','=',$id)->get();
+		
+        return $user;
+    }
 }

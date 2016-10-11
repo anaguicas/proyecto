@@ -81,4 +81,14 @@ class PerformerRepo extends BaseRepo{
 
         return true;
     }
+
+    public function findPerformerById($id){    	
+    	$performer = $this->model->select('Performers.*')->where('id_user','=',$id)->get();
+		
+        return $performer;
+    }
+
+    public function listAdminPerformers(){
+    	return $this->model->all();
+    }
 }

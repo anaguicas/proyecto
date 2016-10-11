@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/landing.css">
     <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/layout.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/pagina.css">
     <link media="all" type="text/css" rel="stylesheet" href="../../public/media/css/studio.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
                         <br><img width= 300px height=80px src="../../public/media/img/Pantalla de inicio png/registro studio performer/pandora.png">
                     </a>
                     <div class="tittle-font">
-                        <br><span style="color: #ffcc99; ">PERFORMERS</span>
+                        <br><span>PERFORMERS</span>
                     </div>
                 </h1>
             </div>
