@@ -193,7 +193,6 @@ Route::get('Admin/request/{id}',[
 	'uses'	=> 'AdminController@getRequest'
 ]);
 
-<<<<<<< HEAD
 Route::get('streaming',[
 	'as'	=> 'streaming',
 	'uses'	=> 'StreamingController@getInit'
@@ -205,12 +204,6 @@ Route::get('video',[
 	'uses'	=> 'StreamingController@getCam'
 ]);
 
-
-
-
-
-
-=======
 Route::get('Admin/reject-request/{id}',[
 	'as'	=> 'admin.rejectrequest',
 	'uses'	=> 'AdminController@rejectRequest'
@@ -220,7 +213,6 @@ Route::get('Admin/approve-request/{id}',[
 	'as'	=> 'admin.approverequest',
 	'uses'	=> 'AdminController@approveRequest'
 ]);
->>>>>>> a3eda2504d626a66a0f8e4ed5cf55bc5d753ebd9
 
 Route::get('Admin/list',[
 	'as'	=> 'admin.lists',
