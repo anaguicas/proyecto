@@ -43,12 +43,12 @@
 								</a>
 							</td>
 							<td class="edicion"><a href="" data-toggle="modal" data-target="#moreinfo"><p>SEE MORE</p></a></td>						
-							<td class="delete">
+							<!-- <td class="delete">
 								<a href="#">
 									<span class="glyphicon glyphicon-remove"></span>
 								</a>
 							</td>
-							<td class="edicion"><a href=""><p>DELETE</p></a></td>
+							<td class="edicion"><a href=""><p>DELETE</p></a></td> -->
 						</tr>
 					</table> 
 				</div>

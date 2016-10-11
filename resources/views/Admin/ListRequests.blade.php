@@ -50,7 +50,7 @@
 									<span class="glyphicon glyphicon-ok"></span>
 								</a>
 							</td>
-							<td class="edicion"><a href=""><p>APPROVE</p></a></td>
+							<td class="edicion"><a href="{{route('admin.approverequest',['id' => $pqr->id])}}"><p>APPROVE</p></a></td>
 						</tr>
 						<tr>
 							<td class="delete">

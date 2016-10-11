@@ -51,11 +51,15 @@ class AdminController extends Controller{
 	}
 
 	public function rejectRequest($id){
-
+		$pqrs = $this->PqrRepo->getRequests();
+		$this->PqrRepo->rejectRequest($id);
+		return Redirect::route('admin.requests');
 	}
 
 	public function approveRequest($id){
-		
+		$pqrs = $this->PqrRepo->getRequests();
+		$this->PqrRepo->approveRequest($id);
+		return Redirect::route('admin.requests');
 	}
 
 	public function getlists(){		

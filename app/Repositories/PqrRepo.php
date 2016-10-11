@@ -35,10 +35,18 @@ class PqrRepo extends BaseRepo{
 	}
 
 	public function approveRequest($id){
+		$pqr = DB::table('pqr')
+            ->where('pqr.id', $id)
+            ->update(['estado'=> 'Approve' ]);
 
+        return $pqr;
 	}
 
 	public function rejectRequest($id){
+		$pqr = DB::table('pqr')
+            ->where('pqr.id', $id)
+            ->update(['estado'=> 'Reject' ]);
 
+        return $pqr;
 	}
 }
