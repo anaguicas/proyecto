@@ -41,7 +41,7 @@ class AdminController extends Controller{
 	}
 
 	public function getRequest($id){
-
+		
 	}
 
 	public function getRequests(){

@@ -49,7 +49,7 @@
 	});
  
 	function handleVideo(stream) {
-		pc = new RTCPeerConnection(configuration);
+		//pc = new RTCPeerConnection(configuration);
 		videostream = window.URL.createObjectURL(stream); 
 		videoTracks = stream.getVideoTracks();
 		audioTracks = stream.getAudioTracks();
