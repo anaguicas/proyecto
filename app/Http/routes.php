@@ -193,6 +193,17 @@ Route::get('Admin/request/{id}',[
 	'uses'	=> 'AdminController@getRequest'
 ]);
 
+Route::get('streaming',[
+	'as'	=> 'streaming',
+	'uses'	=> 'StreamingController@getInit'
+]);
+
+
+Route::get('video',[
+	'as'	=> 'video',
+	'uses'	=> 'StreamingController@getCam'
+]);
+
 Route::get('Admin/reject-request/{id}',[
 	'as'	=> 'admin.rejectrequest',
 	'uses'	=> 'AdminController@rejectRequest'

@@ -38,7 +38,7 @@
                 <li class="hexagon">      
                     <a class="hexagon-in1" href="{{route('studio.editprofile',$id)}}">
                         <span class="hexagon-in2">
-                            <img class="perfil" src="../../public/media/img/Indice/applications-history-admin.png">
+                            <img class="perfil" src="../../public/media/img/Usuario/Índice/perfil-2.png">
                         </span>
                     </a>
                 </li>

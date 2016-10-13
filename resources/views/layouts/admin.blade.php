@@ -48,7 +48,7 @@
 <script type="text/javascript" src="../../public/media/js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="../../public/media/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../public/media/js/bootstrap-datepicker.js"></script>	
-<script type="text/javascript" src="../../public/media/js/formularios.js"></script>
+<script type="text/javascript" src="../../public/media/js/pagina.js"></script>
 @yield('scripts')	
 </body>
 </html>

@@ -49,4 +49,16 @@ class PqrRepo extends BaseRepo{
 
         return $pqr;
 	}
+
+	public function getRequest($id){
+		$pqr = DB::table('pqr')
+            ->join('users','pqr.id_user','=','users.id')    
+            ->join('Performers','Performers.id_user','=','users.id')  
+            ->join('pqr_type','pqr_type.id','=','pqr.tipo')       
+            ->select('pqr.*','Performers.photo_identification','Performers.perfor_name','pqr_type.type')
+            ->where('pqr.id','=',$id)
+            ->orderBy('pqr.fecha_solicitud','desc')
+            ->get();
+		return $pqr;
+	}
 }

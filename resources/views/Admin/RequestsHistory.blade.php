@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+<?php use App\Repositories\PqrRepo; ?>
 <div class="col-md-12 container-performer">
 	<div class="tittle-font" align="center">
 		<h1><span>REQUESTS HISTORY</span></h1>
@@ -17,7 +18,7 @@
 			</div>
 			<div class="col-md-8 info">
 				<div class="col-md-12">
-					<table class="row campos">
+					<table class="row campos">						
 						<tr>
 							<td>REQUEST DATE: </td>
 							<td>{{$pqr->fecha_solicitud}}</td>
@@ -42,7 +43,7 @@
 									<span class="glyphicon glyphicon-plus"></span>
 								</a>
 							</td>
-							<td class="edicion"><a href="" data-toggle="modal" data-target="#moreinfo"><p>SEE MORE</p></a></td>						
+							<td class="edicion"><a href="" data-id="{{$pqr->id}}" data-toggle="modal" data-target="#moreinfo"><p>SEE MORE</p></a></td>						
 							<!-- <td class="delete">
 								<a href="#">
 									<span class="glyphicon glyphicon-remove"></span>
@@ -55,18 +56,23 @@
 			</div>
 		</div>
 	</div>
+	@endforeach	
 	<div class="modal fade" id="moreinfo" tabindex="-1" role="dialog" aria-labelledby="moreinfolabel">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content">			
+			<?php 
+				$PqrRepo = New PqrRepo();
+				$p = $PqrRepo->getRequest($pqr->id);				
+				?>
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="tittle-font" id="moreinfolabel">{{$pqr->perfor_name}}</h4>
+					<h4 class="tittle-font" id="moreinfolabel">{{$p[0]->perfor_name}}</h4>
 				</div>
 				<div class="modal-body text-modal">
-					<p >Description: {{$pqr->descripcion}}</p>
-					<p >Request date: {{$pqr->fecha_solicitud}}</p>
-					<p >Answer date: {{$pqr->fecha_respuesta}}</p>
-					<p >Type: {{$pqr->type}}</p>
+					<p >Description: {{$p[0]->descripcion}}</p>
+					<p >Request date: {{$p[0]->fecha_solicitud}}</p>
+					<p >Answer date: {{$p[0]->fecha_respuesta}}</p>
+					<p >Type: {{$p[0]->type}}</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn boton-modal" data-dismiss="modal">Close</button>
@@ -74,6 +80,6 @@
 			</div>
 		</div>
 	</div>
-	@endforeach
+
 </div>  
 @endsection

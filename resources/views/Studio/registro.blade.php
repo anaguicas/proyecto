@@ -2,7 +2,7 @@
 @section('content')
 <div align="center">
 	<div class="formulario">		
-		{{  Form::open(array('action'=>'StudioController@Register', 'method' => 'post')) }} 
+		{{  Form::open(array('action'=>'StudioController@getRegister', 'method' => 'post')) }} 
 		<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
 		<div class="col-lg-12">
 			@if(Session::has('message'))
