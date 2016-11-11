@@ -4,11 +4,14 @@
 			<div class="edit-profile">
 				<div class="row col-lg-12">
 				<div class="col-lg-5">
-					<div class="hexagon">
+					<!-- <div class="hexagon">
 						<div class="hexagon-in1">
-							<div class="hexagon-foto" style="background: url('../../../public/media/img/upload/<?php echo $performer['photo_identification'];?>')">								
+							<div class="circle-foto" style="background: url('../../../public/media/img/upload/<?php echo $performer['photo_identification'];?>')">								
 							</div>
 						</div>
+					</div> -->
+					<div class="row circle-perfil">
+						<img align="middle" class= "fotico" src="../../../public/media/img/upload/<?php echo $performer['photo_identification'];?>">
 					</div>
 				</div>
 				<div class="formulario-profile col-lg-7">		

@@ -211,7 +211,12 @@ Route::get('Admin/reject-request/{id}',[
 
 Route::get('Admin/approve-request/{id}',[
 	'as'	=> 'admin.approverequest',
-	'uses'	=> 'AdminController@approveRequest'
+	'uses'	=> 'AdminController@ApproveRequest'
+]);
+
+Route::put('Admin/approve-request/{id}',[
+	'as'	=> 'admin.approverequest',
+	'uses'	=> 'AdminController@ApproveRequest'
 ]);
 
 Route::get('Admin/list',[
@@ -233,3 +238,4 @@ Route::get('Admin/performers-studio/{id}',[
 	'as'	=> 'admin.perforstudio',
 	'uses'	=> 'AdminController@listPerformersStudio'
 ]);
+

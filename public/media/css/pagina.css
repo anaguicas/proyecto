@@ -55,19 +55,19 @@ ul#menu{
 .hexagon { /* rectángulo negro */
     width: 165px;
     height: 230px;
-    transform: rotate(75deg);
+    transform: rotate(90deg);
 }
 .hexagon-in1 { /* rectángulo blanco */
     display: block;
     width: 100%;
     height: 100%;
-    transform: rotate(-63deg);
+    transform: rotate(-60deg);
 }
 .hexagon-in2 { /* rectángulo rojo */
     display: block;
     width: 100%;
     height: 100%;
-    transform: rotate(-63deg);
+    transform: rotate(-60deg);
 }
 
 .hexagon {
@@ -108,12 +108,17 @@ ul {text-align: center;}
     transform: rotate(25deg);
  }
 
-li:nth-child(2) span img{
+li:nth-child(2){    
+    margin-left: -2px;
+    margin-top: 8px;
+ }
+
+ li:nth-child(2) span img{
     /*background-position: -115px center;*/
     padding: 76px 0px 58px 0px;
     -ms-transform: rotate(20deg); /* IE 9 */
     -webkit-transform: rotate(20deg); /* Safari */
-    transform: rotate(50deg);
+    transform: rotate(-1deg);
  }
 
 li:nth-child(3) span img{
@@ -148,15 +153,19 @@ li:nth-child(6) span img{
     transform: rotate(22deg);
  }
 
-li:nth-child(1).hexagon, li:nth-child(6).hexagon{
+/*li:nth-child(1).hexagon, li:nth-child(6).hexagon{
   width: 262px;
-  height: 225px;
-  transform: rotate(102deg);
+  height: 225px;  
+}*/
+
+li:nth-child(2).hexagon, li:nth-child(4).hexagon, li:nth-child(5).hexagon{
+  transform: rotate(120deg);  
 }
 
 li:nth-child(3).hexagon{
-  width: 133px;
-  height: 225px;
+  /*width: 133px;
+  height: 225px;*/
+  transform: rotate(120deg);
 }
 
 .hexagon-in2:hover {
@@ -236,6 +245,21 @@ input{
   font-size: 13px;
   padding: 17px 0px 5px 0px;
   font-weight: bold;
+}
+
+.circle-perfil{
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(204, 204, 204, 0.5);
+  margin-top: 39px;
+}
+
+.circle-foto{
+  border-radius: 50%;
+  width:100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
 }
 
 .boton-registro{

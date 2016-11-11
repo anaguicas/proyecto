@@ -41,7 +41,7 @@ class AdminController extends Controller{
 	}
 
 	public function getRequest($id){
-		
+		return view('Admin/Moreinfo');
 	}
 
 	public function getRequests(){
@@ -56,7 +56,13 @@ class AdminController extends Controller{
 		return Redirect::route('admin.requests');
 	}
 
-	public function approveRequest($id){
+	public function getApproveRequest($id){
+		$pqrs = $this->PqrRepo->getRequests();
+		$this->PqrRepo->approveRequest($id);
+		return Redirect::route('admin.requests');
+	}
+
+	public function putApproveRequest($id){
 		$pqrs = $this->PqrRepo->getRequests();
 		$this->PqrRepo->approveRequest($id);
 		return Redirect::route('admin.requests');

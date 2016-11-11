@@ -13,7 +13,7 @@ li:nth-child(1) span img{
 
 li:nth-child(2) span img{
   /*background-position: -115px center;*/
-  padding: 76px 0px 58px 0px;
+  padding: 65px 0px 58px 0px;
 }
 
 li:nth-child(3) span img{
@@ -36,11 +36,11 @@ li:nth-child(6) span img{
   padding: 40px 0px 7px 0px;
 }
 
-li:nth-child(1).hexagon, li:nth-child(6).hexagon{
+/*li:nth-child(1).hexagon, li:nth-child(6).hexagon{
   width: 262px;
   height: 225px;
   transform: rotate(102deg);
-}
+}*/
 
 li:nth-child(3).hexagon{
   width: 133px;
@@ -78,7 +78,7 @@ li:nth-child(3).hexagon{
   width: 100%;
 }
 
-.glyphicon.glyphicon-plus{
+.glyphicon.glyphicon-search{
   font-size:  20px;
   color: white;
 }
@@ -99,4 +99,22 @@ li:nth-child(3).hexagon{
 .btn:focus{
   color: black;
   background-color: rgba(204, 204, 204, 0.5);
+}
+
+.campos-modal{
+  font-size: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+tr > td:nth-child(2) > input{
+  padding: 0px 0px 0px 0px;
+  background-color: rgba(33, 32, 31, 0.69);
+  border-color: rgba(33, 32, 31, 0.69);
+}
+
+tr > td:nth-child(2) > textarea{
+  padding: 0px 0px 0px 0px;
+  background-color: rgba(33, 32, 31, 0.69);
+  border-color: rgba(33, 32, 31, 0.69);
 }
