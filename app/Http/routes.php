@@ -234,7 +234,7 @@ Route::get('Admin/approve-request/{id}',[
 
 Route::put('Admin/approve-request/{id}',[
 	'as'	=> 'admin.approverequest',
-	'uses'	=> 'AdminController@getApproveRequest'
+	'uses'	=> 'AdminController@putApproveRequest'
 ]);
 
 Route::get('Admin/list',[

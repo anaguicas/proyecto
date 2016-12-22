@@ -62,9 +62,11 @@ class PqrRepo extends BaseRepo{
 		return $pqr;
 	}
 
-      public function getAnswer($id,$answer){
+      public function getAnswer($id,$answer){            
             $pqr = DB::table('pqr')
             ->where('pqr.id',$id)
-            ->update(['respuesta' => $answer]);
+            ->update(['respuesta' => $answer, 'estado' => 'Approve']);
+
+            return $pqr;
       }
 }

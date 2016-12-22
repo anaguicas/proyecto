@@ -74,7 +74,7 @@ class AdminController extends Controller{
 
 	public function putApproveRequest($id){
 		$pqrs = $this->PqrRepo->getRequests();
-		$this->PqrRepo->approveRequest($id);
+		/*$this->PqrRepo->approveRequest($id);*/
 
 		$validation = validator::make(\Input::all(),[
 			'answer'	=> 'required'
@@ -83,17 +83,18 @@ class AdminController extends Controller{
 		if($validation->passes()){
 			
 			$answer	= \Input::get('answer');
-
-			if($this->PqrRepo->getAnswer($id,$datos_pqr)){
+			/*var_dump($answer);
+			die();*/
+			if($this->PqrRepo->getAnswer($id,$answer)){
 				return Redirect::route('admin.requests');
 			}else{
-				return redirect()->back()->with('message','All changes saved');
+				return redirect()->back()->with('error','There was a problem. Please try again');
 			}
 		}else{
 			return redirect()->back()->withInput()->withErrors($validation->errors());
 		}
 
-		return Redirect::route('admin.requests');
+		return View('Admin/ListRequests');
 	}
 
 	public function getlists(){		
