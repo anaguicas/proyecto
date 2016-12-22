@@ -57,14 +57,42 @@ class AdminController extends Controller{
 	}
 
 	public function getApproveRequest($id){
-		$pqrs = $this->PqrRepo->getRequests();
+		/*$pqrs = $this->PqrRepo->getRequests();
 		$this->PqrRepo->approveRequest($id);
-		return Redirect::route('admin.requests');
+		return Redirect::route('admin.requests');*/
+		$pqrs = $this->PqrRepo->getRequests();
+		/*var_dump($pqrs);
+		die();*/
+		$pqr =  array(
+            'request_date'  => $pqrs[0]->fecha_solicitud,
+            'status'      	=> $pqrs[0]->estado,
+            'type'    		=> $pqrs[0]->type,
+            'description' 	=> $pqrs[0]->descripcion
+            );
+		return View('Admin/ApproveRequest',compact('pqr','id'));
 	}
 
 	public function putApproveRequest($id){
 		$pqrs = $this->PqrRepo->getRequests();
 		$this->PqrRepo->approveRequest($id);
+
+		$validation = validator::make(\Input::all(),[
+			'answer'	=> 'required'
+			]);
+
+		if($validation->passes()){
+			
+			$answer	= \Input::get('answer');
+
+			if($this->PqrRepo->getAnswer($id,$datos_pqr)){
+				return Redirect::route('admin.requests');
+			}else{
+				return redirect()->back()->with('message','All changes saved');
+			}
+		}else{
+			return redirect()->back()->withInput()->withErrors($validation->errors());
+		}
+
 		return Redirect::route('admin.requests');
 	}
 

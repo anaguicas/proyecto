@@ -57,3 +57,15 @@ body{
 	width: 3.7%;
 	height: 3.7%;
 }
+
+.error-text{
+	color: rgb(198, 154, 123);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 90px;
+}
+
+.error{
+	color: rgb(198, 154, 123);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 30px;
+}

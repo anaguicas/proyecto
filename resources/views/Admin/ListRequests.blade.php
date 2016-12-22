@@ -59,7 +59,7 @@
 									<span class="glyphicon glyphicon-remove"></span>
 								</a>
 							</td>
-							<td class="edicion"><a href=""><p>REJECT</p></a></td>
+							<td class="edicion"><a href="{{route('admin.rejectrequest',['id' => $pqr->id])}}"><p>REJECT</p></a></td>
 						</tr>
 					</table> 
 				</div>

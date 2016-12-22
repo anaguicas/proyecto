@@ -1,15 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.adminOptions')
 @section('content')
 		<div align="center">
 			<div class="edit-profile">
-				<div class="row col-lg-12">
-				<div class="col-lg-5">
-					<div class="row circle-perfil">
-						<img align="middle" class= "fotico" src="../../../public/media/img/upload/<?php echo $performer['photo_identification'];?>">
-					</div>
-				</div>
-				<div class="formulario-profile col-lg-7">		
-					{{  Form::model($performer,array('route'=>array('performer.save', $id), 'method' => 'PUT')) }} 					
+				<div class="row">			
+				<div class="formulario-profile col-md-12">		
+					{{  Form::model($pqr,array('route'=>array('admin.approverequest', $id), 'method' => 'PUT')) }} 					
 					
 					<!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->	
 					@if(Session::has('message'))
@@ -53,10 +48,18 @@
 						@endif
 					</div>
 					<div class="form-group">
-						{{Form::textarea('description',null,array('class' => 'form-control input-label', 'placeholder' => 'DESCRIPTION'))}}
+						{{Form::text('description',null,array('class' => 'form-control input-label', 'placeholder' => 'DESCRIPTION'))}}
 						@if($errors->has('description'))
 						<p class="text-danger">
 							{{ $errors->first('description') }}
+						</p>
+						@endif
+					</div>
+					<div class="form-group">
+						{{Form::textarea('answer',null,array('class' => 'form-control input-label', 'placeholder' => 'ANSWER'))}}
+						@if($errors->has('answer'))
+						<p class="text-danger">
+							{{ $errors->first('answer') }}
 						</p>
 						@endif
 					</div>

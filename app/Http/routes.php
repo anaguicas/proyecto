@@ -94,15 +94,31 @@ Route::post('performer-register',[
 	'uses' => 'PerformerController@Register'
 ]);
 
-Route::get('performer/edit-profile/{id}',[
+/*Route::get('performer/edit-profile/{id}',[
+	'before'=> 'auth',
 	'as' => 'performer.editprofile',
 	'uses' => 'PerformerController@getEditar'
-]);
+]);*/
 
-Route::put('performer/edit-profile/{id}',[
+Route::get('performer/edit-profile/{id}',array(
+	'laroute'=>false,
+	'middleware'=> 'auth',
+	'uses' => 'PerformerController@getEditar',
+	'as' => 'performer.editprofile'
+));
+
+/*Route::put('performer/edit-profile/{id}',[
+	'before'=> 'auth',
 	'as' => 'performer.save',
 	'uses' => 'PerformerController@putEditar'
-]);
+]);*/
+
+Route::put('performer/edit-profile/{id}',array(
+	'laroute' => false,
+	'middleware'=> 'auth',
+	'uses' => 'PerformerController@putEditar',
+	'as' => 'performer.save'
+));
 
 /*---------Studio---------*/
 
@@ -120,10 +136,11 @@ Route::put('performer/edit-profile/{id}',[
 		));
 });*/
 
-Route::get('studio/inicio', [
+Route::get('studio/inicio', array(
+	'middleware'=> 'auth',
 	'as' => 'studio.inicio',
     'uses' => 'StudioController@getInicio'
-]);
+));
 
 
 Route::get('studio-register', [
@@ -136,10 +153,11 @@ Route::post('studio-register', [
 	'uses' => 'StudioController@postRegister'
 ]);
 
-Route::get('studio/edit-profile/{id}',[
+Route::get('studio/edit-profile/{id}',array(
+	'middleware'=> 'auth',
 	'as' => 'studio.editprofile',
 	'uses' => 'StudioController@getEditar'
-]);
+));
 
 Route::put('studio/edit-profile/{id}',[
 	'as' => 'studio.save',
@@ -206,17 +224,17 @@ Route::get('video',[
 
 Route::get('Admin/reject-request/{id}',[
 	'as'	=> 'admin.rejectrequest',
-	'uses'	=> 'AdminController@rejectRequest'
+	'uses'	=> 'AdminController@getApproveRequest'
 ]);
 
 Route::get('Admin/approve-request/{id}',[
 	'as'	=> 'admin.approverequest',
-	'uses'	=> 'AdminController@ApproveRequest'
+	'uses'	=> 'AdminController@getApproveRequest'
 ]);
 
 Route::put('Admin/approve-request/{id}',[
 	'as'	=> 'admin.approverequest',
-	'uses'	=> 'AdminController@ApproveRequest'
+	'uses'	=> 'AdminController@getApproveRequest'
 ]);
 
 Route::get('Admin/list',[
@@ -229,7 +247,7 @@ Route::get('Admin/list-studios',[
 	'uses'	=> 'AdminController@listStudios'
 ]);
 
-Route::get('Admin/list-performers',[
+Route::get('Admin/list-performers',[	
 	'as'	=> 'admin.listperformers',
 	'uses'	=> 'AdminController@listPerformers'
 ]);
